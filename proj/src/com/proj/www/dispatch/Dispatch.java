@@ -62,7 +62,28 @@ public class Dispatch extends HttpServlet {
 		ComController com = map.get(realPath);
 		req.setAttribute("isRedirect", false);
 		String view = com.exec(req, resp);
-		boolean bool = false;
+		Boolean bool;
+		try {
+			bool = (boolean) req.getAttribute("isRedirect");
+		} catch(Exception e) {
+			bool = null;
+		}
+		if(bool == null) {
+			PrintWriter pw = resp.getWriter();
+			try {
+				pw.println(view);
+			} catch(Exception e) {}
+		} else if(bool == true) {
+			resp.sendRedirect(view);
+		} else {
+			try {
+				RequestDispatcher rd = req.getRequestDispatcher(view);
+				rd.forward(req, resp);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+/*		boolean bool = false;
 		bool = (boolean) req.getAttribute("isRedirect");
 		if(bool) {
 			resp.sendRedirect(view);
@@ -74,5 +95,6 @@ public class Dispatch extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		*/
 	}
 }

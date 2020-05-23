@@ -9,8 +9,8 @@ public class BoardTwrite implements ComController {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
-		return null;
+		String view = "/main/boardWriteT.jsp";
+		return view;
 	}
 
 }

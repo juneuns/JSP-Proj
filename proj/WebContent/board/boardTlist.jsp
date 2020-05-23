@@ -30,9 +30,16 @@ $(document).ready(function(){
 });
 </script>
 <style>
+.w3-sidebar a {
+	font-family: "Roboto", sans-serif
+}
+
+body, h1, h2, h3, h4, h5, h6, .w3-wide {
+	font-family: "Montserrat", sans-serif;
+}
 </style>
 </head>
-<body class="w3-content mxw">
+<body class="w3-content" style="max-width: 774px">
 	<form method="post" id="frm">
 		<input type="hidden">
 	</form>
@@ -54,7 +61,7 @@ $(document).ready(function(){
 	<div class="w3-row w3-margin-top w3-grayscale">
 		<div class="w3-col">
 			<div class="w3-container">
-				<div class="w3-col m1 w3-padding w3-center w3-border-bottom w3-border-right">게시글 번호</div>
+				<div class="w3-col m1 w3-padding w3-center w3-border-bottom w3-border-right">글번호</div>
 				<div class="w3-col m6 w3-padding w3-center w3-border-bottom w3-border-right">게시글 제목</div>
 				<div class="w3-col m2 w3-padding w3-center w3-border-bottom w3-border-right">작성자</div>
 				<div class="w3-col m1 w3-padding w3-center w3-border-bottom w3-border-right">조회수</div>
