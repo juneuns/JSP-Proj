@@ -36,7 +36,7 @@ public class MemberDao {
 		// 커넥션 얻기
 		con = db.getCon();
 		// 질의명령 얻기
-		if(f.equals(null)) {
+		if(f == null) {
 			sql = mSQL.getSQL(mSQL.SEL_USERS_SIGNIN);			
 		} else {
 			sql = mSQL.getSQL(mSQL.SEL_FIT_SIGNIN);

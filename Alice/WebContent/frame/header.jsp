@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-grey.css">
 <script type="text/javascript" src="/Alice/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="/Alice/js/frame/header.js"></script>
 <script src="https://kit.fontawesome.com/865b1e5df5.js" crossorigin="anonymous"></script>
 <style>
 .w3-sidebar a {font-family: "Roboto", sans-serif}
@@ -34,10 +35,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; padding:0px;margi
 	  <!-- Top header -->
 	  	<header class="w3-container w3-xlarge">
 	    	<p class="w3-col m2 w3-left">GoGym</p>
-		    <div class="w3-right-align">
-		    	<!-- jstl 사용해서 로그인 시 조건 처리 -->
-			    <a class="w3-button w3-col s1 w3-right-align" id="login"><h6>login</h6></a>
-			    <a class="w3-button w3-col s1 w3-right-align w3-padding-left"><h6>Sign up</h6></a>
+		    <div class="w3-col w3-right m4">
+		    	<c:if test="${empty SID}">
+			    	<a class="w3-button w3-col s4 " id="login"><h6>Sign In</h6></a>
+				    <a class="w3-button w3-col s4 w3-padding-left"><h6>Sign up</h6></a>
+			    </c:if>
+		    	<c:if test="${not empty SID}">
+			    	<a class="w3-button w3-col s4 " id="login"><h6>My Page</h6></a>
+				    <a class="w3-button w3-col s4 w3-padding-left" id="logout"><h6>Logout</h6></a>
+			    </c:if>
 			    <div class="w3-button w3-right">
 					<i class="fas fa-concierge-bell"></i>
 				</div>
@@ -45,7 +51,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; padding:0px;margi
 		    </div>
 		    <div id="id01" class="w3-modal">
 	  			<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:500px">
-					<form class="w3-container" action="" id="frm">
+					<form class="w3-container" action="" method="POST" id="frm">
 						<input type="hidden" value="" name="fit" />
 				        <div class="w3-section w3-center" id="ulogin" >
 				        	<div>
@@ -77,25 +83,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; padding:0px;margi
 	</div>
 </body>
 <script type="text/javascript">
-$(document).ready(function(){
-	// 로그인 버튼 활성화
-	$('#login').click(function(){
-		$('#id01').css('display','block');
-	});
-	// 로그인 창 비활성화
-	$('#cbtn').click(function(){
-		$('#id01').css('display','none');
-	});
-	// 로그인 처리 요청 
-	$('#lbtn').click(function(){
-		var fit = $('#fbtn').is(':checked');
-		if(fit){
-			$('#fit').val('f');	// 시설관리자일 경우 'f' 데이터 파라미터로 넘기는 작업		
-		}
-		// DB연결후 작업 할것
-		/* $('#frm').attr('href','/Alice/member/loginProc.do');
-		$('#frm').submit(); */
-	});
-});
+
 </script>
 </html>

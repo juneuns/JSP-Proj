@@ -19,7 +19,7 @@ public class SignInFProc implements DoController {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view ="/main/main.do";
+		String view ="/Alice/main/main.do";
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		String f= req.getParameter("f");

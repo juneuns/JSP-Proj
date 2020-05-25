@@ -45,7 +45,7 @@
 			</div>
 		</div>
 		<div class="w3-col s8 w3-margin-top" >
-			<div class="w3-button w3-half w3-theme-l4" id="cbtn">cencel</div>
+			<div class="w3-button w3-half w3-theme-l4" id="cbtn">cancel</div>
 			<div class="w3-button w3-half w3-metro-blue" id="sbtn">submit</div>
 		</div>
 	</div>

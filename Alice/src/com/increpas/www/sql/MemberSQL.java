@@ -21,7 +21,9 @@ public class MemberSQL {
 	public final int SEL_FIT_ID = 1005;
 	public final int SEL_FIT_FNO = 1006;
 	public final int SEL_FIND_PW_PROC = 1007;
-	public final int EDIT_PW = 1008;
+	public final int SEL_CK_PW = 1008;
+	
+	public final int EDIT_PW = 2001;
 	
 	public String getSQL(int code) {
 		StringBuffer buff = new StringBuffer();
@@ -99,9 +101,10 @@ public class MemberSQL {
 			buff.append("	pw = ? ");
 			buff.append("WHERE ");
 			buff.append("	id = ? ");
+			break;
+		case SEL_CK_PW :
 			
 			break;
-			
 		}
 		
 		
