@@ -56,7 +56,7 @@
 
 		<div class="w3-container w3-text-grey" id="jeans" style="background-color:#000; width: 100%;">
             <div style="width:50%; float: left;"><p style="color:#fff; display: block; font-weight:bold;">이달의 회원</p></div>
-            <div style="width:50%; float: left;"><p style="text-align: right; font-size:13px; color:#fff; margin-top: 15px;"><a href="member/member.html" target="_blank" style="text-decoration: none;">더보기 +</a></p></div>
+            <div style="width:50%; float: left;"><p style="text-align: right; font-size:13px; color:#fff; margin-top: 15px;"><a href="/main/main.do" target="_blank" style="text-decoration: none;">더보기 +</a></p></div>
 		</div>
 
 		<!-- Product grid -->
