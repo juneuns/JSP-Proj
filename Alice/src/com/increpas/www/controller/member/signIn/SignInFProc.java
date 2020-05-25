@@ -33,6 +33,7 @@ public class SignInFProc implements DoController {
 			HttpSession session = req.getSession();
 			session.setAttribute("SID", id);
 			session.setAttribute("FNO", fno);
+			System.out.println(session.getAttribute("FNO"));
 		}else {
 			String msg = "로그인 실패";
 			req.setAttribute("MSG", msg);

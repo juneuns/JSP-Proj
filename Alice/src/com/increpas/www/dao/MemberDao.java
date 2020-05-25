@@ -91,7 +91,7 @@ public class MemberDao {
 		// 커넥션 얻기
 		con = db.getCon();
 		// 질의명령 얻기
-		String sql = mSQL.getSQL(mSQL.SEL_TYPE);
+		String sql = mSQL.getSQL(mSQL.SEL_FIT_FNO);
 		// 필요한 스테이트먼트 얻기
 		pstmt = db.getPSTMT(con, sql);
 		try {
