@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="/Alice/js/jquery-3.5.0.min.js"></script>
-<script type="text/javascript" src="/Alice/js/member/findPW.js"></script>
+<script type="text/javascript" src="/Alice/js/member/find.js"></script>
 <link rel="stylesheet" href="/Alice/css/w3.css">
 <link rel="stylesheet" href="/Alice/css/user.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-grey.css">
@@ -29,15 +29,18 @@
 	</nav>
 		
 	<div class="w3-main" style="margin-left:250px">
-	
+		<div class="w3-hide-large" style="margin-top:84px;"></div>
 		<form action="" method="POST" id="frm">
 			<input type="hidden" name="name" id="name"/>
 			<input type="hidden" name="id" id="id"/>
 			<input type="hidden" name="mail" id="mail"/>
 			<input type="hidden" name="type" id="type"/>
 		</form>
-		<div class="w3-content mxw3">
-			<div class="w3-col m2"><p></p></div>
+		<div class="w3-container">
+			<div class="w3-bar w3-black">
+				<a href="" class="w3-bar-item w3-padding w3-btn" id="moveFindId">아이디 찾기</a>
+				<a href="" class="w3-bar-item w3-padding w3-btn" id="moveFindPW">비밀번호 찾기</a>
+			</div>
 			<div class="w3-col m10 w3-margin-top">
 				<h2 class="w3-col s5  w3-left-align w3-theme-l3 w3-card" style="padding-left:20px;"><i class="fas fa-key"></i> 비밀번호 찾기</h2>
 				<div class="w3-col s8  w3-border w3-margin-top">
@@ -60,7 +63,7 @@
 				</div>
 				<div class="w3-col s8 w3-margin-top" >
 					<div class="w3-button w3-half w3-theme-l4" id="cbtn">cencel</div>
-					<div class="w3-button w3-half w3-metro-blue" id="sbtn">submit</div>
+					<div class="w3-button w3-half w3-metro-blue" id="findPWbtn">submit</div>
 				</div>			
 			</div>
 		</div>

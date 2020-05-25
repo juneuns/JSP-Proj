@@ -33,7 +33,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; padding:0px;margi
 		<div class="w3-hide-large" style="margin-top:83px"></div>
 	  
 	  <!-- Top header -->
-	  	<header class="w3-container w3-xlarge">
+	  	<header class="w3-container w3-xlarge" >
 	    	<p class="w3-col m2 w3-left">GoGym</p>
 		    <div class="w3-col w3-right m4">
 		    	<c:if test="${empty SID}">
@@ -74,7 +74,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; padding:0px;margi
 					        	<label for="fbtn">시설 관리자 로그인</label>
 						        <input name="f" type="checkbox" id="fbtn" >		        			        
 					        </div>
-					        <span class="w3-right w3-hide-small">Forgot <a href="#">password?</a></span>
+					        <span class="w3-right w3-hide-small">Forgot <a id="findPWbtn">id / password?</a></span>
 					    </div>
 					</form>
 				</div>

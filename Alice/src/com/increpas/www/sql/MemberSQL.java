@@ -65,7 +65,6 @@ public class MemberSQL {
 			buff.append("WHERE ");
 			buff.append("	name = ? ");
 			buff.append("	AND mail = ? ");
-			buff.append("	) ");
 			break;
 		case SEL_FIT_ID :
 			buff.append("SELECT ");

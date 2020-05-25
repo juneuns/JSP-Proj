@@ -19,7 +19,13 @@ $(document).ready(function(){
 		}
 		$('#frm').submit(); 
 	});
+	// 로그아웃 처리 요청
 	$('#logout').click(function(){
 		location.href = "/Alice/member/logout/logoutProc.do";
 	})
+	
+	// 아이디/ 비밀번호 찾기 페이지 요청
+	$('#findPWbtn').click(function(){
+		$('#findPWbtn').attr('href','/Alice/member/findId/findId.do');
+	});
 });

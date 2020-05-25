@@ -117,7 +117,7 @@ public class MemberDao {
 		// 커넥션 얻기 
 		con = db.getCon();
 		// 질의명령 얻기 
-		if(f.equals(null)) {
+		if("".equals(f) || f==null) {
 			sql = mSQL.getSQL(mSQL.SEL_USERS_ID);			
 		} else {
 			sql = mSQL.getSQL(mSQL.SEL_FIT_ID);
@@ -130,6 +130,7 @@ public class MemberDao {
 			pstmt.setString(2, mail);
 			// 질의명령 보내고 결과 받기 
 			rs = pstmt.executeQuery();
+			rs.next();
 			findId = rs.getString("id");
 		} catch(Exception e) {
 			e.printStackTrace();

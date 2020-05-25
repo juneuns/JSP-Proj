@@ -4,6 +4,7 @@ package com.increpas.www.controller.member.findId;
  */
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.increpas.www.controller.DoController;
 import com.increpas.www.dao.MemberDao;
@@ -19,9 +20,11 @@ public class FindIdFProc implements DoController {
 		MemberDao mDao = new MemberDao();
 		String id = mDao.getID(name, mail, f);
 		
-		/* req.setAttribute("FINDID", id); */
-		view = "/Alice/member/findId/findIdResult.do?id="+id;
+		HttpSession session = req.getSession();
+		session.setAttribute("FINDID", id);
+		
 		req.setAttribute("isRedirect",true);
+		view = "/Alice/member/findId/findIdResult.do";
 		return view;
 	}
 
