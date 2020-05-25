@@ -1,0 +1,56 @@
+body {
+	font-family: "Montserrat", sans-serif;
+}
+.min-heignt {
+	min-height:1000px;
+}
+.member_agree ul li {
+    display: block;
+    float: left;
+    width: 115px;
+    height: 87px;
+    margin-right: 12px;
+}
+.agree {
+	display: block;
+    clear: both;
+    margin-bottom: 13px;
+}
+.page-agree {
+	margin-bottom: 7px;
+    padding-left: 10px;
+    color: #106d98;
+}
+.content-agree {
+	word-wrap: break-word;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-break: break-all;
+    color: #4b4b4b;
+}
+.right-align {
+	max-width: 300px;
+    position: relative;
+    left: 313px;
+}
+.margin {
+	margin: 32px;
+}
+.margin2 {
+	margin: 36px;
+	margin-top: 20px;
+}
+.min-heignt {
+	min-height:1000px;
+}
+.iblock {
+	display:inline-block;
+}
+.hidden-msg{
+	font-size : 8pt;
+}
+.height80 {
+	height: 80px;
+}
