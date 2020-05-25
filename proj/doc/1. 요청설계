@@ -1,0 +1,30 @@
+# 1. 메인 폼 보여주기 처리 요청
+요청		: /main.do
+파라미터	: 무
+컨트롤러	: /com.proj.www/controller/main/MainForm
+뷰		: /board/main.jsp
+---------------------------------------------
+# 2. 트레이너 게시판 목차 보여주기 처리 요청
+요청		: /board/boardTrainer.do
+파라미터	: 무
+컨트롤러	: /com.proj.www/controller/board/BoardTrainer
+뷰		: /board/boardTrainer.jsp
+---------------------------------------------
+# 3. 회원 게시판 목차 보여주기 처리 요청
+요청		: /board/boardFree.do
+파라미터	: 무
+컨트롤러	: /com.proj.www/controller/board/BoardFree
+뷰		: /board/boardFree.jsp
+---------------------------------------------
+# 4. 게시판 글쓰기 보여주기 처리요청
+요청		: /board/boardWrite.do
+파라미터	: 무
+컨트롤러	: /com.proj.www/controller/board/BoardWrite
+뷰		: /board/boardWrite.jsp
+---------------------------------------------
+# 5. 게시판 작성, 수정하기 버튼 처리요청
+요청		: /board/boardProc.do
+파라미터	: 무
+컨트롤러	: /com.proj.www/controller/boatd/BoardProc
+뷰		: 무
+---------------------------------------------
