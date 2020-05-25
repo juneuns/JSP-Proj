@@ -20,6 +20,6 @@ $(document).ready(function(){
 		$('#frm').submit(); 
 	});
 	$('#logout').click(function(){
-		location.href = "/Alice/member/logout/logout.do";
+		location.href = "/Alice/member/logout/logoutProc.do";
 	})
 });
