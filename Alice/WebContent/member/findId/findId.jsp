@@ -23,7 +23,7 @@
 </head>
 <body>
 	<form action="" method="POST" id="findIdFrm">
-		<input type="hidden" name="type" id="type"/>
+		<input type="hidden" name="f" id="type"/>
 		<input type="hidden" name="name" id="name"/>
 		<input type="hidden" name="mail" id="mail"/>
 	</form>
@@ -57,7 +57,7 @@
 				</div>
 			</div>
 			<div class="w3-col s8 w3-margin-top" >
-				<div class="w3-button w3-half w3-theme-l4" id="cbtn">cancel</div>
+				<div class="w3-button w3-half w3-theme-l4" id="reset">cancel</div>
 				<div class="w3-button w3-half w3-black" id="findIdbtn">submit</div>
 			</div>
 		</div>

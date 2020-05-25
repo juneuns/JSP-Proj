@@ -7,21 +7,27 @@ package com.increpas.www.sql;
  * @version	v 1.0.0
  * @see	
  * 			1. SEL_USERS_SIGNIN : 트레이너,일반회원 로그인 처리 질의명령
- * 			2. SEL_FIT_LOGIN : 시설 회원 로그인 처리 질의명령
- * 			3. SEL_TYPE : 로그인 시 회원 종류
- * 			4. SEL_USERS_ID : 트레이너,일반회원 아이디 찾기 
- * 			5. SEL_FIT_ID : 시설 회원 아이디 찾기 
- * 			5. SEL_FIT_FNO : 시설 회원 PK 찾기 
+ * 			2. SEL_FIT_LOGIN : 시설 관리자 회원 로그인 처리 질의명령
+ * 			3. SEL_USERS_VALID_INFO : 트레이너 일반회원 아이디 찾기 시 DB 체크 
+ * 			4. SEL_FIT_VALID_INFO : 시설 관리자 아이디 찾기 시 DB 체크 
+ * 			5. SEL_TYPE : 로그인 시 회원 종류
+ * 			6. SEL_USERS_ID : 트레이너,일반회원 아이디 찾기 
+ * 			7. SEL_FIT_ID : 시설 회원 아이디 찾기 
+ * 			8. SEL_FIT_FNO : 시설 회원 PK 찾기 
+ * 			8. SEL_FIND_PW_PROC : 비밀번호 찾기 DB 체크  
+ * 			8. SEL_FIT_FNO : 시설 회원 PK 찾기 
  */
 public class MemberSQL {
 	public final int SEL_USERS_SIGNIN = 1001;
 	public final int SEL_FIT_SIGNIN = 1002;
-	public final int SEL_TYPE = 1003;
-	public final int SEL_USERS_ID = 1004;
-	public final int SEL_FIT_ID = 1005;
-	public final int SEL_FIT_FNO = 1006;
-	public final int SEL_FIND_PW_PROC = 1007;
-	public final int SEL_CK_PW = 1008;
+	public final int SEL_USERS_VALID_INFO = 1003;
+	public final int SEL_FIT_VALID_INFO = 1004;
+	public final int SEL_TYPE = 1005;
+	public final int SEL_USERS_ID = 1006;
+	public final int SEL_FIT_ID = 1007;
+	public final int SEL_FIT_FNO = 1008;
+	public final int SEL_FIND_PW_PROC = 1009;
+	public final int SEL_CK_PW = 1010;
 	
 	public final int EDIT_PW = 2001;
 	
@@ -57,6 +63,24 @@ public class MemberSQL {
 			buff.append("	SELECT uno FROM users WHERE id = ? ");
 			buff.append("	) ");
 			break;
+		case SEL_USERS_VALID_INFO :
+			buff.append("SELECT ");
+			buff.append("	count(*) cnt ");
+			buff.append("FROM ");
+			buff.append("	users ");
+			buff.append("WHERE ");
+			buff.append("	name = ? ");
+			buff.append("	AND mail = ? ");
+			break;
+		case SEL_FIT_VALID_INFO :
+			buff.append("SELECT ");
+			buff.append("	count(*) cnt ");
+			buff.append("FROM ");
+			buff.append("	fit ");
+			buff.append("WHERE ");
+			buff.append("	foname = ? ");
+			buff.append("	AND mail = ? ");
+			break;
 		case SEL_USERS_ID :
 			buff.append("SELECT ");
 			buff.append("	id ");
@@ -72,7 +96,7 @@ public class MemberSQL {
 			buff.append("FROM ");
 			buff.append("	fit ");
 			buff.append("WHERE ");
-			buff.append("	name = ? ");
+			buff.append("	foname = ? ");
 			buff.append("	AND mail = ? ");
 			break;
 		case SEL_FIT_FNO :
@@ -89,7 +113,7 @@ public class MemberSQL {
 			buff.append("FROM ");
 			buff.append("	? ");
 			buff.append("WHERE ");
-			buff.append("	name = ? ");
+			buff.append("	? = ? ");
 			buff.append("	AND id = ? ");
 			buff.append("	AND mail = ? ");
 			break;

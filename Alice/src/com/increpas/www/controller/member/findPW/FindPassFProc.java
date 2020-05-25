@@ -22,7 +22,7 @@ public class FindPassFProc implements DoController {
 		MemberDao mDao = new MemberDao();
 		cnt = mDao.passFindProc(name, id, mail, f);
 		if(cnt != 1 ) {
-			req.setAttribute("FAILDMSG", "입력하신 정보를 다시 확인해주세요.");
+			req.setAttribute("FAILEDMSG", "입력하신 정보를 다시 확인해주세요.");
 			view = "/Alice/member/findPW/findPass.do";
 			return view; 
 		} else if(cnt == 1) {

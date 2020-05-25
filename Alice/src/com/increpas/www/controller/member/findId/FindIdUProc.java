@@ -1,6 +1,9 @@
 package com.increpas.www.controller.member.findId;
 /**
- * 이 클래스는 아이디 찾기 처리 요청이 오면 응답하는 클래스이다.
+* 이 클래스는 트레이너, 일반회원이 아이디 찾기 처리 요청을 하면 응답하는 클래스이다.
+ * @author	박광호
+ * @since	2020.05.24
+ * @version	v 1.0.3
  */
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,13 +20,21 @@ public class FindIdUProc implements DoController {
 		String name = req.getParameter("name");
 		String mail = req.getParameter("mail");
 		String f = null;
+		req.setAttribute("isRedirect",true);
 		MemberDao mDao = new MemberDao();
-		String id = mDao.getID(name, mail, f);
 		
+		int cnt = mDao.getValidInfo(name, mail, f);
+		System.out.println(cnt);
+		if(cnt != 1 ) {
+			req.setAttribute("FAILEDMSG", "아이디를 찾을 수 없습니다.");
+			view ="/Alice/member/findId/findId.do";
+			return view;
+		}
+		
+		String id = mDao.getID(name, mail, f);
 		HttpSession session = req.getSession();
 		session.setAttribute("FINDID", id);
 		
-		req.setAttribute("isRedirect",true);
 		
 		view = "/Alice/member/findId/findIdResult.do";
 		return view;

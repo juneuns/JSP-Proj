@@ -9,8 +9,8 @@ public class FindPassResult implements DoController {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "/member/findPassResult.jsp";
-
+		String view = "/member/findPW/findPassResult.jsp";
+		
 		return view;
 	}
 
