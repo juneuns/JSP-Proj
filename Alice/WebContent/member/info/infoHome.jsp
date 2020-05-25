@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/Alice/css/user.css">
 <link rel="stylesheet" href="/Alice/css/w3.css">
-<link rel="stylesheet" href="/Alice/css/infoEdit.css">
+<link rel="stylesheet" href="/Alice/css/member/infoEdit.css"> 
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-grey.css">
 <script type="text/javascript" src="/Alice/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript" src="/Alice/js/member/info.js"></script>

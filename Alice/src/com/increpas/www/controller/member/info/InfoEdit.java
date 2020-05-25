@@ -5,13 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.increpas.www.controller.DoController;
 
-public class InfoHome implements DoController {
+public class InfoEdit implements DoController {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "/member/info/infoHome.jsp";
-		// 회원 이미지 받아오기 
-		
+		String view = "/member/info/infoEdit.jsp";
 		return view;
 	}
 

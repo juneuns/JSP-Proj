@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/Alice/css/infoEdit.css">
+<!-- <link rel="stylesheet" href="/Alice/css/member/infoEdit.css"> -->
 <link rel="stylesheet" href="/Alice/css/user.css">
 <link rel="stylesheet" href="/Alice/css/w3.css">
 <script type="text/javascript" src="/Alice/js/jquery-3.5.0.min.js"></script>
