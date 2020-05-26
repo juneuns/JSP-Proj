@@ -33,14 +33,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; padding:0px;margi
 	  <!-- Top header -->
 	  	<header class="w3-container w3-xlarge">
 	    	<p class="w3-col m2 w3-left">GoGym</p>
-		    <div class="w3-col w3-right m4">
+		    <div class="w3-col w3-right m4" style="height:50px; vertical-align: middle;">
 		    	<c:if test="${empty SID}">
+		    		<a class="w3-col s2 w3-margin-left" id="search"><i class="fa fa-search w3-col s2" style="margin-top:10px; "></i></a>
 			    	<a class="w3-button w3-col s4 " id="login"><h6>Sign In</h6></a>
-				    <a class="w3-button w3-col s4 w3-padding-left"><h6>Sign up</h6></a>
+				    <a class="w3-button w3-col s4 "><h6>Sign up</h6></a>
 			    </c:if>
 		    	<c:if test="${not empty SID}">
+		    		<a class="w3-col s2 w3-margin-left" id="search" ><i class="fa fa-search w3-col s2" ></i></a>
 			    	<a class="w3-button w3-col s4 " id="moveMyPage"><h6>My Page</h6></a>
-				    <a class="w3-button w3-col s4 w3-padding-left" id="logout"><h6>Logout</h6></a>
+				    <a class="w3-button w3-col s4 " id="logout"><h6>Logout</h6></a>
 			    </c:if>
 			    <div class="w3-button w3-right">
 					<i class="fas fa-concierge-bell"></i>

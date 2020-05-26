@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/Alice/css/user.css">
 <link rel="stylesheet" href="/Alice/css/w3.css">
 <script type="text/javascript" src="/Alice/js/jquery-3.5.0.min.js"></script>
-<script type="text/javascript" src="/Alice/js/member/info.js?v=<%=System.currentTimeMillis() %>"></script>
+<script type="text/javascript" src="/Alice/js/member/info.js"></script>
 <script src="https://kit.fontawesome.com/865b1e5df5.js" crossorigin="anonymous"></script>
 
 <style>

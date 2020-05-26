@@ -28,7 +28,9 @@ $(document).ready(function(){
 	$('#findPWbtn').click(function(){
 		$('#findPWbtn').attr('href','/Alice/member/findId/findId.do');
 	});
-	
+	$('#search').click(function(){
+		$(this).attr('href','/Alice/map/search.do');
+	});
 	// 마이페이지 버튼 이벤트 처리 
 	$('#moveMyPage').click(function(){
 		$(location).attr('href','/Alice/member/info/infoHome.do');
