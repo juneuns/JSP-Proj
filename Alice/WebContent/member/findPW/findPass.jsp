@@ -13,15 +13,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-grey.css">
 <style>
 </style>
-<script src="https://kit.fontawesome.com/865b1e5df5.js" crossorigin="anonymous"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		let fmsg = ${FAILEDMSG};
-		if(fmsg){
-		alert(fmsg);
-		}		
-	})
-</script>
+
 </head>
 <body>
 	<header>
@@ -33,7 +25,7 @@
 		
 	<div class="w3-main" style="margin-left:250px">
 		<div class="w3-hide-large" style="margin-top:84px;"></div>
-		<form action="" method="POST" id="findPWfrm">
+		<form action="" method="POST" id="findPFrm">
 			<input type="hidden" name="f" id="type"/>
 			<input type="hidden" name="name" id="name"/>
 			<input type="hidden" name="id" id="id"/>
@@ -66,10 +58,19 @@
 				</div>
 				<div class="w3-col s8 w3-margin-top" >
 					<div class="w3-button w3-half w3-theme-l4" id="reset">cancel</div>
-					<div class="w3-button w3-half " id="findPWbtn">submit</div>
+					<div class="w3-button w3-half w3-black" id="findPbtn">find</div>
 				</div>			
 			</div>
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var fmsg = '${FAILEDMSG}';
+		if(fmsg){
+		alert(fmsg);
+		}		
+	});
+</script>
+<script src="https://kit.fontawesome.com/865b1e5df5.js" crossorigin="anonymous"></script>
 </html>

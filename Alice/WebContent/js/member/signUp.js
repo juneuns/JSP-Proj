@@ -66,6 +66,16 @@ var regCK = function(){
         $("#mail").focus();
         return;
     }
+	
+	// 비밀번호 정규식      
+	var pwReg = /(?=.*\d{1})(?=.*[~`!@#$%\^&*()-+=]{1})(?=.*[a-zA-Z]{2}).{8,15}$/;
+	if(! pwReg.test($('#pw').val() )){
+		alert("비밀번호 형식을 확인해주세요.");
+		$('#pw').focus();
+		return;
+	}
+	     
+	 
 };
 $(document).ready(function(){
 	// 주소 팝업 창 요청 

@@ -22,18 +22,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; padding:0px;margi
 }
 
 </style>
-<body class="w3-content" style="max-width:1200px">
+<body class="w3-content" style="max-width:1200px; ">
 	<!-- Overlay effect when opening sidebar on small screens -->
 	<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 	
 	<!-- !PAGE CONTENT! -->
-	<div class="w3-main" style="margin-left:250px">
+	<div class="w3-main " style="margin-left:250px; ">
 	
-	  <!-- Push down content on small screens -->
-		<div class="w3-hide-large" style="margin-top:83px"></div>
-	  
+	  <div class="w3-hide-large" style="margin-top:83px;"></div>
 	  <!-- Top header -->
-	  	<header class="w3-container w3-xlarge" >
+	  	<header class="w3-container w3-xlarge">
 	    	<p class="w3-col m2 w3-left">GoGym</p>
 		    <div class="w3-col w3-right m4">
 		    	<c:if test="${empty SID}">
@@ -41,7 +39,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; padding:0px;margi
 				    <a class="w3-button w3-col s4 w3-padding-left"><h6>Sign up</h6></a>
 			    </c:if>
 		    	<c:if test="${not empty SID}">
-			    	<a class="w3-button w3-col s4 " id="login"><h6>My Page</h6></a>
+			    	<a class="w3-button w3-col s4 " id="moveMyPage"><h6>My Page</h6></a>
 				    <a class="w3-button w3-col s4 w3-padding-left" id="logout"><h6>Logout</h6></a>
 			    </c:if>
 			    <div class="w3-button w3-right">

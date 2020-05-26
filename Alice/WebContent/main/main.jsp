@@ -21,12 +21,12 @@
 </head>
 <body>
 	<header>
-		<jsp:include page="/frame/header.jsp"/>
+		<jsp:include page="../frame/header.jsp"/>
 	</header>
 	<nav>
-		<jsp:include page="/frame/sideBar.jsp"/>
+		<jsp:include page="../frame/sideBar.jsp"/>
 	</nav>
-	<div class="w3-main" style="margin-left: 250px">
+	<div class="w3-main" style="margin-left: 250px;">
 
 		<!-- Push down content on small screens -->
 		<div class="w3-hide-large" style="margin-top: 83px"></div>

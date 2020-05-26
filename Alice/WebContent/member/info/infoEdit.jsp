@@ -60,17 +60,11 @@
 		</div>
 		<!-- 마이페이지 버튼 영역 -->
 		<div class="w3-col s9 " >
-			<ul class="w3-col s10 w3-center w3-border-bottom " id="movebtn"> 
-				<li>
-					<p class="w3-padding" id="infoEdit" ><small>회원 정보 수정</small></p>
-				</li>
-				<li>
-					<p class="w3-padding" id="pwEdit" ><small>비밀번호 재설정</small></p>
-				</li>
-				<li>
-					<p class="w3-padding" id="contactList" ><small>컨택 리스트</small></p>
-				</li>
-			</ul>
+			<div class=" w3-bar w3-border-bottom w3-black" id="movebtn"> 
+				<a class="w3-bar-item w3-padding " id="infoEdit" ><small>회원 정보 수정</small></a>
+				<a class="w3-bar-item w3-padding" id="pwEdit" ><small>비밀번호 재설정</small></a>
+				<a class="w3-bar-item w3-padding" id="contactList" ><small>컨택 리스트</small></a>
+			</div>
 			<!-- 마이페이지 컨탠츠 영역 -->
 			<div class="w3-margin-top w3-margin-left w3-row">
 				<div class="w3-col s6 ">

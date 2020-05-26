@@ -19,14 +19,31 @@ $(document).ready(function(){
 		window.open('/Alice/member/signUp/fitPop.jsp','fitPop','width=500,height=400,resizealbe=yes');
 	});
 	// 비밀번호 재설정의 비밀번호 확인 요청 
-	$('#pwck').click(function(){
+	$('#ck').click(function(){
+		alert('제발');
 		var editck = $('#oldPw').val();
+		var type = $('#tF').is(':checked');
+		var f = null;
+		if(type) {
+			f = $('#tF').val();
+			$('#f').val(f);
+		}
+		var pwReg = /(?=.*\d{1})(?=.*[~`!@#$%\^&*()-+=]{1})(?=.*[a-zA-Z]{2}).{8,15}$/;
+		if(! pwReg.test(pw)){
+			alert("비밀번호 형식을 확인해주세요.");
+			$('#oldPw').focus();
+			return;
+		}
+		/*alert('editck : ' + editck);
+		alert('type :' + type);
+		alert('f :' + f);*/
 		$.ajax({
-			url: '/Alice/...do',
+			url: '/ajax/pwCheck.do',
 			type:'POST',
 			dataType:'json',
 			data : {
-				'pw':editck
+				'pw':editck,
+				'type':f
 			},
 			success : function(obj){
 				if(obj.result == 'ok'){
@@ -47,7 +64,7 @@ $(document).ready(function(){
 		
 	});
 	// 비밀번호 재확인 
-	$('#tRepw').keyup(function(){
+	/*$('#tRepw').keyup(function(){
 		let tPw = $('#tPw').val();
 		let tRepw = $('#tRepw').val();
 		
@@ -60,9 +77,9 @@ $(document).ready(function(){
 			$('#pwEditMsg').css('color','red');
 			$('#pwEditMsgBox').show('fast');
 		}
-	});
+	});*/
 	
-	// 입력사항 유효성 검사 및 비밀번호 재설정
+	/*// 입력사항 유효성 검사 및 비밀번호 재설정
 	$('#pwEditSubmit').click(function(){
 		let tPw = $('#tPw').val();
 		if(!tPw || tPw.length==0){
@@ -71,8 +88,7 @@ $(document).ready(function(){
 		}
 		$('#pw').val(tPw);
 		
-		$('#pwEditFrm').attr('action','/Alice/../.do');
-	})
+	})*/
 });
 // 주소 팝업창 데이터 가져오는 함수
 function josoCallBack(roadAddrPart1,zipno){

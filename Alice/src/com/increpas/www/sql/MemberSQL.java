@@ -26,10 +26,13 @@ public class MemberSQL {
 	public final int SEL_USERS_ID = 1006;
 	public final int SEL_FIT_ID = 1007;
 	public final int SEL_FIT_FNO = 1008;
-	public final int SEL_FIND_PW_PROC = 1009;
-	public final int SEL_CK_PW = 1010;
+	public final int SEL_USERS_PW_VALID = 1009;
+	public final int SEL_FIT_PW_VALID = 1010;
+	public final int SEL_CK_USERS_PW = 1012;
+	public final int SEL_CK_FIT_PW = 1013;
 	
-	public final int EDIT_PW = 2001;
+	public final int EDIT_USERS_PW = 2001;
+	public final int EDIT_FIT_PW = 2002;
 	
 	public String getSQL(int code) {
 		StringBuffer buff = new StringBuffer();
@@ -107,26 +110,59 @@ public class MemberSQL {
 			buff.append("WHERE ");
 			buff.append("	id = ? ");
 			break;
-		case SEL_FIND_PW_PROC :
+		case SEL_USERS_PW_VALID :
 			buff.append("SELECT ");
 			buff.append("	count(*) cnt ");
 			buff.append("FROM ");
-			buff.append("	? ");
+			buff.append("	users ");
 			buff.append("WHERE ");
-			buff.append("	? = ? ");
+			buff.append("	name = ? ");
 			buff.append("	AND id = ? ");
 			buff.append("	AND mail = ? ");
 			break;
-		case EDIT_PW :
+		case SEL_FIT_PW_VALID :
+			buff.append("SELECT ");
+			buff.append("	count(*) cnt ");
+			buff.append("FROM ");
+			buff.append("	fit ");
+			buff.append("WHERE ");
+			buff.append("	foname = ? ");
+			buff.append("	AND id = ? ");
+			buff.append("	AND mail = ? ");
+			break;
+		case EDIT_USERS_PW :
 			buff.append("UPDATE ");
-			buff.append("	? ");
+			buff.append("	users ");
 			buff.append("SET ");
 			buff.append("	pw = ? ");
 			buff.append("WHERE ");
 			buff.append("	id = ? ");
 			break;
-		case SEL_CK_PW :
-			
+		case EDIT_FIT_PW :
+			buff.append("UPDATE ");
+			buff.append("	fit ");
+			buff.append("SET ");
+			buff.append("	pw = ? ");
+			buff.append("WHERE ");
+			buff.append("	id = ? ");
+			break;
+		case SEL_CK_USERS_PW :
+			buff.append("SELECT ");
+			buff.append("	count(*) cnt ");
+			buff.append("FROM ");
+			buff.append("	users ");
+			buff.append("WHERE  ");
+			buff.append("	id = ? ");
+			buff.append("	AND pw = ? ");
+			break;
+		case SEL_CK_FIT_PW :
+			buff.append("SELECT ");
+			buff.append("	count(*) cnt ");
+			buff.append("FROM ");
+			buff.append("	fit ");
+			buff.append("WHERE  ");
+			buff.append("	id = ? ");
+			buff.append("	AND pw = ? ");
 			break;
 		}
 		

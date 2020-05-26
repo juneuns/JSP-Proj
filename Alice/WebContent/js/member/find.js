@@ -1,7 +1,5 @@
 // 작성자 : 박광호
 $(document).ready(function(){
-	
-	
 	// 아이디 찾기 처리
 	$('#findIdbtn').click(function(){
 		let name = $('#tname').val();
@@ -25,11 +23,11 @@ $(document).ready(function(){
 		$('#findIdFrm').submit();
 	});
 	// 비밀번호 찾기 버튼 
-	$('#findPWbtn').click(function(){
-		let name=$('#tname').val();
-		let id=$('#tid').val();
-		let mail=$('#tmail').val();
-		let F = $('#tF').val();
+	$('#findPbtn').click(function(){
+		var name= $('#tname').val();
+		var id= $('#tid').val();
+		var mail= $('#tmail').val();
+		var F = $('#tF').val();
 		$('#name').val(name);
 		$('#id').val(id);
 		$('#mail').val(mail);
@@ -40,21 +38,22 @@ $(document).ready(function(){
 		
 		regField();
 		
-		let idReg = /^.[A-za-z0-9]{8,13}/g;
+		var idReg = /^.[A-za-z0-9]{8,13}/g;
 		if( !idReg.test( $("#id").val() ) ) {
 	        alert("아이디는 영문자로 시작하는 8~13자 영문자 또는 숫자이어야 합니다.");
-	        $("#id").focus()
+	        $("#id").focus();
 	        return;
 	    }
-		let type = $('#tF').is(':checked');
+		var type = $('#tF').is(':checked');
 		if(type){
 			$('#type').val(F);
-			$('#findPWFrm').attr('action','/Alice/member/findPW/findPassFProc.do');
-			$('#findPWFrm').submit();
+			$('#findPFrm').attr('action','/Alice/member/findPW/findPassFProc.do');
+			$('#findPFrm').submit();
 			return ;
 		}
-		$('#findPWFrm').attr('action','/Alice/member/findPW/findPassUProc.do');
-		$('#findPWFrm').submit();
+		alert('제발');
+		$('#findPFrm').attr('action','/Alice/member/findPW/findPassUProc.do');
+		$('#findPFrm').submit();
 	});
 	// 메인 이동 버튼 이벤트 처리
 	$('#moveMain').click(function(){
@@ -77,7 +76,7 @@ $(document).ready(function(){
 });
 var regField = function(){
 // 이름 정규식 
-	var nameReg = /^[가-힣]{1,20}|[a-zA-Z]{1,10}\s[a-zA-Z]{1,10}$/;
+	var nameReg = /^[가-힣]{1,20}|[a-zA-Z]{1,20}$/;
 	if( !nameReg.test( $("#name").val() ) ) {
 		alert('이름은 영문 한글 20자까지 입력가능합니다.');
 		$("#name").focus()

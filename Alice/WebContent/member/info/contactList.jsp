@@ -31,7 +31,8 @@
 	<nav>
 		<jsp:include page="../../frame/sideBar.jsp"/>
 	</nav>
-	<div class="w3-main " style="margin-left:250px; height:70%;">
+	<div class="w3-main" style="margin-left:250px; ">
+		<div class="w3-hide-large" style="margin-top:83px;"></div>
 		<!-- 마이페이지 프로필 영역 -->
 		<div class="w3-col s3 w3-padding w3-border-right" style="height:100% ">
 			<div class="">
@@ -46,17 +47,11 @@
 		</div>
 		<!-- 마이페이지 버튼 영역 -->
 		<div class="w3-col s9 " >
-			<ul class="w3-col s10 w3-center w3-border-bottom " id="movebtn"> 
-				<li>
-					<p class="w3-padding" id="infoEdit" ><small>회원 정보 수정</small></p>
-				</li>
-				<li>
-					<p class="w3-padding" id="pwEdit" ><small>비밀번호 재설정</small></p>
-				</li>
-				<li>
-					<p class="w3-padding" id="contactList" ><small>컨택 리스트</small></p>
-				</li>
-			</ul>
+			<div class=" w3-bar w3-border-bottom w3-black" id="movebtn"> 
+				<a class="w3-bar-item w3-padding " id="infoEdit" ><small>회원 정보 수정</small></a>
+				<a class="w3-bar-item w3-padding" id="pwEdit" ><small>비밀번호 재설정</small></a>
+				<a class="w3-bar-item w3-padding" id="contactList" ><small>컨택 리스트</small></a>
+			</div>
 			<!-- 마이페이지 컨탠츠 영역 -->
 			
 			<!-- 버튼 영역 -->

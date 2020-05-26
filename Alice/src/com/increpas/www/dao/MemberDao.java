@@ -179,28 +179,23 @@ public class MemberDao {
 	// 비밀번호 찾기 결과 내보내는 처리 함수
 	public int passFindProc(String name ,String id ,String mail,String f) {
 		int cnt = 0 ;
-		String table = null;
-		String column = null;
+		
+		String sql = null;
 		if("".equals(f) || f == null) {
-			table = "users";
-			column = "name";
+			sql = mSQL.getSQL(mSQL.SEL_USERS_PW_VALID);
 		} else {
-			table = "fit";
-			column = "foname";
+			sql = mSQL.getSQL(mSQL.SEL_FIT_PW_VALID);
 		}
 		// 커넥션 얻어오기 
 		con = db.getCon();
 		// 질의명령 얻어오기
-		String sql = mSQL.getSQL(mSQL.SEL_FIND_PW_PROC);
 		// 필요한 스테이트먼트 얻기 
 		pstmt = db.getPSTMT(con, sql);
 		try {
 			// 질의명령 완성하기 
-			pstmt.setString(1,table);
-			pstmt.setString(2,column);
-			pstmt.setString(3,name);
-			pstmt.setString(4,id);
-			pstmt.setString(5,mail);
+			pstmt.setString(1,name);
+			pstmt.setString(2,id);
+			pstmt.setString(3,mail);
 			// 질의명령 보내고 결과 받기
 			rs = pstmt.executeQuery();
 			rs.next();
@@ -231,23 +226,49 @@ public class MemberDao {
 	public int editPW(String name, String id, String mail,String f) {
 		int cnt = 0 ; 
 		String sql = null;
-		String table = null;
 		String pass=passInit();
 		// 회원 종류별로 
-		if(f.equals(null)) {
-			table = "users";
+		if("".equals(f)||f==null) {
+			sql = mSQL.getSQL(mSQL.EDIT_USERS_PW);
 		} else {
-			table = "fit";
+			sql = mSQL.getSQL(mSQL.EDIT_FIT_PW);
 		}
 		con =db.getCon();
-		sql = mSQL.getSQL(mSQL.EDIT_PW);
 		pstmt = db.getPSTMT(con, sql);
 		try {
-			pstmt.setString(1, table);
-			pstmt.setString(2, pass);
-			pstmt.setString(3, id);
+			pstmt.setString(1, pass);
+			pstmt.setString(2, id);
 			//만들어진 PASS DB에 넣기 작업 
 			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt ;
+	}
+	// 비밀번호 재설정 중 기존 비밀번호 확인 전담 처리함수
+	public int getPWCK(String id,String pw, String f) {
+		int cnt = 0 ;
+		String sql = null;
+		// 커넥션 얻기
+		con = db.getCon();
+		// 질의 명령 얻기 
+		System.out.println("F : " + f );
+		if("".equals(f) || f == null){
+			sql = mSQL.getSQL(mSQL.SEL_CK_USERS_PW);
+		} else {
+			sql = mSQL.getSQL(mSQL.SEL_CK_FIT_PW);
+		}
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			rs.next();
+			rs = pstmt.executeQuery();
+			cnt = rs.getInt("cnt");
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
