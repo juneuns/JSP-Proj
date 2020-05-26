@@ -256,19 +256,21 @@ public class MemberDao {
 		// 커넥션 얻기
 		con = db.getCon();
 		// 질의 명령 얻기 
-		System.out.println("F : " + f );
 		if("".equals(f) || f == null){
 			sql = mSQL.getSQL(mSQL.SEL_CK_USERS_PW);
+			System.out.println(sql);
 		} else {
 			sql = mSQL.getSQL(mSQL.SEL_CK_FIT_PW);
+			System.out.println(sql);
 		}
 		pstmt = db.getPSTMT(con, sql);
 		try {
 			pstmt.setString(1, id);
 			pstmt.setString(2, pw);
-			rs.next();
 			rs = pstmt.executeQuery();
+			rs.next();
 			cnt = rs.getInt("cnt");
+			System.out.println("cnt :"+cnt);
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -278,5 +280,30 @@ public class MemberDao {
 		}
 		return cnt ;
 	}
-	
+	// 비밀번호 재설정 전담 처리함수 
+	public int editPW(String id,String pw, String f) {
+		int cnt = 0 ;
+		// 커넥션 얻기 
+		con = db.getCon();
+		String sql = null;
+		if("".equals(f) || f == null) {
+			sql = mSQL.getSQL(mSQL.EDIT_USERS_PW);
+		} else {
+			sql = mSQL.getSQL(mSQL.EDIT_FIT_PW);
+		}
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, pw);
+			pstmt.setString(2, id);
+			cnt = pstmt.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt ;
+	}
 }

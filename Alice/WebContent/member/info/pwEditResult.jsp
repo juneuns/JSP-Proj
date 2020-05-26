@@ -62,48 +62,11 @@
 			<!-- 마이페이지 컨탠츠 영역 -->
 			<div class="w3-margin-top w3-margin-left w3-row"">
 				<div class="w3-col s4">
-					<h4 class="w3-center w3-theme-l4"><i class="far fa-edit w3-margin-right"></i>비밀번호 수정</h4>			
+					<h4 class="w3-center w3-theme-l4"><i class="far fa-edit w3-margin-right"></i>비밀번호 재설정 완료</h4>			
 				</div>
-				<div class="w3-col s9 w3-padding w3-margin-top w3-margin-bottom w3-theme-l4 ">
-					<div class="w3-col  w3-container w3-card w3-white">
-						<div class="w3-col ">
-							<label for=tType class=" w3-col s3 w3-small">시설 회원 여부</label>
-							<input class="w3-col s2 w3-left w3-left-margin w3-check w3-padding "  style="border: 0px;" type="checkbox" id="tF" value="F"/><small>시설 관리자 회원은 체크해주세요.</small>
-						</div>
-						<div class="w3-col s8 w3-border-bottom">
-							<div class="w3-col w3-margin-top">
-								<small class="w3-col s4 va-middle">기존 비밀번호 </small>
-								<div class="w3-col s3 w3-medium w3-button w3-theme-l3 w3-round-xxlarge" id="ck">확인</div>  						
-							</div>
-							<div class="w3-col s6 w3-margin-bottom">
-								<input class="w3-col w3-input" type="password" id="oldPw" >
-							</div>
-						</div>
-						<div class="w3-col s4 w3-hide" id="pwMsgBox">
-							<div class="w3-small pwMsg" ><small id="pwckMsg"></small><br><br><div>변경하실 비밀번호를 아래에 입력해주세요..</div></div>
-						</div>
-						<div class="w3-col w3-margin-top">
-							<small>새 비밀번호</small>
-						</div>
-						<div class="w3-col s6">
-							<input class="w3-input w3-col" type="password" id="tPw" readonly>
-						</div>
-						<div class="w3-col w3-margin-top">
-							<small>비밀번호 재입력</small>
-						</div>
-						<div class="w3-col" id="pwEditMsgBox">
-							<small id="pwEditMsg"></small>
-						</div>
-						<div class="w3-col s6 w3-margin-bottom">
-							<input class="w3-input w3-col" type="password" id="tRepw" readonly>
-						</div>
-					</div>	
-				</div>	
 			</div>
 			<!-- 버튼 영역 -->
-			<div class="w3-col s9 w3-right-align">
-				<div class="w3-button w3-round-xxlarge w3-theme-l2" id="pwEditSubmit" >암호 재설정</div>
-			</div>
+			
 		</div>
 	</div>
 </body>

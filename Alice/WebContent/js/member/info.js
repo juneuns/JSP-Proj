@@ -28,17 +28,15 @@ $(document).ready(function(){
 			f = $('#tF').val();
 			$('#f').val(f);
 		}
-		var pwReg = /(?=.*\d{1})(?=.*[~`!@#$%\^&*()-+=]{1})(?=.*[a-zA-Z]{2}).{8,15}$/;
+		/*var pwReg = /(?=.*\d{1})(?=.*[~`!@#$%\^&*()-+=]{1})(?=.*[a-zA-Z]{2}).{8,15}$/;
 		if(! pwReg.test(pw)){
 			alert("비밀번호 형식을 확인해주세요.");
 			$('#oldPw').focus();
 			return;
-		}
-		/*alert('editck : ' + editck);
-		alert('type :' + type);
-		alert('f :' + f);*/
+		}*/
+		
 		$.ajax({
-			url: '/ajax/pwCheck.do',
+			url: '/Alice/ajax/pwCheck.do',
 			type:'POST',
 			dataType:'json',
 			data : {
@@ -50,8 +48,8 @@ $(document).ready(function(){
 					$('#pwckMsg').text('비밀번호를 확인 했습니다.');
 					$('#pwckMsg').css('color','green');
 					$('#pwMsgBox').removeClass('w3-hide');
-					$('tPw').removeAttr('readonly');
-					$('tRepw').removeAttr('readonly');
+					$('#tPw').removeAttr('readonly');
+					$('#tRepw').removeAttr('readonly');
 				} else{
 					$('#pwckMsg').text('비밀번호를 다시 확인하세요.');
 					$('#pwckMsg').css('color','red');
@@ -64,7 +62,7 @@ $(document).ready(function(){
 		
 	});
 	// 비밀번호 재확인 
-	/*$('#tRepw').keyup(function(){
+	$('#tRepw').keyup(function(){
 		let tPw = $('#tPw').val();
 		let tRepw = $('#tRepw').val();
 		
@@ -77,9 +75,9 @@ $(document).ready(function(){
 			$('#pwEditMsg').css('color','red');
 			$('#pwEditMsgBox').show('fast');
 		}
-	});*/
+	});
 	
-	/*// 입력사항 유효성 검사 및 비밀번호 재설정
+
 	$('#pwEditSubmit').click(function(){
 		let tPw = $('#tPw').val();
 		if(!tPw || tPw.length==0){
@@ -87,8 +85,9 @@ $(document).ready(function(){
 			return;
 		}
 		$('#pw').val(tPw);
-		
-	})*/
+		$('#pwEditFrm').attr('action','/Alice/member/info/pwEditProc.do');
+		$('#pwEditFrm').submit();
+	})
 });
 // 주소 팝업창 데이터 가져오는 함수
 function josoCallBack(roadAddrPart1,zipno){
