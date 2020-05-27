@@ -26,15 +26,14 @@ public class MapSQL {
 		
 		case SEL_MSEARCH:
 			buff.append("SELECT ");
-			buff.append("    fno,fname,tel,f.addr2 addr2,u.name name ");
+			buff.append("    fno,fname,f.tel,f.addr2 addr2,u.name name ");
 			buff.append("FROM ");
 			buff.append("    fit f,users u ");
 			buff.append("WHERE ");
 			buff.append("    fno  = fit ");
 			buff.append("    and ucode = 'T' ");
-			buff.append("    and uname  like ? ");
 			buff.append("    or fname  like ? ");
-			buff.append("    or f.addr  like ? ");
+			buff.append("    or f.addr2  like ? ");
 			break;
 		case SEL_TSEARCH:
 			buff.append("SELECT" );

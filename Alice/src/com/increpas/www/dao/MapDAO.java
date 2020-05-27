@@ -25,41 +25,44 @@ public class MapDAO {
 		asql = new MapSQL();
 	}
     // 키워드 검색시 리스트 나오는 함수 
-    public ArrayList<MsearchVO> getKeyword(String type,String keyword){
+    public ArrayList<MsearchVO> getKeyword(String type, String keyword){
     	ArrayList<MsearchVO> slist = new ArrayList<MsearchVO>();
     	con = tdb.getCon();
     	String sql = null;
-    	if(type.equals('T')) {
+    	if("T".equals(type)) {
+    		System.out.println("#####여기까지 오나요");
     		sql = asql.getSQL(asql.SEL_TSEARCH);
     	}else {
     		sql = asql.getSQL(asql.SEL_MSEARCH);
     	}
-    	keyword  =   "%"+ keyword +"";
-    	
+    	keyword  =   "%"+ keyword +"";    	
     	try {
-    		if(type.equals('T')) {
+    		if("T".equals(type)) {
     			pstmt = tdb.getPSTMT(con, sql);
     			pstmt.setString(1,keyword);
     			pstmt.setString(2,keyword); 
+    			pstmt.setString(3,keyword); 
     			rs=pstmt.executeQuery();
     		}else {
     			pstmt = tdb.getPSTMT(con, sql);
     			pstmt.setString(1,keyword);
     			pstmt.setString(2,keyword);    			
-    			pstmt.setString(3,keyword);
     			rs= pstmt.executeQuery();    		
     		}
     		while(rs.next()) {
     			MsearchVO mvo= new MsearchVO();
-    			if(type.equals('T')) {
+    			if("T".equals(type)) {
+    				System.out.println("#######1");
     				mvo.setName(rs.getString("name"));
     				mvo.setAddr2(rs.getString("addr2"));
     				mvo.setBody(rs.getString("body"));
     				mvo.setGoal(rs.getString("goal"));   
     				slist.add(mvo);
     			}else {
+    				System.out.println("#######2");
+    				mvo.setName(rs.getString("name"));
     				mvo.setFname(rs.getString("fname"));
-    				mvo.setTel(rs.getString("tel"));
+    				mvo.setTel(rs.getString("f.tel"));
     				mvo.setAddr2(rs.getString("addr2"));
     				mvo.setName("name");   
     				slist.add(mvo);
@@ -75,34 +78,34 @@ public class MapDAO {
     	return slist;
     }
     // 트레이너가 매칭 함수
-    public ArrayList<MatchingVO> getTinfo(String id){
+    public ArrayList<MatchingVO> getTinfo(String id, String type){
     	ArrayList<MatchingVO> mlist = new ArrayList<MatchingVO>();
     	con = tdb.getCon();
     	String msql = null;
-    	if(id.equals('T')) {
+    	if(id.equals("T")) {
     		msql = asql.getSQL(asql.SEL_TMATCHING);
-    	}else if(id.equals('M')){
+    	}else if(id.equals("M")){
     		msql = asql.getSQL(asql.SEL_MMATCHING);
     	}    	
     	try {
-    		if(id.equals('T')) {
+    		if(id.equals("T")) {
     			pstmt = tdb.getPSTMT(con, msql);
     			pstmt.setString(1,id);
     			rs=pstmt.executeQuery();
-    		}else if(id.equals('M')){
+    		}else if(id.equals("M")){
     			pstmt = tdb.getPSTMT(con, msql);
     			pstmt.setString(1,id);
     			rs= pstmt.executeQuery();    		
     		}
     		while(rs.next()) {
     			MatchingVO mavo= new MatchingVO();
-    			if(id.equals('T')) {
+    			if(id.equals("T")) {
     				mavo.setBody(rs.getString("body"));
     				mavo.setGoal(rs.getString("goal"));
     				mavo.setName(rs.getString("name"));
     				mavo.setAddr(rs.getString("addr2"));    				
     				mlist.add(mavo);
-    			}else if(id.equals('M')){
+    			}else if(id.equals("M")){
     				mavo.setCareer(rs.getString("career"));
     				mavo.setInfo(rs.getString("info"));
     				mavo.setName(rs.getString("name"));
@@ -146,8 +149,7 @@ public class MapDAO {
     		ArrayList<PtnoVO> alist= new ArrayList<PtnoVO>(); 	
     		int pno = 0; 
     		con = tdb.getCon();
-    	    String sql = null;
-   
+    	    String sql = null;   
     			 sql = asql.getSQL(asql.SEL_MYPTNO);
     			 try {
     				 pstmt = tdb.getPSTMT(con, sql);
@@ -173,6 +175,11 @@ public class MapDAO {
     			pstmt = tdb.getPSTMT(con, nsql);
     			pstmt.setString(1, id);
     			rs = pstmt.executeQuery();
+    			while(rs.next()){
+    				MatchingVO mvo = new MatchingVO();
+    				mvo.setName(rs.getString("u.name"));
+    				nlist.add(mvo);    				
+    			}
     		}catch (Exception e) {
     			e.printStackTrace();
     		} finally {
@@ -183,35 +190,35 @@ public class MapDAO {
     		return nlist;
     	}
     	// PT요청 상세보기 함수
-    	public ArrayList<MatchingVO> getMYPT(String id){
+    	public ArrayList<MatchingVO> getMYPT(String id,String type){
     		ArrayList<MatchingVO> mylist = new ArrayList<MatchingVO>();
     		
     		con = tdb.getCon();
     		String sql = null;
     		
-    		if(id.equals('T')) {
+    		if(type.equals("T")) {
     			sql = asql.getSQL(asql.SEL_TMYPT);
-    		}else if(id.equals('M')) {
+    		}else if(type.equals("M")) {
     			sql = asql.getSQL(asql.SEL_MMYPT);
     		}
     		try {
-    			if(id.equals('T')) {
+    			if(type.equals("T")) {
     				pstmt = tdb.getPSTMT(con, sql);
     				pstmt.setString(1, id);
     				rs = pstmt.executeQuery();
-    			} else if(id.equals('M')) {
+    			} else if(type.equals("M")) {
     				pstmt = tdb.getPSTMT(con, sql);
     				pstmt.setString(1, id);
     				rs = pstmt.executeQuery();
     			}
     			while(rs.next()) {
     				MatchingVO mvo = new MatchingVO();
-    				if(id.equals('T')) {
+    				if(type.equals("T")) {
     					mvo.setBody(rs.getString("a.body"));
     					mvo.setGoal(rs.getString("a.goal"));
     					mvo.setStime(rs.getString("a.ptime"));
     					mylist.add(mvo);
-    				}else if(id.equals('M')) {
+    				}else if(type.equals("M")) {
     					mvo.setCareer(rs.getString("t.career"));
     					mvo.setInfo(rs.getString("t.info"));
     					mylist.add(mvo);

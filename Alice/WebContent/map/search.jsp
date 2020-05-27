@@ -34,7 +34,7 @@
 			<div id="map" style="width:250px;height:250px;" class="w3-col m2 w3-margin-top w3-right"></div>	
 			<c:forEach var="data" items="${SLIST}" varStatus="st">
 			<div class="w3-col m7 w3-margin-top">
-			<img class="w3-left w3-col m2 w3-border"id="img1" src="../img/noimage.jpg" style="height: auto; width: 180px;">
+			<img class="w3-left w3-col m2 w3-border"id="img1" src="" style="height: auto; width: 180px;">
 			<div class="w3-border w3-col m6">${data.name}</div>
 			<div class="w3-border w3-col m6">${data.fname}</div>
 			<div class="w3-border w3-col m6">${data.addr2}</div>

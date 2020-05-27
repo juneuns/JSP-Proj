@@ -18,8 +18,9 @@ public class Mymatching implements DoController {
 		MapDAO mdao = new MapDAO();
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("id");
-		ArrayList<MatchingVO> mlist = mdao.getMYPT(id);
-		req.setAttribute("MLIST", mlist);
+		String type = (String)session.getAttribute("TYPE");		
+		ArrayList<MatchingVO> nlist = mdao.getMYPT(id,type);
+		req.setAttribute("MLIST", nlist);
 		return view;
 	}
 

@@ -11,7 +11,6 @@ import com.increpas.www.dao.MapDAO;
 import com.increpas.www.vo.MsearchVO;
 
 public class Search implements DoController {
-
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String view ="/map/search.jsp";
@@ -19,6 +18,9 @@ public class Search implements DoController {
 		String keyword = req.getParameter("keyword");
 		HttpSession session = req.getSession();
 		String type = (String)session.getAttribute("type");
+		if("".equals(type)) {
+			type=null;
+		}
 		ArrayList<MsearchVO> slist = aDAO.getKeyword(type,keyword);
 	    req.setAttribute("KEYWORD", keyword);
 		req.setAttribute("SLIST", slist);
