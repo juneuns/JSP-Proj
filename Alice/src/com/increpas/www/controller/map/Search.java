@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.increpas.www.controller.DoController;
 import com.increpas.www.dao.MapDAO;
-import com.increpas.www.vo.AddrVO;
+import com.increpas.www.vo.MsearchVO;
 
 public class Search implements DoController {
 
@@ -16,11 +17,11 @@ public class Search implements DoController {
 		String view ="/map/search.jsp";
 		MapDAO aDAO = new MapDAO();
 		String keyword = req.getParameter("keyword");
-		ArrayList<AddrVO> list = aDAO.getList();
-		ArrayList<AddrVO> slist = aDAO.getKeyword(keyword);
+		HttpSession session = req.getSession();
+		String type = (String)session.getAttribute("type");
+		ArrayList<MsearchVO> slist = aDAO.getKeyword(type,keyword);
 	    req.setAttribute("KEYWORD", keyword);
 		req.setAttribute("SLIST", slist);
-		req.setAttribute("LIST", list);
 		return view;
 	
 	}

@@ -1,28 +1,25 @@
 package com.increpas.www.controller.map;
-/**
- * 이 클래스는 
- * @author 정우승
- * 
- */
+
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.increpas.www.controller.DoController;
 import com.increpas.www.dao.MapDAO;
-import com.increpas.www.vo.MsearchVO;
+import com.increpas.www.vo.MatchingVO;
 
-public class Profile implements DoController {
+public class Mymatching implements DoController {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "/map/profile.jsp";
-		MapDAO tdao = new MapDAO();
-		/*
-		 * ArrayList<AddrVO> tlist = tdao.getTinfo(id); req.setAttribute("TLIST",
-		 * tlist);
-		 */
+		String view = "";
+		MapDAO mdao = new MapDAO();
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		ArrayList<MatchingVO> mlist = mdao.getMYPT(id);
+		req.setAttribute("MLIST", mlist);
 		return view;
 	}
 

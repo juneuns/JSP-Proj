@@ -15,24 +15,35 @@
 
 </head>
 <body>
-	<div class="w3-center w3-border mxw">
-		<form class="w3-col w3-margin-top" id="menu_wrap" name="">
-			<input type='text' name='keyword' id="keyword" placeholder="키워드를 검색하세요." >
-			<button type="submit" id="test01">검색하기</button>
-		</form>
-		<div class="w3-col m6 w3-margin-top">			
-		<h3>검색 리스트</h3>
-		<c:forEach var="data" items="${SLIST}" varStatus="st">
-		<div class="w3-border">
-			<div class="w3-left w3-margin-top">${st.index}</div>
-			<img class="">
-			<div>${data.name}</div>
-			<div>${data.mail}</div>
-			<div>${data.addr2}</div>
+	<header>
+		<jsp:include page="../frame/header.jsp"/>
+	</header>
+	<nav>
+		<jsp:include page="../frame/sideBar.jsp"/>
+	</nav>
+	<div class="w3-main" style="margin-left:250px;">
+		<div class="w3-hide-large" style="margin-top:83px;"></div>
+		<div class="w3-center w3-border mxw">
+			<form class="w3-col w3-margin-top" id="menu_wrap" name="">
+				<input type='text' name='keyword' id="keyword" placeholder="키워드를 검색하세요." >
+				<button type="submit" id="test01">검색하기</button>
+			</form>
+			<div class="w3-col w3-margin-top">			
+			<h3>검색 리스트</h3>			
+			</div>
+			<div id="map" style="width:250px;height:250px;" class="w3-col m2 w3-margin-top w3-right"></div>	
+			<c:forEach var="data" items="${SLIST}" varStatus="st">
+			<div class="w3-col m7 w3-margin-top">
+			<img class="w3-left w3-col m2 w3-border"id="img1" src="../img/noimage.jpg" style="height: auto; width: 180px;">
+			<div class="w3-border w3-col m6">${data.name}</div>
+			<div class="w3-border w3-col m6">${data.fname}</div>
+			<div class="w3-border w3-col m6">${data.addr2}</div>
+			<div class="w3-border w3-col m6">${data.body}</div>
+			<div class="w3-border w3-col m6">${data.goal}</div>
+			<div class="w3-border w3-col m6">${data.tel}</div>
+			</div>	
+			</c:forEach>
 		</div>
-		</c:forEach>
-		</div>		
-		<div id="map" style="width:250px;height:250px;" class="w3-col m2 w3-margin-top w3-margin-left"></div>		
 	</div>
 </body>
 <script>
