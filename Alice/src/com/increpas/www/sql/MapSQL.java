@@ -35,7 +35,6 @@ public class MapSQL {
 			buff.append("    and uname  like ? ");
 			buff.append("    or fname  like ? ");
 			buff.append("    or f.addr  like ? ");
-			buff.append(" ; ");
 			break;
 		case SEL_TSEARCH:
 			buff.append("SELECT" );
@@ -45,12 +44,11 @@ public class MapSQL {
 			buff.append("WHERE ");
 			buff.append(" name like ? ");
 			buff.append(" addr2 like ? ");
-			buff.append(" ; ");
 			break;
 		
 		case SEL_TMATCHING:
 			buff.append("SELECT ");
-			buff.append("  m.pagree pagree,m.body body,m.goal goal,m.ptime ptime,u.name name,u.addr2 addr2");
+			buff.append("  m.pagree pagree,m.body body,m.goal goal,m.ptime ptime,u.name name,u.addr2 addr2 ");
 			buff.append("FROM ");
 			buff.append(" meminfo m,users u ");
 			buff.append("WHERE ");
@@ -58,19 +56,17 @@ public class MapSQL {
 			buff.append("     select t.addr2 ");
 			buff.append("     from  users t ");
 			buff.append("      where t.id = ?) and u.uno = m.uno ");
-			buff.append(" ; ");
 			break;
 		case SEL_MMATCHING:
 			buff.append("SELECT ");
 			buff.append("    t.career career, t.info info, u.name name, u.addr2 addr2,t.agree agree ");
-			buff.append("FROM" );
+			buff.append("FROM " );
 			buff.append("    tinfo t,users u ");
 			buff.append("WHERE ");
 			buff.append(" u.addr2 = ( ");
 			buff.append("     select m.addr2 ");
 			buff.append("     from  users m ");
 			buff.append("     where m.id = ?) and u.uno = m.uno ");
-			buff.append(" ; ");			
 			break;
 		case SEL_PTNO:
 			buff.append("INSERT INTO ");
@@ -78,7 +74,7 @@ public class MapSQL {
 			buff.append("VALUES( ");
 			buff.append(" (SELECT NVL(MAX(ptno)+1,100) FROM matching), ");
 			buff.append("  ? , ? ");
-			buff.append(" ); ");			
+			buff.append(" ) ");			
 			break;			
 		case SEL_MYPTNO:
 			buff.append("UPDATE ");
@@ -86,7 +82,7 @@ public class MapSQL {
 			buff.append("SET ");
 			buff.append("WHERE ");
 			buff.append(" id = ? AND act = 'Y' ");
-			buff.append(" ); ");
+			buff.append(" ) ");
 			break;
 		case SEL_MYPT:
 			buff.append("SELECT ");
@@ -99,7 +95,7 @@ public class MapSQL {
 			buff.append("FROM ");
 			buff.append("   users ");
 			buff.append("WHERE ");
-			buff.append("   id = ?); " );				
+			buff.append("   id = ?) " );				
 			break;
 		case SEL_TMYPT:
 			buff.append("SELECT ");
@@ -110,7 +106,6 @@ public class MapSQL {
 			buff.append("    m.mno = (SELECT   mno ");
 			buff.append("FROM    matching ");
 			buff.append("  WHERE    id = ?) ");
-			buff.append(" ; ");
 			break;
 		case SEL_MMYPT:
 			buff.append("SELECT ");
@@ -121,7 +116,6 @@ public class MapSQL {
 			buff.append("    m.tno = (SELECT  tno ");
 			buff.append("FROM  matching ");
 			buff.append(" WHERE  id = ?) ");
-			buff.append(" ; ");
 			break;
 		}
 		return buff.toString();
