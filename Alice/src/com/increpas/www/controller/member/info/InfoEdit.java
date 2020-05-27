@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import com.increpas.www.controller.DoController;
 import com.increpas.www.dao.MemberDao;
+import com.increpas.www.vo.MembVO;
 
 public class InfoEdit implements DoController {
 
@@ -14,10 +15,10 @@ public class InfoEdit implements DoController {
 		String view = "/member/info/infoEdit.jsp";
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("SID");
-		int cnt = -1; 
 		MemberDao mDao = new MemberDao();
+		MembVO mVO = mDao.getMemInfo(id);
 		
-		
+		req.setAttribute("DATA", mVO);
 		return view;
 	}
 

@@ -15,7 +15,12 @@
 
 </style>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		var agree = '${DATA.pagree}';
+		if(agree=='Y'){
+			$('#tagree').prop('checked');
+		}
+	});
 </script>
 </head>
 <body>
@@ -51,10 +56,10 @@
 			<div class="">
 				<div class="w3-row w3-padding ">
 					<!-- 회원 프로필 사진 -->
-					<img class="w3-round-xlarge"src="/Alice/img/noimage.jpg" alt="회원 아아디" width="140" height="auto">
+					<img class="w3-round-xlarge"src="/${DATA.savename}" alt="회원 아아디" width="140" height="auto">
 				</div>
 				<div class="w3-row w3-center">
-					<h6><!-- 회원이름 --><small>님</small><br><small><!-- 회원아이디 --></small></h6>			
+					<h6>${DATA.name}<small>님</small><br><small>${DATA.id}</small></h6>			
 				</div>			
 			</div>				
 		</div>
@@ -67,14 +72,16 @@
 			</div>
 			<!-- 마이페이지 컨탠츠 영역 -->
 			<div class="w3-margin-top w3-margin-left w3-row">
+				
 				<div class="w3-col s6 ">
 					<div class="w3-col s2 w3-right-align">
 						<label class="va-middle" for="tmail"><small>이메일 : </small></label>					
 					</div>
 					<div class="w3-col s8">
-						<input class="w3-col  w3-margin-left w3-input " type="text" id="tmail"/>
+						<input class="w3-col  w3-margin-left w3-input " value="${DATA.mail}" type="text" id="tmail" readonly/>
 					</div>
 				</div>
+				
 				<div class="w3-col s6 pdtb1-10">
 					<div class="w3-col s2 w3-right-align">
 						<label class="av-middle"><small>프로필 : </small></label>					
@@ -86,6 +93,7 @@
 						</div>
 					</div>
 				</div>
+				<!-- 
 				<div class="w3-col s6 pdtb-10 addrPosi">
 					<div class="w3-col s2 w3-right-align">
 						<label class="w3-col " for="abtn"><small>주소 : </small></label>					
@@ -98,13 +106,15 @@
 					
 					</div>
 				</div>
+				 -->
 				<!-- 일반 회원일 경우  -->
+				<c:if test="${TYPE eq 'M'}">
 				<div class="w3-col s7 pdtb-10">
 					<div class="w3-col s2 w3-right-align">
 						<label class="w3-col " for="goal"><small>목 표 : </small></label>	
 					</div>
 					<div class="w3-col s8">
-						<textarea class="w3-col w3-input w3-margin-left w3-border" rows="5" cols="39" id="tgoal" style="resize:none;"> </textarea>
+						<textarea class="w3-col w3-input w3-margin-left w3-border" rows="5" cols="39" id="tgoal" style="resize:none;">${DATA.goal}</textarea>
 					</div>
 				</div>
 				<div class="w3-col s4 pdtb-10">
@@ -115,57 +125,62 @@
 					</div>
 					<div class="w3-col s7">
 						<input class="w3-col s7 w3-left-align w3-margin-left w3-check w3-margin-bottom" type="checkbox" value="Y" id="tagree">
-						<input class="w3-col s4 w3-margin-left w3-input "type="text" id="tweight">
-						<input class="w3-col s4 w3-margin-left w3-input w3-margin-bottom "type="text" id="theight">
-						<input class="w3-margin-left w3-input w3-margin-top " type="time" id="ttime" >
+						<input class="w3-col s4 w3-margin-left w3-input "type="text" id="tweight" value="${DATA.body}">
+						<input class="w3-col s4 w3-margin-left w3-input w3-margin-bottom "type="text" id="theight" value="${DATA.body}">
+						<input class="w3-margin-left w3-input w3-margin-top " type="time" id="ttime" value="${DATA.ptime}">
 					</div>
 				</div>
+				</c:if>
 				<!-- 트레이너일 경우 -->
-				<div>
-					<div class="w3-col s7 pdtb-10">
-						<div class="w3-col s2">
-							<label class="w3-col w3-right-align"><small>소 개 글 : </small></label>						
+					<div>
+					<c:if test="${TYPE ne 'M'}">
+						<div class="w3-col s7 pdtb-10">
+							<div class="w3-col s2">
+								<label class="w3-col w3-right-align"><small>소 개 글 : </small></label>						
+							</div>
+							<div class="w3-col s7">
+								<textarea class="w3-col w3-margin-left w3-border w3-input" rows="5" cols="37" id="tinfo" style="resize:none;"></textarea>
+							</div>
 						</div>
-						<div class="w3-col s7">
-							<textarea class="w3-col w3-margin-left w3-border w3-input" rows="5" cols="37" id="tinfo" style="resize:none;"></textarea>
+						<div class="w3-col s4 pdtb-10">
+							<div class="w3-col s2">
+								<label class="w3-col w3-right-align"><small>경력 : </small></label>						
+							</div>
+							<div class="w3-col s7">
+								<textarea class="w3-col w3-margin-left w3-border w3-input" rows="5" cols="37" id="tcareer" style="resize:none;"></textarea>
+							</div>
 						</div>
+						<div class="w3-col s6 pdtb-10" >
+							<div class="w3-col s2">
+								<label class="w3-col w3-right-align" for="fit" ><small class="w3-text-grey" >소속 시설 : </small></label>
+							</div>
+							<div class="w3-col s8 ">
+								<input class="w3-col s4 w3-margin-left w3-input w3-boarder-bottom" type="text" readonly name="fname" style=" border: 0px; ">
+								<div class="w3-button w3-red w3-round-xxlarge w3-gray w3-text-light-blue" id="fitinfo">시설 검색</div>					
+								<input type="hidden" name="fno" id="fno" value="">
+							</div>
+						</div>
+						</c:if>
 					</div>
-					<div class="w3-col s4 pdtb-10">
-						<div class="w3-col s2">
-							<label class="w3-col w3-right-align"><small>경력 : </small></label>						
-						</div>
-						<div class="w3-col s7">
-							<textarea class="w3-col w3-margin-left w3-border w3-input" rows="5" cols="37" id="tcareer" style="resize:none;"></textarea>
-						</div>
-					</div>
-					<div class="w3-col s6 pdtb-10" >
-						<div class="w3-col s2">
-							<label class="w3-col w3-right-align" for="fit" ><small class="w3-text-grey" >소속 시설 : </small></label>
-						</div>
-						<div class="w3-col s8 ">
-							<input class="w3-col s4 w3-margin-left w3-input w3-boarder-bottom" type="text" readonly name="fname" style=" border: 0px; ">
-							<div class="w3-button w3-red w3-round-xxlarge w3-gray w3-text-light-blue" id="fitinfo">시설 검색</div>					
-							<input type="hidden" name="fno" id="fno" value="">
-						</div>
-					</div>
-				</div>
 					<!-- 시설 회원의 경우 -->
-				<div>	
-					<div class="w3-col s6 pdtb-10 ">
-						<div class="w3-col s3">
-							<label class="w3-col w3-right-align" for="fname"><small class="w3-text-grey">시설명 : </small></label>						
+				<c:if test="${FNO}">
+					<div>	
+						<div class="w3-col s6 pdtb-10 ">
+							<div class="w3-col s3">
+								<label class="w3-col w3-right-align" for="fname"><small class="w3-text-grey">시설명 : </small></label>						
+							</div>
+							<div class="w3-col s7 ">
+								<input class=" w3-input w3-margin-left" type="text" id="tfname" name="tfname" style="border: 0px;">			
+							</div>
 						</div>
-						<div class="w3-col s7 ">
-							<input class=" w3-input w3-margin-left" type="text" id="tfname" name="tfname" style="border: 0px;">			
+						<div class="w3-col ">
+							<label class="w3-col m3 w3-right-align" for="fname"><small class="w3-text-grey">시설 전화번호 : </small></label>
+							<div class="w3-rest lblock w3-padding ">
+								<input class="w3-padding w3-border-gray w3-border-bottom" id="ttel" name="ttel" style="border: 0px;">			
+							</div>
 						</div>
 					</div>
-					<div class="w3-col ">
-						<label class="w3-col m3 w3-right-align" for="fname"><small class="w3-text-grey">시설 전화번호 : </small></label>
-						<div class="w3-rest lblock w3-padding ">
-							<input class="w3-padding w3-border-gray w3-border-bottom" id="ttel" name="ttel" style="border: 0px;">			
-						</div>
-					</div>
-				</div>
+				</c:if>
 			</div>
 			<!-- 버튼 영역 -->
 			<div class="w3-right-align">

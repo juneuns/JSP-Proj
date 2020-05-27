@@ -12,10 +12,16 @@ import java.util.ArrayList;
 
 public class MembVO {
 	private int uno,mno,infouno,fno,tno;
-	private String id,pw,mail,name,addr1,addr2,addr3,body,goal,ptime,ucode,tel,pagree,career,info;
+	private String id,pw,mail,name,addr1,addr2,addr3,body,goal,ptime,ucode,tel,pagree,career,info,savename;
 	private Time mtime;
 	private ArrayList<UImgFileVO> file ;
 	
+	public String getSavename() {
+		return savename;
+	}
+	public void setSavename(String savename) {
+		this.savename = savename;
+	}
 	public int getTno() {
 		return tno;
 	}
@@ -133,7 +139,7 @@ public class MembVO {
 		this.ptime = ptime;
 	}
 	public void setPtime() {
-		SimpleDateFormat form1  = new SimpleDateFormat("HH24:mm");
+		SimpleDateFormat form1  = new SimpleDateFormat("HH:mm");
 		String str = form1.format(mtime);
 		this.ptime = str;
 	}

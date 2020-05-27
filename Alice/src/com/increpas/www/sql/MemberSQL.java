@@ -41,6 +41,7 @@ public class MemberSQL {
 	public final int SEL_CK_FIT_ID = 1015;
 	public final int SEL_FIT_SMYINFO = 1016;
 	public final int SEL_USERS_DETAIL = 1017;
+	public final int SEL_TRAINER_DETAIL = 1018;
 	
 	public final int EDIT_USERS_PW = 2001;
 	public final int EDIT_FIT_PW = 2002;
@@ -64,6 +65,7 @@ public class MemberSQL {
 			buff.append("WHERE ");
 			buff.append("	id = ? ");
 			buff.append("	AND pw = ? ");
+			buff.append("	AND isshow = 'Y' ");
 			break;
 		case SEL_FIT_SIGNIN : 
 			buff.append("SELECT ");
@@ -110,6 +112,7 @@ public class MemberSQL {
 			buff.append("WHERE ");
 			buff.append("	name = ? ");
 			buff.append("	AND mail = ? ");
+			buff.append("	AND isshow = 'Y' ");
 			break;
 		case SEL_FIT_ID :
 			buff.append("SELECT ");
@@ -137,6 +140,7 @@ public class MemberSQL {
 			buff.append("	name = ? ");
 			buff.append("	AND id = ? ");
 			buff.append("	AND mail = ? ");
+			buff.append("	AND isshow = 'Y' ");
 			break;
 		case SEL_FIT_PW_VALID :
 			buff.append("SELECT ");
@@ -155,6 +159,7 @@ public class MemberSQL {
 			buff.append("	pw = ? ");
 			buff.append("WHERE ");
 			buff.append("	id = ? ");
+			buff.append("	AND isshow = 'Y' ");
 			break;
 		case EDIT_FIT_PW :
 			buff.append("UPDATE ");
@@ -172,6 +177,7 @@ public class MemberSQL {
 			buff.append("WHERE  ");
 			buff.append("	id = ? ");
 			buff.append("	AND pw = ? ");
+			buff.append("	AND isshow = 'Y' ");
 			break;
 		case SEL_CK_FIT_PW :
 			buff.append("SELECT ");
@@ -189,6 +195,7 @@ public class MemberSQL {
 			buff.append("	users ");
 			buff.append("WHERE ");
 			buff.append("	id = ? ");
+			buff.append("	AND isshow = 'Y' ");
 			break;
 		case SEL_CK_FIT_ID :
 			buff.append("SELECT ");
@@ -205,6 +212,17 @@ public class MemberSQL {
 			buff.append("	fit ");
 			buff.append("WHERE ");
 			buff.append("	fname like ? ");
+			break;
+		case SEL_USERS_DETAIL :
+			buff.append("SELECT "); 
+			buff.append("    u.uno uno,name,id, savename,mail,body,goal,pagree,TO_CHAR(ptime,'HH24:MI') mtime "); 
+			buff.append("FROM  "); 
+			buff.append("    userimage ui,users u , meminfo m  "); 
+			buff.append("WHERE  "); 
+			buff.append("    u.uno= m.uno (+) "); 
+			buff.append("    and u.isshow = 'Y' "); 
+			buff.append("    and u.uno = im_uno (+) "); 
+			buff.append("    AND id = ? "); 
 			break;
 		case ADD_MEM :
 			buff.append("INSERT INTO  "); 

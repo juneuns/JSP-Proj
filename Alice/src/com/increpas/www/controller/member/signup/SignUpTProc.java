@@ -29,6 +29,7 @@ public class SignUpTProc implements DoController{
 			return view;
 		}
 		String path = req.getSession().getServletContext().getRealPath("userimg");
+		
 		MultipartRequest multi = null;
 		try { 
 			multi = new MultipartRequest(req, path,1024 * 1024 * 6 , "UTF-8",new DefaultFileRenamePolicy());

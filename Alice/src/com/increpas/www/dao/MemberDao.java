@@ -544,4 +544,34 @@ public class MemberDao {
 		}
 		return cnt ; 
 	}
+	// 회원의 정보를 제공을 담당하는 함수
+	public MembVO getMemInfo(String id) {
+		MembVO mVO = new MembVO();
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.SEL_USERS_DETAIL);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			rs.next();
+			mVO.setUno(rs.getInt("uno"));
+			mVO.setName(rs.getString("name"));
+			mVO.setSavename(rs.getString("savename"));
+			mVO.setId(rs.getString("id"));
+			mVO.setMail(rs.getString("mail"));
+			mVO.setBody(rs.getString("body"));
+			mVO.setPagree(rs.getString("pagree"));
+			mVO.setGoal(rs.getString("goal"));
+			mVO.setMtime(rs.getTime("mtime"));
+			mVO.setPtime();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		return mVO;
+	}
 }
