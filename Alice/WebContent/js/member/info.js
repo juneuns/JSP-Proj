@@ -7,7 +7,7 @@ $(document).ready(function(){
 		location.href='/Alice/member/info/pwEdit.do';
 	});
 	$('#contactList').click(function(){
-		location.href='/Alice/member/info/conTactList.do';
+		location.href='/Alice/member/info/contactList.do';
 	});
 	
 	// 주소 검색 팝업 창 요청

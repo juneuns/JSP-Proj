@@ -51,7 +51,6 @@ $(document).ready(function(){
 			$('#findPFrm').submit();
 			return ;
 		}
-		alert('제발');
 		$('#findPFrm').attr('action','/Alice/member/findPW/findPassUProc.do');
 		$('#findPFrm').submit();
 	});

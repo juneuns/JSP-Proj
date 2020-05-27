@@ -22,7 +22,7 @@
 </head>
 <body>
 	<form method="POST" id="pwEditFrm">
-		<input name="pw" id="pw">
+		<input type="hidden" name="" id="">
 	</form>
 	
 	<header>
@@ -53,7 +53,39 @@
 				<a class="w3-bar-item w3-padding" id="contactList" ><small>컨택 리스트</small></a>
 			</div>
 			<!-- 마이페이지 컨탠츠 영역 -->
-			
+			<div class="w3-container">
+				<div class="w3-col w3-left w3-padding w3-border-bottom">
+					<h2>컨택 리스트</h2>
+				</div>
+				<!-- 컨택리스트 내무 메뉴  -->
+				<div class="w3-col s4 w3-bar w3-margin-top w3-center w3-black">
+					<div class="w3-bar-item w3-col w3-button w3-half">진행중</div>
+					<div class="w3-bar-item w3-col w3-button w3-half">요청</div>
+				</div>
+				<!-- 리스트 -->
+				<div class="w3-col w3-border-top w3-margin-top">
+					<div class="w3-col w3-margin-16">
+						<div class="w3-col s2 w3-center w3-small">no</div>
+						<div class="w3-col s7 w3-center w3-large">목록</div>
+						<div class="w3-col s3 w3-center w3-large">상태</div>
+					</div>
+					<!-- list로 데이터 뿌리기 -->
+					<div class="w3-col w3-margin-16">
+						<div class="w3-col s2 w3-center w3-small">1</div>
+						<div class="w3-col s7 w3-center w3-large">프로필 트레이너 이름 회원이름 시설명 </div>
+						<div class="w3-col s3 w3-center w3-large">진행 </div>
+					</div>
+					<!-- !여기까지 -->
+					
+					<!-- 하이드 요청 데이터 뿌리기 -->
+					<div class="w3-col w3-hide w3-margin-16">
+						<div class="w3-col s2 w3-center w3-small">1</div>
+						<div class="w3-col s7 w3-center w3-large">프로필 트레이너 이름 회원이름 시설명 </div>
+						<div class="w3-col s3 w3-center w3-large"> 요청</div>
+					</div>
+					<!-- !여기까지 -->
+				</div>
+			</div>	
 			<!-- 버튼 영역 -->
 			
 		</div>

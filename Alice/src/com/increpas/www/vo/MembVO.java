@@ -1,12 +1,45 @@
 package com.increpas.www.vo;
-
+/**
+ * 일반회원과 트레이너의 정보를 가지는 VO 클래스 
+ * @author	박광호
+ * @since	2020.05.24
+ * @version	v 1.0.2
+ * 
+ */
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class MembVO {
-	private int uno,mno,infouno;
-	private String id,pw,mail,addr1,addr2,addr3,body,goal,ptime,ucode;
+	private int uno,mno,infouno,fno,tno;
+	private String id,pw,mail,name,addr1,addr2,addr3,body,goal,ptime,ucode,tel,pagree,career,info;
 	private Time mtime;
+	private ArrayList<UImgFileVO> file ;
+	
+	public int getTno() {
+		return tno;
+	}
+	public void setTno(int tno) {
+		this.tno = tno;
+	}
+	public String getCareer() {
+		return career;
+	}
+	public void setCareer(String career) {
+		this.career = career;
+	}
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
+	}
+	public int getFno() {
+		return fno;
+	}
+	public void setFno(int fno) {
+		this.fno = fno;
+	}
 	public int getUno() {
 		return uno;
 	}
@@ -28,6 +61,12 @@ public class MembVO {
 	public String getId() {
 		return id;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -36,6 +75,13 @@ public class MembVO {
 	}
 	public void setPw(String pw) {
 		this.pw = pw;
+	}
+	
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 	public String getMail() {
 		return mail;
@@ -73,6 +119,13 @@ public class MembVO {
 	public void setGoal(String goal) {
 		this.goal = goal;
 	}
+	
+	public String getPagree() {
+		return pagree;
+	}
+	public void setPagree(String pagree) {
+		this.pagree = pagree;
+	}
 	public String getPtime() {
 		return ptime;
 	}
@@ -96,5 +149,10 @@ public class MembVO {
 	public void setUcode(String ucode) {
 		this.ucode = ucode;
 	}
-	
+	public ArrayList<UImgFileVO> getFile() {
+		return file;
+	}
+	public void setFile(ArrayList<UImgFileVO> file) {
+		this.file = file;
+	}
 }

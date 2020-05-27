@@ -19,32 +19,36 @@
 </script>
 </head>
 <body>
-	<div class="w3-content mxw min-heignt ">
-		<div class="w3-col w3-border-bottom w3-border-gray">
-			<h4 class="w3-margin-left"> 회원가입</h4>
-		</div>
-		
-		<div class="w3-container w3-border-gray">
-			<div class="w3-col m5"><p><p></div>
-			<div class="w3-col m4 w3-margin-top">
-				<div class="w3-row">
-					<img alt="회원가입 완료" src="/Alice/img/step3.png">
-				</div>
-				<div class="w3-content">
-					<div class="container w3-border-gray">
-						<div>
-							<p><!-- 회원 --> 님 JoGym을 찾아주셔서 감사합니다</p>
-							<br>
-							<p class="w3-margin-top">로그인 후 JoGym 사이트의 서비스를 이용하시기 바랍니다.</p>
-						</div>
-						<div>
-							<a href="">
-								<img src= "" alt="회원가입 축하">							
-							</a>
-						</div>
-						<!-- 버튼영역 -->
-						<div>
-							<div class="w3-button w3-theme-l4" >메인페이지로 이동</div>
+	<header>
+		<jsp:include page="../../frame/header.jsp"/>
+	</header>
+	<nav>
+		<jsp:include page="../../frame/sideBar.jsp"/>
+	</nav>
+	<div class="w3-main" style="margin-left:250px;">
+		<div class="w3-hide-large" style="margin-top:83px;"></div>
+		<div class="w3-content mxw min-heignt ">
+			<div class="w3-col w3-border-bottom w3-border-gray">
+				<h4 class="w3-margin-left"> 회원가입</h4>
+			</div>
+			
+			<div class="w3-container w3-border-gray">
+				<div class="w3-col m5"><p><p></div>
+				<div class="w3-col m4 w3-margin-top">
+					<div class="w3-row">
+						<img alt="회원가입 완료" src="/Alice/img/step3.png">
+					</div>
+					<div class="w3-content">
+						<div class="container w3-border-gray">
+							<div>
+								<p><!-- 회원 --> 님 JoGym을 찾아주셔서 감사합니다</p>
+								<br>
+								<p class="w3-margin-top">로그인 후 JoGym 사이트의 서비스를 이용하시기 바랍니다.</p>
+							</div>
+							<!-- 버튼영역 -->
+							<div>
+								<div class="w3-button w3-theme-l4" id="moveMainbtn">메인페이지로 이동</div>
+							</div>
 						</div>
 					</div>
 				</div>

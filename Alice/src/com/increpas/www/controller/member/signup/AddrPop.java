@@ -13,6 +13,9 @@ public class AddrPop implements DoController {
 		String inputYn = req.getParameter("inputYn");
 		String roadFullAddr = req.getParameter("roadFullAddr");
 		String roadAddrPart1 = req.getParameter("roadAddrPart1");
+		String siNm	= req.getParameter("siNm");
+		String sggNm = req.getParameter("sggNm");
+		String emdNm = req.getParameter("emdNm");
 		String confmKey = "devU01TX0FVVEgyMDIwMDUxNzIyMzI0MjEwOTc2NTM=";
 		String zipNo = req.getParameter("zipNo");
 		System.out.println("#### inputYn : " + inputYn);
@@ -21,6 +24,9 @@ public class AddrPop implements DoController {
 		
 		req.setAttribute("ROADFULLADDR", roadFullAddr);
 		req.setAttribute("ROADADDRPART1", roadAddrPart1);
+		req.setAttribute("SINM", siNm);
+		req.setAttribute("SGGNM", sggNm);
+		req.setAttribute("EMDNM", emdNm);
 		req.setAttribute("ZIPNO", zipNo);
 		return view;
 	}

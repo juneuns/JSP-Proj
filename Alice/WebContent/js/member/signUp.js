@@ -1,7 +1,4 @@
-// 팝업창 닫는 함수 	
-function popClose(){
-		window.close();
-}	
+
 // 기본 정보 유효성 검사 처리 전담 함수 
 var validCk = function(){
 	if ($('#id').val()==""){
@@ -74,10 +71,11 @@ var regCK = function(){
 		$('#pw').focus();
 		return;
 	}
-	     
-	 
 };
 $(document).ready(function(){
+	$('#moveMainbtn').click(function(){
+		$(location).attr('href','/Alice/main/main.do');
+	});
 	// 주소 팝업 창 요청 
 	$('#abtn').click(function(){
 		window.open('/Alice/member/addrPop.do','addr','width=500,height=400,resizealbe=yes');
@@ -96,88 +94,9 @@ $(document).ready(function(){
 		$('#worker').toggleClass('w3-hide');
 		
 	});
-	
-	// 회원 종류별 회원가입 처리 요청 전담 함수 
-	$('#next').click(function(){
-		var type = '${param.type}';
-		
-		// 입력란 유효성 검사
-		validCk();
-		// 정규식 
-		regCK();
-		
-		if(type == 'worker'){
-			var bodyHReg = /^[0-9]$/;
-			if(!bodyHReg.test($('#height').val())){
-				alert('숫자만 입력해주세요..');
-				$('#height').focus();
-				return
-			}
-			var bodyWReg = /^[0-9]$/;
-			if(!bodyWReg.test($('#weight').val())){
-				alert('숫자만 입력해주세요..');
-				$('#weight').focus();
-				return
-			}
-			$('#frm').attr('action','/Alice/...');
-			$('#frm').submit();
-			return ;
-		}
-		
-		if(type == 'trainer'){
-			// 파일 업로드 형식 정규식
-			$('#file').change(function(e) {
-				var form = $(this).val();
-				var check = form.slice(form.lastIndexOf('.') + 1);
-				check = check.toLowerCase(check);
-				if (check != 'png' && check != 'jpg' && check != 'jpeg' && check != 'gif') {
-					alert('파일형식을 확인하세요..');
-					$(this).val('');
-					return;
-				}
-				var vfile = URL.createObjectURL(e.target.files[0]); // 배열로 저장하고 있다가 선택한 파일은
-																	// 0번째 이기때문
-			});
-			
-			telCK();
-			$('#frm').attr('action','/Alice/...');
-			$('#frm').submit();
-			return ;
-		}
-		if(type == 'fit'){
-			telCK();
-			$('#frm').attr('action','/Alice/...');
-			$('#frm').submit();
-			return ;
-		}
-	});
-});
-
-
-// 주소창 정보 담는 함수 
-function josoCallBack(roadAddrPart1,zipno){
-	document.getElementById('roadAddrPart1').value=roadAddrPart1;
-	document.getElementById('zipno').value=zipno;
-}
-function fitInfo(fitnumber, fitname){
-	document.getElementById('fno').value = fitnumber;
-	document.getElementById('fname').value = fitname;
-}
-$(document).ready(function(){
 	// 시설 찾기 전담함수 
-	$('#closeBtn').click(function(){
-		$(this).attr('href',popClose());
-	});
-	$('.content').click(function(){
-		var fitnumber = $(this).attr('id');
-		var fitname = $('#fitname').val();
-		if(!fitnumber){
-			alert('심각한 오류가 발생했습니다.');
-			return;			
-		}
-		opener.fitInfo(fitnumber,fitname);
-		window.close();
-	});
+	
+	
 	
 	// 회원가입 동의 페이지 함수 
 	$('.ck').change(function(){
@@ -193,5 +112,15 @@ $(document).ready(function(){
 		$('#frm').attr('action','/Alice/member/signUp/signUpForm.do');
 		$('#frm').submit();
 	});
+	// 회원 종류별 회원가입 처리 요청 전담 함수 
 	
 });
+// 주소창 정보 담는 함수 
+function josoCallBack(roadAddrPart1,zipno){
+	document.getElementById('roadAddrPart1').value=roadAddrPart1;
+	document.getElementById('zipno').value=zipno;
+}
+function fitInfo(fitnumber, fitname){
+	$('#fno1').val(fitnumber);
+	$('#fname1').val(fitname);
+}

@@ -23,11 +23,15 @@ $(document).ready(function(){
 	$('#logout').click(function(){
 		location.href = "/Alice/member/logout/logoutProc.do";
 	})
-	
+	// 회원가입 동의 페이지 요청 
+	$('#signup').click(function(){
+		$(this).attr('href','/Alice/member/signUp/signUpAgree.do');
+	});
 	// 아이디/ 비밀번호 찾기 페이지 요청
 	$('#findPWbtn').click(function(){
 		$('#findPWbtn').attr('href','/Alice/member/findId/findId.do');
 	});
+	// 검색 페이지 요청
 	$('#search').click(function(){
 		$(this).attr('href','/Alice/map/search.do');
 	});

@@ -24,7 +24,7 @@
 			$('#form').attr('action','http://www.juso.go.kr/addrlink/addrLinkUrl.do');
 			$('#form').submit();
 		}else{
-			opener.josoCallBack('${ROADADDRPART1}','${ZIPNO}');
+			opener.josoCallBack('${ROADADDRPART1}','${ZIPNO}','${SINM}','${SGGNM}','${EMDNM}');
 			window.close();
 		}
 	});
