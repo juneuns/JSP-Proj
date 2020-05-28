@@ -26,7 +26,7 @@ public class MapSQL {
 		
 		case SEL_MSEARCH:
 			buff.append("SELECT ");
-			buff.append("    fno,fname,f.tel,f.addr2 addr2,u.name name ");
+			buff.append("    fno,fname,f.tel tel,f.addr2 addr2,u.name name ");
 			buff.append("FROM ");
 			buff.append("    fit f,users u ");
 			buff.append("WHERE ");

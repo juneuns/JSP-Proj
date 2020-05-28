@@ -10,7 +10,6 @@ import com.increpas.www.DB.WebDBCP;
 import com.increpas.www.sql.MapSQL;
 import com.increpas.www.vo.MatchingVO;
 import com.increpas.www.vo.MsearchVO;
-import com.increpas.www.vo.PtnoVO;
 
 public class MapDAO {
 	WebDBCP tdb;
@@ -30,7 +29,6 @@ public class MapDAO {
     	con = tdb.getCon();
     	String sql = null;
     	if("T".equals(type)) {
-    		System.out.println("#####여기까지 오나요");
     		sql = asql.getSQL(asql.SEL_TSEARCH);
     	}else {
     		sql = asql.getSQL(asql.SEL_MSEARCH);
@@ -40,8 +38,7 @@ public class MapDAO {
     		if("T".equals(type)) {
     			pstmt = tdb.getPSTMT(con, sql);
     			pstmt.setString(1,keyword);
-    			pstmt.setString(2,keyword); 
-    			pstmt.setString(3,keyword); 
+    			pstmt.setString(2,keyword);
     			rs=pstmt.executeQuery();
     		}else {
     			pstmt = tdb.getPSTMT(con, sql);
@@ -52,19 +49,16 @@ public class MapDAO {
     		while(rs.next()) {
     			MsearchVO mvo= new MsearchVO();
     			if("T".equals(type)) {
-    				System.out.println("#######1");
     				mvo.setName(rs.getString("name"));
     				mvo.setAddr2(rs.getString("addr2"));
     				mvo.setBody(rs.getString("body"));
     				mvo.setGoal(rs.getString("goal"));   
     				slist.add(mvo);
     			}else {
-    				System.out.println("#######2");
     				mvo.setName(rs.getString("name"));
     				mvo.setFname(rs.getString("fname"));
-    				mvo.setTel(rs.getString("f.tel"));
+    				mvo.setTel(rs.getString("tel"));
     				mvo.setAddr2(rs.getString("addr2"));
-    				mvo.setName("name");   
     				slist.add(mvo);
     			}
     		}
@@ -77,35 +71,35 @@ public class MapDAO {
     	}
     	return slist;
     }
-    // 트레이너가 매칭 함수
+    // 매칭 리스트 함수
     public ArrayList<MatchingVO> getTinfo(String id, String type){
     	ArrayList<MatchingVO> mlist = new ArrayList<MatchingVO>();
     	con = tdb.getCon();
     	String msql = null;
-    	if(id.equals("T")) {
+    	if("T".equals(type)) {
     		msql = asql.getSQL(asql.SEL_TMATCHING);
-    	}else if(id.equals("M")){
+    	}else if("M".equals(type)){
     		msql = asql.getSQL(asql.SEL_MMATCHING);
     	}    	
     	try {
-    		if(id.equals("T")) {
+    		if("T".equals(type)) {
     			pstmt = tdb.getPSTMT(con, msql);
     			pstmt.setString(1,id);
     			rs=pstmt.executeQuery();
-    		}else if(id.equals("M")){
+    		}else if("M".equals(type)){
     			pstmt = tdb.getPSTMT(con, msql);
     			pstmt.setString(1,id);
     			rs= pstmt.executeQuery();    		
     		}
     		while(rs.next()) {
     			MatchingVO mavo= new MatchingVO();
-    			if(id.equals("T")) {
+    			if("T".equals(type)) {
     				mavo.setBody(rs.getString("body"));
     				mavo.setGoal(rs.getString("goal"));
     				mavo.setName(rs.getString("name"));
     				mavo.setAddr(rs.getString("addr2"));    				
     				mlist.add(mavo);
-    			}else if(id.equals("M")){
+    			}else if("M".equals(type)){
     				mavo.setCareer(rs.getString("career"));
     				mavo.setInfo(rs.getString("info"));
     				mavo.setName(rs.getString("name"));
@@ -123,8 +117,7 @@ public class MapDAO {
     	return mlist;
     }  
     	//PT 요청 DB에 담는 함수
-    	public ArrayList<PtnoVO> getPtno(int ptno, int mno, String id){
-    		ArrayList<PtnoVO> plist = new ArrayList<PtnoVO>();
+    	public int getPtno(int ptno, int mno, String id){
     		int pno = 0;
     		con = tdb.getCon();
     		String psql = asql.getSQL(asql.SEL_PTNO);
@@ -142,11 +135,10 @@ public class MapDAO {
     			tdb.close(con);
     		}
     		
-    		return plist;
+    		return pno;
     	}
     	// PT 요청 수락 거절 함수 
-    	public ArrayList<PtnoVO> getPtny(String id){
-    		ArrayList<PtnoVO> alist= new ArrayList<PtnoVO>(); 	
+    	public int getPtny(String id){
     		int pno = 0; 
     		con = tdb.getCon();
     	    String sql = null;   
@@ -163,7 +155,7 @@ public class MapDAO {
     				 tdb.close(con);
     			 }   		
     		
-    		return alist;
+    		return pno;
     	}
     	// 본인 PT요청 보기
     	public ArrayList<MatchingVO> getName(String id){
