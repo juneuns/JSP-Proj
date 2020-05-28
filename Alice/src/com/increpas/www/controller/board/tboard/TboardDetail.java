@@ -24,6 +24,7 @@ public class TboardDetail implements DoController {
 		String strbno = req.getParameter("bno");
 		String strPage = req.getParameter("nowPage");
 		String strePage = req.getParameter("rePage");
+		String sid = (String)req.getSession().getAttribute("SID");
 		
 		int bno = 0;
 		int nowPage = 1;
@@ -35,7 +36,7 @@ public class TboardDetail implements DoController {
 		} catch(Exception e) {}
 		TboardDAO tdao = new TboardDAO();
 		// 게시글 가져오기
-		TboardVO tvo = tdao.getBoard(bno);
+		TboardVO tvo = tdao.getBoard(bno, sid);
 		// 게시글 이미지가져오기
 		ArrayList<BoardImageVO> list = tdao.getImage(bno);
 		// 게시글의 댓글 가져오기
@@ -45,7 +46,6 @@ public class TboardDetail implements DoController {
 		ArrayList<BoardReplyVO> reply = tdao.getReply(bno, page);
 		// id를 통해 진입한 사람이 작성자와 동일한지 확인한다.
 		// id로 사용자번호를 조회해서 넣어준다.
-		String sid = (String)req.getSession().getAttribute("SID");
 		int uno = tdao.getBno();
 		
 		req.setAttribute("UNO", uno);

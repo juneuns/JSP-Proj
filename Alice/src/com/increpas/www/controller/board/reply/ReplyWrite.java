@@ -26,7 +26,6 @@ public class ReplyWrite implements DoController {
 		String id = (String)req.getSession().getAttribute("SID");
 		int bno = 0;
 		int runo = -1;
-		int empno = 7369;
 //		System.out.println("strbno : " + strbno);
 //		System.out.println("struno : " + struno);
 		try {
@@ -37,10 +36,12 @@ public class ReplyWrite implements DoController {
 		System.out.println("bno : " + bno + "runo : " + runo);
 		if(runo != -1) {
 			TboardDAO tdao = new TboardDAO();
-			tdao.insRly(empno, rupdate, bno, runo);
+			int r_uno = tdao.getUno(id);
+			tdao.insRly(r_uno, rupdate, bno, runo);
 		} else {
 			TboardDAO tdao = new TboardDAO();
-			tdao.insRly(empno, rcontent, bno, runo);			
+			int r_uno = tdao.getUno(id);
+			tdao.insRly(r_uno, rcontent, bno, runo);			
 		}
 		
 		String view = "/board/tboard/tboardRedirect.jsp";

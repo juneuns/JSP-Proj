@@ -80,7 +80,7 @@
 							${data.title}</div>
 						<div
 							class="w3-col m2 w3-padding w3-center w3-border-bottom w3-border-right">
-							${data.b_uno}</div>
+							${data.id}</div>
 						<div
 							class="w3-col m2 w3-padding w3-center w3-border-bottom w3-border-right">
 							${data.click}</div>

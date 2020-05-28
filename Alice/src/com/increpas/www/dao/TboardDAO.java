@@ -146,7 +146,7 @@ public class TboardDAO {
 		return bno;
 	}
 	// 클릭된 게시물의 정보를 가져오는 함수
-	public TboardVO getBoard(int bno) {
+	public TboardVO getBoard(int bno, String sid) {
 		TboardVO tvo = new TboardVO();
 		con = db.getCon();
 		String sql = tSQL.getSQL(tSQL.SEL_BRD);
@@ -156,6 +156,7 @@ public class TboardDAO {
 			rs = pstmt.executeQuery();
 			rs.next();
 			tvo.setBno(bno);
+			tvo.setId(sid);
 			tvo.setTitle(rs.getString("title"));
 			tvo.setB_uno(rs.getInt("b_uno"));
 			tvo.setBcontent(rs.getString("bcontent"));

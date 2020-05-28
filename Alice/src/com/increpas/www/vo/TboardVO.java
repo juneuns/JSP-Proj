@@ -13,11 +13,17 @@ import java.util.*;
 
 public class TboardVO {
 	private int bno, b_uno, click;
-	private String title, sdate, bcontent, ename;
+	private String title, sdate, bcontent, ename, id;
 	private Date hdate;
 	private Time htime;
 	private ArrayList<BoardImageVO> ivo;
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public ArrayList<BoardImageVO> getIvo() {
 		return ivo;
 	}
