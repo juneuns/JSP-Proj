@@ -1,0 +1,14 @@
+$(document).ready(function(){
+	$('#ntc').click(function(){
+		location.href="centerBoardNotice.do";
+	})
+	$('#song').click(function(){
+		location.href="centerBoardSong.do";
+	})
+	$('#cent').click(function(){
+		location.href="centerBoardMain.do";
+	})
+	$('#train').click(function(){
+		location.href="centerBoardTrainer.do";
+	})
+});
