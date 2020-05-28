@@ -64,7 +64,7 @@
 					<div
 						class="w3-col m6 w3-padding w3-center w3-border-bottom w3-border-right">${DATA.title}</div>
 					<div
-						class="w3-col m2 w3-padding w3-center w3-border-bottom w3-border-right">${DATA.b_empno}</div>
+						class="w3-col m2 w3-padding w3-center w3-border-bottom w3-border-right">${DATA.b_uno}</div>
 					<div
 						class="w3-col m2 w3-padding w3-center w3-border-bottom w3-border-right">${DATA.sdate}</div>
 					<div class="w3-col m2 w3-padding w3-center w3-border-bottom">${DATA.click}</div>
@@ -143,23 +143,23 @@
 								</div>
 								<div class="w3-col m1">
 									<div class="w3-border-top">
-										<small>${reply.r_empno}</small>
+										<small>${reply.r_uno}</small>
 									</div>
 								</div>
 								<div class="w3-col m9">
 									<p></p>
 								</div>
-								<%-- <c:if test="${not empty UNO}"> --%>
+								<c:if test="${not empty SID}">
 								<div
 									class="w3-col m1 w3-center w3-light-green w3-button writebtn"
 									style="padding: 0px;">작성</div>
-								<%-- </c:if> --%>
-								<%-- <c:if test="${reply.r_empno eq UNO}"> --%>
+								</c:if>
+								<c:if test="${reply.r_uno eq UNO}">
 								<div class="w3-col m1 w3-center w3-amber w3-button editbtn"
 									style="padding: 0px;">수정</div>
 								<div class="w3-col m1 w3-center w3-deep-orange w3-button delbtn"
 									style="padding: 0px;">삭제</div>
-								<%-- </c:if> --%>
+								</c:if>
 							</div>
 						</c:forEach>
 						<!-- 댓글 페이징처리 -->
