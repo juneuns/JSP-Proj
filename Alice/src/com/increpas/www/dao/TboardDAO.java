@@ -156,7 +156,7 @@ public class TboardDAO {
 			rs = pstmt.executeQuery();
 			rs.next();
 			tvo.setBno(bno);
-			tvo.setId(sid);
+			tvo.setId(rs.getString("id"));
 			tvo.setTitle(rs.getString("title"));
 			tvo.setB_uno(rs.getInt("b_uno"));
 			tvo.setBcontent(rs.getString("bcontent"));

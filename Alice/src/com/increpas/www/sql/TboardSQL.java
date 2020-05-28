@@ -37,11 +37,11 @@ public class TboardSQL {
 		switch(code) {
 		case SEL_ALL:
 			buff.append("SELECT     "); 
-			buff.append("	rno, bno, title, b_uno, bcontent, hiredate, click "); 
+			buff.append("	rno, bno, title, b_uno, id, bcontent, hiredate, click "); 
 			buff.append("FROM "); 
 			buff.append("	(     "); 
 			buff.append("    SELECT "); 
-			buff.append("		ROWNUM rno, bno, title, b_uno, bcontent, hiredate, click "); 
+			buff.append("		ROWNUM rno, bno, title, b_uno, id, bcontent, hiredate, click "); 
 			buff.append("	FROM "); 
 			buff.append("		( "); 
 			buff.append("		SELECT "); 
