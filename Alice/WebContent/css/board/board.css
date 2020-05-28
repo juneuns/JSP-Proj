@@ -1,0 +1,44 @@
+/* 
+	해당 css는 게시판에 필요한 스타일을 지정하는 css입니다.
+	@author		주재석
+	@since		2020.05.27
+ */
+.mxw980 {
+	max-width: 980px;
+}
+
+.mg250 {
+	margin-left: 250px;
+}
+
+.pd250 {
+	padding-left: 250px;
+}
+
+.pd {
+	padding: 0px;
+}
+
+.h90 {
+	height: 90px;
+}
+
+.mg100 {
+	margin-left: 100px;
+}
+
+.tdmgh {
+	margin: 0px;
+	height: 50px;
+}
+.pdt {
+	padding: 7px 16px 7px 16px;
+}
+
+.mg0 {
+	margin: 0px !important;
+}
+.dtline {
+	display: inline-block;
+	width: 20%;
+}
