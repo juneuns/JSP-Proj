@@ -1,25 +1,36 @@
 package com.increpas.www.controller.vote;
 
-import java.util.HashMap;
-import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest; 
 import javax.servlet.http.HttpServletResponse;
+import com.increpas.www.controller.DoController;
+import com.increpas.www.dao.VoteDao;
 
-public class VoteController {
-	String exec(HttpServletRequest req,HttpServletResponse resp) {
+public class VoteController implements DoController {
+	
+	@Override
+	public String exec(HttpServletRequest req,HttpServletResponse resp) {
+		String view = 
 		
-		Map ratingOptions = new HashMap();
-		ratingOptions.put(0, "�١١١١�");
-		ratingOptions.put(1, "�ڡ١١١�");
-		ratingOptions.put(2, "�ڡڡ١١�");
-		ratingOptions.put(3, "�ڡڡڡ١�");
-		ratingOptions.put(4, "�ڡڡڡڡ�");
-		ratingOptions.put(5, "�ڡڡڡڡ�");
-		Object model;
-		//((Object) model).addratingOptions("ratingOptions", ratingOptions);
+		String strvno = req.getParameter("vno");
+		String strPage = req.getParameter("nowPage");
+		int vno = 0;
+		int nowPage = 1;
 		
-		return null;
+		try {
+			vno = Integer.parseInt(strvno);
+			nowPage = Integer.parseInt(strPage);
+		} catch(Exception e) {}
+		
+		VoteDao vdao = new VoteDao();
+		int cnt = vdao.updClick(vno);
+		
+		if(cnt !=1) {
+			view = "/Alice/vote/VoteCheck.do";
+			req.setAttribute("isRedirect", true);
+			return view;
+		}
+		return view;
 	} 
 }
 

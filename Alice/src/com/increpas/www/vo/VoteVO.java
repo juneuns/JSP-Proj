@@ -2,7 +2,7 @@ package com.increpas.www.vo;
 
 public class VoteVO {
 	private String id,name;
-	private int count;
+	private int count,vno;
 	public String getId() {
 		return id;
 	}
@@ -13,7 +13,7 @@ public class VoteVO {
 		return name;
 	}
 	public void setName(String name) {
-		this.name = name; 
+		this.name = name;
 	}
 	public int getCount() {
 		return count;
@@ -21,5 +21,10 @@ public class VoteVO {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
+	public int getVno() {
+		return vno;
+	}
+	public void setVno(int vno) {
+		this.vno = vno;
+	}
 }
