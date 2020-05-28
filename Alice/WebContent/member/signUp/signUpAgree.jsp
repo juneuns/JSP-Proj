@@ -50,7 +50,7 @@
 			[ JoGym 홈페이지 회원가입 이용 약관 ]
 			</h5>
 			<pre class="content-agree">
-				아야야야야
+				<a></a>
 			</pre>
 			<div class="w3-right-align">
 				<label class="">

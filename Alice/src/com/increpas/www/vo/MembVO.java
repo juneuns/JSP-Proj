@@ -12,10 +12,16 @@ import java.util.ArrayList;
 
 public class MembVO {
 	private int uno,mno,infouno,fno,tno;
-	private String id,pw,mail,name,addr1,addr2,addr3,body,goal,ptime,ucode,tel,pagree,career,info,savename;
+	private String id,pw,mail,name,addr1,addr2,addr3,body,goal,ptime,ucode,tel,pagree,career,info,savename,fname;
 	private Time mtime;
 	private ArrayList<UImgFileVO> file ;
 	
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
 	public String getSavename() {
 		return savename;
 	}

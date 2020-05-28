@@ -56,7 +56,7 @@
 			<div class="">
 				<div class="w3-row w3-padding ">
 					<!-- 회원 프로필 사진 -->
-					<img class="w3-round-xlarge"src="${DATA.savename}" alt="회원 아아디" width="140" height="auto">
+					<img class="w3-col w3-round-xlarge  "src="/Alice/userimg/${DATA.savename}" alt="회원 아아디" height="auto">
 				</div>
 				<div class="w3-row w3-center">
 					<h6>${DATA.name}<small>님</small><br><small>${DATA.id}</small></h6>			
@@ -185,7 +185,7 @@
 			<!-- 버튼 영역 -->
 			<div class="w3-right-align">
 				<div class="w3-button w3-theme-l2" id="" >저장하기</div>
-				<div class="w3-button w3-red" id="" >탈퇴하기</div>
+				<div class="w3-button w3-red" id="getAway" >탈퇴하기</div>
 			</div>
 		</div>
 	</div>

@@ -79,14 +79,12 @@ public class SignUpMProc implements DoController{
 		MemberDao mDao = new MemberDao();
 		cnt = mDao.addMem(mVO);
 		if(cnt != 1 ) {
-			System.out.println("여기까는 온겁니까1");
 			view ="/Alice/member/signUp/signUpAgree.do";
 		}else {
 			cnt = mDao.addMemInfo(mVO);
 			if(cnt==1) {
 				view="/Alice/member/signUp/signUpResult.do";
 			} else {
-				System.out.println("여기까지온겁니까.2.");
 				view="/Alice/member/signUp/signUpAgree.do";
 			}
 		}

@@ -45,6 +45,7 @@ public class MemberSQL {
 	
 	public final int EDIT_USERS_PW = 2001;
 	public final int EDIT_FIT_PW = 2002;
+	public final int EDIT_SHOW_N = 2003;
 	
 	public final int ADD_MEM = 3001;
 	public final int ADD_MEMINFO = 3002;
@@ -169,6 +170,16 @@ public class MemberSQL {
 			buff.append("WHERE ");
 			buff.append("	id = ? ");
 			break;
+		case EDIT_SHOW_N :
+			buff.append("UPDATE ");
+			buff.append("	users ");
+			buff.append("SET ");
+			buff.append("	isshow = 'N' ");
+			buff.append("WHERE ");
+			buff.append("	uno = ( ");
+			buff.append("		SELECT uno FROM users WHERE id = ?  ");
+			buff.append("	)  ");
+			break;
 		case SEL_CK_USERS_PW :
 			buff.append("SELECT ");
 			buff.append("	count(*) cnt ");
@@ -223,6 +234,16 @@ public class MemberSQL {
 			buff.append("    and u.isshow = 'Y' "); 
 			buff.append("    and u.uno = im_uno (+) "); 
 			buff.append("    AND id = ? "); 
+			break;
+		case SEL_TRAINER_DETAIL :
+			buff.append("SELECT "); 
+			buff.append("    u.uno uno,id,name, mail,career,info,savename,fit fno,(SELECT fname FROM fit WHERE fno = 101 ) as fname "); 
+			buff.append("FROM "); 
+			buff.append("    users u, tinfo t,userImage ui "); 
+			buff.append("WHERE  "); 
+			buff.append("    u.uno = t.uno "); 
+			buff.append("    AND u.isshow='Y' ");
+			buff.append("    AND id = ? ");
 			break;
 		case ADD_MEM :
 			buff.append("INSERT INTO  "); 

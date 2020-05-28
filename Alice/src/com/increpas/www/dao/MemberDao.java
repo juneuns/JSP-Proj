@@ -562,8 +562,7 @@ public class MemberDao {
 			mVO.setBody(rs.getString("body"));
 			mVO.setPagree(rs.getString("pagree"));
 			mVO.setGoal(rs.getString("goal"));
-			mVO.setMtime(rs.getTime("mtime"));
-			mVO.setPtime();
+			mVO.setPtime(rs.getString("mtime"));
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -573,5 +572,55 @@ public class MemberDao {
 			db.close(con);
 		}
 		return mVO;
+	}
+	// 트레이너 정보를 제공하는 기능을 전담하는 함수 
+	public MembVO getTrainerInfo(String id) {
+		MembVO mVO = new MembVO();
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.SEL_TRAINER_DETAIL);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			rs.next();
+			mVO.setUno(rs.getInt("uno"));
+			mVO.setId(rs.getString("id"));
+			mVO.setName(rs.getString("name"));
+			mVO.setMail(rs.getString("mail"));
+			mVO.setCareer(rs.getString("career"));
+			mVO.setSavename(rs.getString("savename"));
+			mVO.setInfo(rs.getString("info"));
+			mVO.setFno(rs.getInt("fno"));
+			mVO.setFname(rs.getString("fname"));
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		return mVO;
+	}
+	// 회원 탈퇴 전담 처리 함수 
+	public int getAwayUser(String id) {
+		int cnt = 0 ; 
+		con = db.getCon();
+		
+		String sql = mSQL.getSQL(mSQL.EDIT_SHOW_N);
+		
+		pstmt = db.getPSTMT(con, sql);
+		
+		try {
+			pstmt.setString(1, id);
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt;	
 	}
 }

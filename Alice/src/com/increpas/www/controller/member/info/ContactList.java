@@ -23,7 +23,11 @@ public class ContactList implements DoController {
 		String id = (String)session.getAttribute("SID");
 		String type = (String)session.getAttribute("TYPE");
 		// 디비 작업 해서 리스트 업 주기 
-		
+		if("".equals(id) || id==null) {
+			req.setAttribute("isRedirect", true);
+			view = "/Alice/main/main.do";
+			return view;
+		}
 		if(type.equals("T")) {
 			// 일반회원의 정보를 리스트<vo> 반환 
 		}else {

@@ -10,17 +10,22 @@ $(document).ready(function(){
 		location.href='/Alice/member/info/contactList.do';
 	});
 	
-	// 주소 검색 팝업 창 요청
-	$('#addrbtn').click(function(){
-		window.open('/Alice/member/addrPop.do','addr','width=500,height=400,resizealbe=yes');
+	// 탈퇴하기 방법 
+	$('#getAway').click(function(){
+		var str = prompt('탈퇴를 원하시면 "탈퇴하겠습니다." 를 입력해주세요.');
+		
+		if(str == '탈퇴하겠습니다.'){
+			$(location).attr('href','/Alice/member/info/getAway.do');
+		}
+		
 	});
+	
 	// 시설 검색 팝업 창 요청
 	$('#fitinfo').click(function(){
 		window.open('/Alice/member/signUp/fitPop.jsp','fitPop','width=500,height=400,resizealbe=yes');
 	});
 	// 비밀번호 재설정의 비밀번호 확인 요청 
 	$('#ck').click(function(){
-		alert('제발');
 		var editck = $('#oldPw').val();
 		var type = $('#tF').is(':checked');
 		var f = null;
@@ -28,12 +33,12 @@ $(document).ready(function(){
 			f = $('#tF').val();
 			$('#f').val(f);
 		}
-		/*var pwReg = /(?=.*\d{1})(?=.*[~`!@#$%\^&*()-+=]{1})(?=.*[a-zA-Z]{2}).{8,15}$/;
-		if(! pwReg.test(pw)){
+		var pwReg = /(?=.*\d{1})(?=.*[~`!@#$%\^&*()-+=]{1})(?=.*[a-zA-Z]{2}).{8,15}$/;
+		if(! pwReg.test(editck)){
 			alert("비밀번호 형식을 확인해주세요.");
 			$('#oldPw').focus();
 			return;
-		}*/
+		}
 		
 		$.ajax({
 			url: '/Alice/ajax/pwCheck.do',
@@ -77,7 +82,6 @@ $(document).ready(function(){
 		}
 	});
 	
-
 	$('#pwEditSubmit').click(function(){
 		let tPw = $('#tPw').val();
 		if(!tPw || tPw.length==0){
@@ -89,12 +93,7 @@ $(document).ready(function(){
 		$('#pwEditFrm').submit();
 	})
 });
-// 주소 팝업창 데이터 가져오는 함수
-function josoCallBack(roadAddrPart1,zipno){
-	document.getElementById('roadAddrPart1').value=roadAddrPart1;
-	document.getElementById('zipno').value=zipno;
-	document.getElementById('addedAddr').removeAttribute('readonly');
-}
+
 // 시설 검색 팝업창 데이터 가져오는 함수 
 function fitInfo(fitnumber, fitname){
 	document.getElementById('fno').value = fitnumber;

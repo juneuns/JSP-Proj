@@ -26,7 +26,6 @@ public class FindPassUProc implements DoController {
 			view = "/Alice/member/findPW/findPass.do";
 			return view; 
 		} else if(cnt == 1) {
-			System.out.println(cnt);
 			cnt = mDao.editPW(name, id, mail, f);
 			if(cnt == 1 ) {
 				Mailing mailSend = new Mailing();

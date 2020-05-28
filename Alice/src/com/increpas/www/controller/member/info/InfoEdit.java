@@ -15,10 +15,21 @@ public class InfoEdit implements DoController {
 		String view = "/member/info/infoEdit.jsp";
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("SID");
+		String type = (String)session.getAttribute("TYPE");
+		MembVO mVO = null;
+		if("".equals(id) || id==null) {
+			req.setAttribute("isRedirect", true);
+			view = "/Alice/main/main.do";
+			return view;
+		}
 		MemberDao mDao = new MemberDao();
-		MembVO mVO = mDao.getMemInfo(id);
+		if(type.equals("T")) {
+			mVO = mDao.getTrainerInfo(id);
+		}else {
+			mVO = mDao.getMemInfo(id); 			
+		}
 		
-		req.setAttribute("DATA", mVO);
+		req.setAttribute("DATA", mVO); 
 		return view;
 	}
 

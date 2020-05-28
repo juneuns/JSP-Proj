@@ -10,6 +10,7 @@ public class FindIdForm implements DoController {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "/member/findId/findId.jsp";
+		
 		return view;
 	}
 }
