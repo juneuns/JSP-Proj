@@ -36,7 +36,7 @@ public class TboardDetail implements DoController {
 		} catch(Exception e) {}
 		TboardDAO tdao = new TboardDAO();
 		// 게시글 가져오기
-		TboardVO tvo = tdao.getBoard(bno, sid);
+		TboardVO tvo = tdao.getBoard(bno);
 		// 게시글 이미지가져오기
 		ArrayList<BoardImageVO> list = tdao.getImage(bno);
 		// 게시글의 댓글 가져오기

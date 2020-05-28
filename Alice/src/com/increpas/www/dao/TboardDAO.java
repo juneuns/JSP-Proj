@@ -42,6 +42,7 @@ public class TboardDAO {
 			while(rs.next()) {
 				TboardVO tVO = new TboardVO();
 				tVO.setBno(rs.getInt("bno"));
+				tVO.setId(rs.getString("id"));
 				tVO.setTitle(rs.getString("title"));
 				tVO.setB_uno(rs.getInt("b_uno"));
 				tVO.setHdate(rs.getDate("hiredate"));
@@ -146,7 +147,7 @@ public class TboardDAO {
 		return bno;
 	}
 	// 클릭된 게시물의 정보를 가져오는 함수
-	public TboardVO getBoard(int bno, String sid) {
+	public TboardVO getBoard(int bno) {
 		TboardVO tvo = new TboardVO();
 		con = db.getCon();
 		String sql = tSQL.getSQL(tSQL.SEL_BRD);

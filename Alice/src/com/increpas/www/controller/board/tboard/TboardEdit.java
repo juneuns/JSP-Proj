@@ -27,7 +27,7 @@ public class TboardEdit implements DoController {
 		} catch(Exception e) {}
 		System.out.println("Edit bno : " + bno);
 		TboardDAO tdao = new TboardDAO();
-		TboardVO tvo = tdao.getBoard(bno, sid);
+		TboardVO tvo = tdao.getBoard(bno);
 		
 		req.setAttribute("DATA", tvo);
 		req.setAttribute("BNO", bno);

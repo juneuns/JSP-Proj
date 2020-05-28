@@ -85,9 +85,9 @@ public class TboardSQL {
 			break;
 		case SEL_BRD:
 			buff.append("SELECT   "); 
-			buff.append("	bno, title, b_uno, bcontent, hiredate, click "); 
+			buff.append("	bno, title, b_uno, id, bcontent, hiredate, click "); 
 			buff.append("FROM   "); 
-			buff.append("	board "); 
+			buff.append("	board, users "); 
 			buff.append("WHERE "); 
 			buff.append("	isshow = 'Y' "); 
 			buff.append("	AND bno = ? ");
