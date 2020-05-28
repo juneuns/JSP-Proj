@@ -93,11 +93,13 @@
 			<!-- 댓글 보여주기 -->
 			<div class="w3-col w3-margin-top">
 				<div class="w3-container">
+					<c:if test="${not empty SID}">
 					<div
 						class="w3-col m2 w3-right w3-button w3-margin-bottom w3-border-bottom w3-border-right pd"
 						id="rebtn" style="padding: 0px;">
 						<small>댓글작성하기</small>
 					</div>
+					</c:if>
 					<div class="w3-col w3-margin-bottom">
 						<form class="w3-col" id="freply" method="post">
 							<input type="hidden" id="bno" name="bno" value="${param.bno}">

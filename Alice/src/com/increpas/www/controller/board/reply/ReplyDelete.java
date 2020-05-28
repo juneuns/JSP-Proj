@@ -30,7 +30,7 @@ public class ReplyDelete implements DoController {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("rno : " + rno + "bno : " + bno);
+//		System.out.println("rno : " + rno + "bno : " + bno);
 		
 		TboardDAO tdao = new TboardDAO();
 		int cnt = tdao.DelRpl(rno);

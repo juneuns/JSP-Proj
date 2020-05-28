@@ -29,7 +29,7 @@ public class ReplyEdit implements DoController {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("rno : " + rno);
+//		System.out.println("rno : " + rno);
 		
 		TboardDAO tdao = new TboardDAO();
 		BoardReplyVO rvo = tdao.getReply(rno);

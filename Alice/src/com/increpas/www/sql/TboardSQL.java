@@ -89,7 +89,8 @@ public class TboardSQL {
 			buff.append("FROM   "); 
 			buff.append("	board, users "); 
 			buff.append("WHERE "); 
-			buff.append("	isshow = 'Y' "); 
+			buff.append("	board.isshow = 'Y' "); 
+			buff.append("	AND board.b_uno = users.uno "); 
 			buff.append("	AND bno = ? ");
 			break;
 		case SEL_IMG:

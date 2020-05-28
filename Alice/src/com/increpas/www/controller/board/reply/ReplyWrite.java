@@ -33,7 +33,7 @@ public class ReplyWrite implements DoController {
 			runo = Integer.parseInt(struno);
 //			System.out.println("*****************************");
 		} catch(Exception e) {}
-		System.out.println("bno : " + bno + "runo : " + runo);
+//		System.out.println("bno : " + bno + "runo : " + runo);
 		if(runo != -1) {
 			TboardDAO tdao = new TboardDAO();
 			int r_uno = tdao.getUno(id);

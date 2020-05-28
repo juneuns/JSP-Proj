@@ -25,7 +25,7 @@ public class TboardEdit implements DoController {
 		try {
 			bno = Integer.parseInt(strbno);
 		} catch(Exception e) {}
-		System.out.println("Edit bno : " + bno);
+//		System.out.println("Edit bno : " + bno);
 		TboardDAO tdao = new TboardDAO();
 		TboardVO tvo = tdao.getBoard(bno);
 		

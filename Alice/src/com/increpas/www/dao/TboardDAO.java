@@ -97,9 +97,8 @@ public class TboardDAO {
 			rs = pstmt.executeQuery();
 			rs.next();
 			uno = rs.getInt("uno");
-		} catch(Exception e) {
-			e.printStackTrace();
-		} finally {
+		} catch(Exception e) {}
+		finally {
 			db.close(rs);
 			db.close(pstmt);
 			db.close(con);

@@ -19,18 +19,18 @@ public class ReplyEditProc implements DoController {
 		int bno = 0;
 		int rno = -1;
 		int empno = 7369;
-		System.out.println("strbno : " + strbno);
-		System.out.println("strno : " + strno);
+//		System.out.println("strbno : " + strbno);
+//		System.out.println("strno : " + strno);
 		try {
 			bno = Integer.parseInt(strbno);
 			rno = Integer.parseInt(strno);
 //			System.out.println("*****************************");
 		} catch(Exception e) {}
-		System.out.println("bno : " + bno + "runo : " + rno);
+//		System.out.println("bno : " + bno + "runo : " + rno);
 		
 		TboardDAO tdao = new TboardDAO();
 		int cnt = tdao.updRpl(rupdate, rno);
-		System.out.println("cnt : " + cnt);
+//		System.out.println("cnt : " + cnt);
 		if(cnt != 1) {
 			view = "/tboard/tboardList.do";
 			req.setAttribute("isRedirect", true);
