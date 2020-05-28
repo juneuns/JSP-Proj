@@ -46,7 +46,7 @@ public class TboardDetail implements DoController {
 		ArrayList<BoardReplyVO> reply = tdao.getReply(bno, page);
 		// id를 통해 진입한 사람이 작성자와 동일한지 확인한다.
 		// id로 사용자번호를 조회해서 넣어준다.
-		int uno = tdao.getBno();
+		int uno = tdao.getUno(sid);
 		
 		req.setAttribute("UNO", uno);
 		req.setAttribute("DATA", tvo);

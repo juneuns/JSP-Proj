@@ -45,7 +45,7 @@ public class TboardSQL {
 			buff.append("	FROM "); 
 			buff.append("		( "); 
 			buff.append("		SELECT "); 
-			buff.append("			bno, title, b_uno, bcontent, board.hiredate, click "); 
+			buff.append("			bno, title, b_uno, id, bcontent, board.hiredate, click "); 
 			buff.append("		FROM "); 
 			buff.append("            board, users "); 
 			buff.append("		WHERE "); 
