@@ -10,7 +10,7 @@ public class VoteController implements DoController {
 	
 	@Override
 	public String exec(HttpServletRequest req,HttpServletResponse resp) {
-		String view = 
+		String view = "";
 		
 		String strvno = req.getParameter("vno");
 		String strPage = req.getParameter("nowPage");
