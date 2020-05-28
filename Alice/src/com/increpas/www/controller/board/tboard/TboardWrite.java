@@ -11,8 +11,8 @@ public class TboardWrite implements DoController {
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "/board/tboard/tboardWrite.jsp";
 		
-		int empno = 7369;
-		req.setAttribute("SID", empno);
+		String sid = (String) req.getSession().getAttribute("SID");
+		req.setAttribute("SID", sid);
 		// String sid = (String)req.getSession().getAttribute("SID");
 		// req.setAttribute("SID", sid);
 		

@@ -29,14 +29,14 @@
 				<h2>Trainer board</h2>
 			</div>
 			<div class="w3-row">
-				<%--<c:if test="${DATA.b_empno eq UNO}">--%>
+				<c:if test="${UNO eq DATA.b_uno}">
 				<div class="w3-button w3-right w3-hover-green" id="ebtn">
 					<small>수정하기</small>
 				</div>
 				<div class="w3-button w3-right w3-hover-red" id="dbtn">
 					<small>삭제하기</small>
 				</div>
-				<%--</c:if> --%>
+				<</c:if>
 				<div class="w3-button w3-left w3-hover-green" id="libtn">
 					<small>목차보기</small>
 				</div>

@@ -12,7 +12,7 @@ import java.text.*;
 import java.util.*;
 
 public class TboardVO {
-	private int bno, b_empno, click;
+	private int bno, b_uno, click;
 	private String title, sdate, bcontent, ename;
 	private Date hdate;
 	private Time htime;
@@ -30,11 +30,11 @@ public class TboardVO {
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
-	public int getB_empno() {
-		return b_empno;
+	public int getB_uno() {
+		return b_uno;
 	}
-	public void setB_empno(int b_empno) {
-		this.b_empno = b_empno;
+	public void setB_uno(int b_uno) {
+		this.b_uno = b_uno;
 	}
 	public int getClick() {
 		return click;

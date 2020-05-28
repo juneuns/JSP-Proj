@@ -28,6 +28,7 @@ public class TboardWriteProc implements DoController {
 		String view = "/board/tboard/tboardRedirect.jsp";
 //		req.setAttribute("isRedirect", true);
 		
+		String sid = (String)req.getSession().getAttribute("SID");
 		String path = req.getSession().getServletContext().getRealPath("img");
 //		System.out.println("path : " + path);
 		
@@ -41,11 +42,11 @@ public class TboardWriteProc implements DoController {
 		
 		String title = multi.getParameter("title");
 		String tcont = multi.getParameter("tcont");
-		int empno = 7369;
 		// 게시글 추가
 		TboardDAO tdao = new TboardDAO();
-		int inb = tdao.insBrd(title, empno, tcont);
-		System.out.println("inb : " + inb);
+		int uno = tdao.getUno(sid);
+		int inb = tdao.insBrd(title, uno, tcont);
+//		System.out.println("inb : " + inb);
 		if(inb != 1) {
 			view = "/Alice/tboard/tboardList.do";
 			req.setAttribute("isRedirect", true);
@@ -66,9 +67,7 @@ public class TboardWriteProc implements DoController {
 		}
 		
 		// 모두 동일
-		// String sid = (String)req.getSession().getAttribute("SID");
-		// req.setAttribute("SID", sid);
-		req.setAttribute("SID", empno);
+		req.setAttribute("SID", sid);
 		req.setAttribute("BNO", bno);
 		req.setAttribute("PATH", path);
 		return view;

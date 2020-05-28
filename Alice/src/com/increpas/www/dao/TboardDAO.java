@@ -43,7 +43,7 @@ public class TboardDAO {
 				TboardVO tVO = new TboardVO();
 				tVO.setBno(rs.getInt("bno"));
 				tVO.setTitle(rs.getString("title"));
-				tVO.setB_empno(rs.getInt("b_empno"));
+				tVO.setB_uno(rs.getInt("b_uno"));
 				tVO.setHdate(rs.getDate("hiredate"));
 				tVO.setHtime(rs.getTime("hiredate"));
 				tVO.setSdate();
@@ -83,6 +83,27 @@ public class TboardDAO {
 			db.close(con);
 		}
 		return cnt;
+	}
+	
+	// id로 유저번호 가져오는 함수
+	public int getUno(String id) {
+		int uno = 0;
+		con =db.getCon();
+		String sql = tSQL.getSQL(tSQL.SEL_UNO);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			rs.next();
+			uno = rs.getInt("uno");
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		return uno;
 	}
 	// 게시글에 달린 댓글의 총 갯수를 가져오는 함수
 	public int getRcon(int bno) {
@@ -136,7 +157,7 @@ public class TboardDAO {
 			rs.next();
 			tvo.setBno(bno);
 			tvo.setTitle(rs.getString("title"));
-			tvo.setB_empno(rs.getInt("b_empno"));
+			tvo.setB_uno(rs.getInt("b_uno"));
 			tvo.setBcontent(rs.getString("bcontent"));
 			tvo.setHdate(rs.getDate("hiredate"));
 			tvo.setHtime(rs.getTime("hiredate"));
@@ -197,7 +218,7 @@ public class TboardDAO {
 			while(rs.next()) {
 				BoardReplyVO rvo = new BoardReplyVO();
 				rvo.setRno(rs.getInt("rno"));
-				rvo.setR_empno(rs.getInt("r_empno"));
+				rvo.setR_uno(rs.getInt("r_uno"));
 				rvo.setRcontent(rs.getString("rcontent"));
 				rvo.setRuno(rs.getInt("runo"));
 				rvo.setStep(rs.getInt("step"));
@@ -223,7 +244,7 @@ public class TboardDAO {
 			rs = pstmt.executeQuery();
 			rs.next();
 			rvo.setRno(rs.getInt("rno"));
-			rvo.setR_empno(rs.getInt("r_empno"));
+			rvo.setR_uno(rs.getInt("r_uno"));
 			rvo.setRcontent(rs.getString("rcontent"));
 			rvo.setRuno(rs.getInt("runo"));
 		} catch(Exception e) {
@@ -294,14 +315,14 @@ public class TboardDAO {
 	}
 	
 	// 게시글 디비에 추가하고 반환하는 함수
-	public int insBrd(String title, int b_empno, String bcontent) {
+	public int insBrd(String title, int b_uno, String bcontent) {
 		int cnt = 0;
 		con = db.getCon();
 		String sql = tSQL.getSQL(tSQL.ADD_BRD);
 		pstmt = db.getPSTMT(con, sql);
 		try {
 			pstmt.setString(1, title);
-			pstmt.setInt(2, b_empno);
+			pstmt.setInt(2, b_uno);
 			pstmt.setString(3, bcontent);
 			cnt = pstmt.executeUpdate();
 		} catch(Exception e) {
@@ -364,7 +385,7 @@ public class TboardDAO {
 	}
 	
 	// 클릭된 게시글에 댓글을 추가하는 함수
-	public int insRly(int empno, String rcontent, int bno, int runo) {
+	public int insRly(int uno, String rcontent, int bno, int runo) {
 		int cnt = 0;
 		con = db.getCon();
 		String sql;
@@ -376,7 +397,7 @@ public class TboardDAO {
 				sql = sql.replaceAll("@", " ");
 				sql = sql.replaceAll("#", " ");			
 				pstmt = db.getPSTMT(con, sql);
-				pstmt.setInt(1, empno);
+				pstmt.setInt(1, uno);
 				pstmt.setString(2, rcontent);
 				pstmt.setInt(3, bno);
 			} else {
@@ -384,17 +405,17 @@ public class TboardDAO {
 				sql = sql.replaceAll("@", ", runo");
 				sql = sql.replaceAll("#", ", ?");
 				pstmt = db.getPSTMT(con, sql);
-				pstmt.setInt(1, empno);
+				pstmt.setInt(1, uno);
 				pstmt.setString(2, rcontent);
 				pstmt.setInt(3, bno);
 				pstmt.setInt(4, runo);
 			}
 //			if(runo == -1) {
-//				pstmt.setInt(1, empno);
+//				pstmt.setInt(1, uno);
 //				pstmt.setString(2, rcontent);
 //				pstmt.setInt(3, bno);
 //			} else {
-//				pstmt.setInt(1, empno);
+//				pstmt.setInt(1, uno);
 //				pstmt.setString(2, rcontent);
 //				pstmt.setInt(3, bno);
 //				pstmt.setInt(4, runo);				

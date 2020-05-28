@@ -27,7 +27,7 @@ public class TboardEditProc implements DoController {
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "/board/tboard/tboardRedirect.jsp";
 //		req.setAttribute("isRedirect", true);
-		
+		String sid = (String) req.getAttribute("SID");
 		String path = req.getSession().getServletContext().getRealPath("img");
 //		System.out.println("path : " + path);
 		
@@ -47,9 +47,9 @@ public class TboardEditProc implements DoController {
 		try {
 			bno = Integer.parseInt(strbno);
 		} catch(Exception e) {}
-		int empno = 7369;
 		// 게시글 추가
 		TboardDAO tdao = new TboardDAO();
+//		int uno = tdao.getUno(sid);
 		int inb = tdao.updBrd(title, tcontent, bno);
 //		System.out.println("inb : " + inb);
 		if(inb != 1) {
@@ -72,7 +72,7 @@ public class TboardEditProc implements DoController {
 		// 모두 동일
 		// String sid = (String)req.getSession().getAttribute("SID");
 		// req.setAttribute("SID", sid);
-		req.setAttribute("SID", empno);
+		req.setAttribute("SID", sid);
 		req.setAttribute("BNO", bno);
 		req.setAttribute("PATH", path);
 		return view;

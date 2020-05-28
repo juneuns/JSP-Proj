@@ -19,7 +19,8 @@ public class TboardEdit implements DoController {
 		String view = "/board/tboard/tboardWrite.jsp";
 		
 		String strbno = req.getParameter("bno");
-		int empno = 7369;
+		String sid = (String) req.getSession().getAttribute("SID");
+		
 		int bno = 0;
 		try {
 			bno = Integer.parseInt(strbno);
@@ -29,8 +30,8 @@ public class TboardEdit implements DoController {
 		TboardVO tvo = tdao.getBoard(bno);
 		
 		req.setAttribute("DATA", tvo);
-		req.setAttribute("SID", empno);
 		req.setAttribute("BNO", bno);
+		req.setAttribute("SID", sid);
 
 		return view;
 	}

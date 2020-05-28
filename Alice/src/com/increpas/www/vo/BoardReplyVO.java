@@ -10,7 +10,7 @@ import java.sql.*;
 import java.text.*;
 
 public class BoardReplyVO {
-	private int rno, r_bno, r_empno, runo, step;
+	private int rno, r_bno, r_uno, runo, step;
 	private String rcontent, sdate;
 	private Date rdate;
 	private Time rtime;
@@ -27,11 +27,11 @@ public class BoardReplyVO {
 	public void setR_bno(int r_bno) {
 		this.r_bno = r_bno;
 	}
-	public int getR_empno() {
-		return r_empno;
+	public int getR_uno() {
+		return r_uno;
 	}
-	public void setR_empno(int r_empno) {
-		this.r_empno = r_empno;
+	public void setR_uno(int r_uno) {
+		this.r_uno = r_uno;
 	}
 	public int getRuno() {
 		return runo;

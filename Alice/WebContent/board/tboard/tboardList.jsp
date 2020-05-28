@@ -47,11 +47,11 @@
 				<div class="w3-button w3-left w3-hover-blue" id="home">
 					<small>홈으로</small>
 				</div>
-				<%-- <c:if test="${Type == "M"}"> --%>
+				<c:if test="${not empty SID || TYPE eq 'T'}">
 					<div class="w3-button w3-right w3-hover-green" id="write">
 						<small>작성하기</small>
 					</div>
-				<%-- </c:if> --%>
+				</c:if>
 			</div>
 		</div>
 		<div class="w3-row w3-margin-top w3-grayscale">

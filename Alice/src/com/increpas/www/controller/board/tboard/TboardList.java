@@ -20,7 +20,8 @@ public class TboardList implements DoController {
 		String view = "/board/tboard/tboardList.jsp";
 		
 		int nowPage = 1;
-		String sid = (String)req.getSession().getAttribute("SID"); 
+		String sid = (String)req.getSession().getAttribute("SID");
+		String type = (String)req.getSession().getAttribute("TYPE");
 		String strPage = req.getParameter("nowPage");
 		try {
 			nowPage = Integer.parseInt(strPage);
@@ -33,8 +34,8 @@ public class TboardList implements DoController {
 		ArrayList list = tdao.getALL(page);
 		
 		// 아이디를 통해 , 그 사용자의 type을 조회하여 요청에 심는다.
-		// String type = tdao.getType(id);
-		// req.setAttribute("TYPE", type)
+		req.setAttribute("SID", sid);
+		req.setAttribute("TYPE", type);
 		req.setAttribute("LIST", list);
 		req.setAttribute("PAGE", page);
 		return view;
