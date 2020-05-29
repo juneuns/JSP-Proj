@@ -115,8 +115,9 @@ $(document).ready(function(){
 	});
 	
 	$('.pbtn').click(function(){
-		var str = $(this).text();
-		$('#rePage').val(str);
+		var pag = $(this).text();
+		alert(pag);
+		$('#rePage').val(pag);
 		$('#freply').attr('action', '/Alice/tboard/tboardDetail.do');
 		$('#freply').submit();
 	});

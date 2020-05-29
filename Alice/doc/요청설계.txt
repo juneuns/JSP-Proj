@@ -1,5 +1,38 @@
 ---------------------------------------------------------------
-# 게시판 요청 처리
+
+안홍주
+---------------------------------------------------------------
+1. 메인 보기 요청
+   요청내용 : /main/main.do
+   파라미터 : 무
+   컨트롤러 : com.increpas.www.controller.Main
+   뷰   : /main/main.jsp
+---------------------------------------------------------------
+2. 투표 신청 요청처리 
+   요청내용 : /vote/vote.do
+   파라미터 : 무
+   컨트롤러 : com.increpas.www.controller.vote.VoteCheck
+   뷰   : /vote/vote.jsp
+---------------------------------------------------------------
+---------------------------------------------------------------
+
+정우승
+---------------------------------------------------------------
+1. 검색 리스트처리 요청
+요청내용 : /map/search.do
+파라미터 : keyword
+컨트롤러 : com.increpas.www.controller.map.Search
+뷰       : /map/search.jsp
+-----------------------------------------------------------
+2. 검색 리스트처리 요청
+요청내용 : /map/profile.do
+파라미터 : keyword
+컨트롤러 : com.increpas.www.controller.map.Profile
+뷰       : /map/profile.jsp
+---------------------------------------------------------------
+
+주재석
+---------------------------------------------------------------
 1. 게시판 목차보기 요청
 	요청내용 : /tboard/tboardList.do
 	파라미터 : 무
@@ -20,51 +53,65 @@
 	컨트롤러 : com.increpas.www.controller.board.tboard.TboardWriteProc
 	뷰	   : redirect(/Alice/tboard/tboardDetail.do)
 ---------------------------------------------------------------
-4. 게시판 수정 요청
+4. 게시판 수정 뷰 요청
 	요청내용 : /tboard/tboardEdit.do
-	파라미터 : bno, title, tcont
+	파라미터 : bno, nowPage
 	세	션 : id
 	컨트롤러 : com.increpas.www.controller.board.tboard.TboardEdit
 	뷰	   : redirect(/Alice/tboard/tboardDetail.do)
 ---------------------------------------------------------------
-5. 게시판 삭제 요청
+5. 게시판 수정 처리 요청
+	요청내용 : /tboard/tboardEditProc.do
+	파라미터 : bno, title, tcont, nowPage
+	세	션 : id
+	컨트롤러 : com.increpas.www.controller.board.tboard.TboardEdit
+	뷰	   : redirect(/Alice/tboard/tboardDetail.do)
+---------------------------------------------------------------
+6. 게시판 삭제 요청
 	요청내용 : /tboard/tboardDelete.do
 	파라미터 : bno
 	세	션 : id
-	컨트롤러 : com.increpas.www.controller.board.tboard.TboardDelete
+	컨트롤러 : com.increpas.www.controller.board.tboard.TboardDelet
 	뷰	   : redirect(/Alice/tboard/tboardDetail.do)
 ---------------------------------------------------------------
-6. 게시판 상세 보기 요청
+7. 게시판 상세 보기 뷰 요청
 	요청내용 : /tboard/tboardDetail.do
-	파라미터 : bno
+	파라미터 : bno, nowPage, rePage
 	세	션 : id
 	컨트롤러 : com.increpas.www.controller.board.tboard.TboardDetail
 	뷰	   : /board/tboard/tboardDetail.jsp
 ---------------------------------------------------------------
-7. 게시판 조회 요청
+8. 게시판 조회 요청
 	요청내용 : /tboard/tboardUpdClick.do
-	파라미터 : bno, title, tcont
+	파라미터 : bno, nowPage
 	세	션 : id
 	컨트롤러 : com.increpas.www.controller.board.tboard.TboardUpdClik
 	뷰	   : redirect(/Alice/tboard/tboardDetail.do)
 ---------------------------------------------------------------
-8. 게시글 댓글 작성 요청
+9. 게시글 댓글 작성 요청
 	요청내용 : /tboard/replyWrite.do
-	파라미터 : bno, runo
+	파라미터 : 무
 	세	션 : id
 	컨트롤러 : com.increpas.www.controller.board.reply.replyWrite
 	뷰	   : redirect(/Alice/tboard/tboardDetail.do)
 ---------------------------------------------------------------
-8. 게시글 댓글 수정 요청
+10. 게시글 댓글 수정 뷰 요청
 	요청내용 : /tboard/replyEdit.do
-	파라미터 : bno, runo, rcontent
+	파라미터 : bno
 	세	션 : id
 	컨트롤러 : com.increpas.www.controller.board.reply.replyEdit
 	뷰	   : redirect(/Alice/tboard/tboardDetail.do)
 ---------------------------------------------------------------
-9. 게시글 댓글 삭제 요청
+11. 게시글 댓글 수정 요청
+	요청내용 : /tboard/replyEditProc.do
+	파라미터 : bno, title, rcontent
+	세	션 : id
+	컨트롤러 : com.increpas.www.controller.board.reply.replyEditProc
+	뷰	   : redirect(/Alice/tboard/tboardDetail.do)
+---------------------------------------------------------------
+12. 게시글 댓글 삭제 요청
 	요청내용 : /tboard/replyDelete.do
-	파라미터 : bno, rno
+	파라미터 : bno
 	세	션 : id
 	컨트롤러 : com.increpas.www.controller.board.reply.replyDelete
 	뷰	   : redirect(/Alice/tboard/tboardDetail.do)

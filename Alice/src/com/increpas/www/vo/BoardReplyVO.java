@@ -11,10 +11,16 @@ import java.text.*;
 
 public class BoardReplyVO {
 	private int rno, r_bno, r_uno, runo, step;
-	private String rcontent, sdate;
+	private String rcontent, sdate, id;
 	private Date rdate;
 	private Time rtime;
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getRno() {
 		return rno;
 	}

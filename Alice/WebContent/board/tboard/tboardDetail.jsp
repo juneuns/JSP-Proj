@@ -36,7 +36,7 @@
 				<div class="w3-button w3-right w3-hover-red" id="dbtn">
 					<small>삭제하기</small>
 				</div>
-				<</c:if>
+				</c:if>
 				<div class="w3-button w3-left w3-hover-green" id="libtn">
 					<small>목차보기</small>
 				</div>
@@ -64,7 +64,7 @@
 					<div
 						class="w3-col m6 w3-padding w3-center w3-border-bottom w3-border-right">${DATA.title}</div>
 					<div
-						class="w3-col m2 w3-padding w3-center w3-border-bottom w3-border-right">${DATA.b_uno}</div>
+						class="w3-col m2 w3-padding w3-center w3-border-bottom w3-border-right">${DATA.id}</div>
 					<div
 						class="w3-col m2 w3-padding w3-center w3-border-bottom w3-border-right">${DATA.sdate}</div>
 					<div class="w3-col m2 w3-padding w3-center w3-border-bottom">${DATA.click}</div>
@@ -145,7 +145,7 @@
 								</div>
 								<div class="w3-col m1">
 									<div class="w3-border-top">
-										<small>${reply.r_uno}</small>
+										<small>${reply.id}</small>
 									</div>
 								</div>
 								<div class="w3-col m9">

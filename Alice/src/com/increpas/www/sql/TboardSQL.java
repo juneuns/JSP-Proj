@@ -103,18 +103,19 @@ public class TboardSQL {
 			break;
 		case SEL_RPL:
 			buff.append("SELECT    "); 
-			buff.append("    rnum, rno, r_uno, rcontent, runo, rdate, step    "); 
+			buff.append("    rnum, rno, r_uno, id, rcontent, runo, rdate, step    "); 
 			buff.append("FROM    "); 
 			buff.append("	(SELECT    "); 
 			buff.append("    	ROWNUM rnum, R.* "); 
 			buff.append("	FROM    "); 
 			buff.append("		(SELECT    "); 
-			buff.append("        	rno, r_uno, rcontent, r_bno, rdate, runo, (LEVEL - 1) step "); 
+			buff.append("        	rno, r_uno, rcontent, id, r_bno, rdate, runo, (LEVEL - 1) step "); 
 			buff.append("		FROM  "); 
-			buff.append("        	reply r, board b "); 
+			buff.append("        	reply r, board b, users u "); 
 			buff.append("		WHERE    "); 
 			buff.append("			r.isShow = 'Y' "); 
-			buff.append("			AND r_bno = bno "); 
+			buff.append("			AND r_bno = bno ");
+			buff.append("			AND r_uno = u.uno ");
 			buff.append("			AND bno = ? "); 
 			buff.append("		START WITH    "); 
 			buff.append("			runo IS NULL "); 

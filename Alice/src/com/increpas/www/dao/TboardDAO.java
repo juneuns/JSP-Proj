@@ -218,6 +218,7 @@ public class TboardDAO {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardReplyVO rvo = new BoardReplyVO();
+				rvo.setId(rs.getString("id"));
 				rvo.setRno(rs.getInt("rno"));
 				rvo.setR_uno(rs.getInt("r_uno"));
 				rvo.setRcontent(rs.getString("rcontent"));
