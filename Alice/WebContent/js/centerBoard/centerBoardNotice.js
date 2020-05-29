@@ -1,14 +1,24 @@
 $(document).ready(function(){
 	$('.ebody').hide();
 	$('.esbtn').hide();
-	$('.d3').slideUp(1);
+	$('.ebtn').hide();
+	$('.dbtn').hide();
+	$('.d3').hide();
+	$('.d4').hide();
+	$('.rbox').hide();
+	if($('#fno').val()==$('#sfno').val()){
+		$('.d4').show();
+		$('.ebtn').show();
+		$('.dbtn').show();
+	}
 	$('.d2').click(function(){
-		$(".d4").fadeOut(1);
-		$(".d3").slideDown(450);
+		$('.d4').fadeOut(1);
+		$('.d3').slideUp(1);
+		$('.d3').slideDown(450);
 	});
 	$('.cbtn').click(function(){
-		$(".d3").fadeOut(1);
-		$(".d4").fadeIn(1);
+		$('.d3').fadeOut(1);
+		$('.d4').fadeIn(1);
 	});
 	$('.rwbox').hide();
 	$('.rbtn').click(function(){
@@ -24,16 +34,20 @@ $(document).ready(function(){
 		$(this).parent('.rwbox').siblings('.rbtn').show();
 	});
 	$('#ntc').click(function(){
-		location.href="centerBoardNotice.do";
-	});
+		$('.fnofrm').attr('action','centerBoardNotice.do');
+		$('.fnofrm').submit();
+	})
 	$('#song').click(function(){
-		location.href="centerBoardSong.do";
-	});
+		$('.fnofrm').attr('action','centerBoardSong.do');
+		$('.fnofrm').submit();
+	})
 	$('#cent').click(function(){
-		location.href="centerBoardMain.do";
-	});
+		$('.fnofrm').attr('action','centerBoardMain.do');
+		$('.fnofrm').submit();
+	})
 	$('#train').click(function(){
-		location.href="centerBoardTrainer.do";
+		$('.fnofrm').attr('action','centerBoardTrainer.do');
+		$('.fnofrm').submit();
 	})
 	$('.wbtn').click(function(){
 		var str = $('.body').val();

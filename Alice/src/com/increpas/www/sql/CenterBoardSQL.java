@@ -6,6 +6,9 @@ public class CenterBoardSQL {
 	public final int SEL_FINFO = 1003;
 	public final int SEL_TINFO = 1004;
 	public final int SEL_IMG = 1005;
+	public final int SEL_SFFNO = 1006;
+	public final int SEL_SUFNO = 1007;
+	public final int SEL_CBLIST = 1008;
 	
 	
 	public final int ADD_NOTICE = 2001;
@@ -65,6 +68,28 @@ public class CenterBoardSQL {
 			buff.append("	cimage ");
 			buff.append("WHERE ");
 			buff.append("	fno = ? and divno = ?"); 
+			break;
+		case SEL_SFFNO:
+			buff.append("SELECT "); 
+			buff.append("	fno	 "); 
+			buff.append("FROM ");
+			buff.append("	fit	 ");
+			buff.append("WHERE ");
+			buff.append("	id = ? 	"); 
+			break;
+		case SEL_SUFNO:
+			buff.append("SELECT "); 
+			buff.append("	fno	 "); 
+			buff.append("FROM ");
+			buff.append("	users	 ");
+			buff.append("WHERE ");
+			buff.append("	id = ? 	"); 
+			break;
+		case SEL_CBLIST:
+			buff.append("SELECT "); 
+			buff.append("	fno,fname	 "); 
+			buff.append("FROM ");
+			buff.append("	fit	 decs");
 			break;
 		case ADD_NOTICE:
 			buff.append("INSERT INTO ");

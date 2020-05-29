@@ -12,7 +12,7 @@ public class CenterBoardMain implements DoController {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "/centerBoard/centerBoardMain.jsp";
-		int fno = 1002;
+		int fno = Integer.parseInt(req.getParameter("fno"));
 		req.setAttribute("fno", fno);
 		int divno = 1;
 		CenterBoardDAO cdao1 = new CenterBoardDAO();

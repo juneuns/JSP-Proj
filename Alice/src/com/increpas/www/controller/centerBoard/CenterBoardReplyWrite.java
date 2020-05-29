@@ -11,7 +11,7 @@ public class CenterBoardReplyWrite implements DoController {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "/gogym/centerBoardNotice.do";
+		String view = "/Alice/centerBoardNotice.do";
 		req.setAttribute("isRedirect",true);
 		
 		CenterBoardVO cvo = new CenterBoardVO();

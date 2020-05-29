@@ -159,6 +159,52 @@ public class CenterBoardDAO {
 		}
 		return cvo;
 	}
+	public int getSFno(String sid){
+		CenterBoardVO cvo = new CenterBoardVO();
+		int fno = 0;
+		Integer ifno = null;
+		con = db.getCon();
+		String sql = cSQL.getSQL(cSQL.SEL_SUFNO);
+		pstmt = db.getPSTMT(con, sql);
+		try{
+			pstmt.setString(1, sid);
+			rs = pstmt.executeQuery();
+			ifno = rs.getInt("ffno");
+			if(ifno==null){
+				ifno = rs.getInt("ufno");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		fno = ifno;
+		return fno;
+	}
+	public ArrayList<CenterBoardVO> getBList(){
+		ArrayList<CenterBoardVO> list = new ArrayList<CenterBoardVO>();
+		con = db.getCon();
+		String sql = cSQL.getSQL(cSQL.SEL_CBLIST);
+		stmt = db.getSTMT(con);
+		try{
+			rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				CenterBoardVO cvo = new CenterBoardVO();
+				cvo.setFno(rs.getInt("fno"));
+				cvo.setFname(rs.getString("fname"));
+				list.add(cvo);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			db.close(rs);
+			db.close(stmt);
+			db.close(con);
+		}
+		return list;
+	}
 	public int addNotice(int fno, String body) {
 		int cnt = 0 ;
 		con = db.getCon();

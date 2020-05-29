@@ -24,16 +24,20 @@ $(document).ready(function(){
 		$(this).parent('.rbox').siblings('.rbtn').show();
 	});
 	$('#ntc').click(function(){
-		location.href="centerBoardNotice.do";
-	});
+		$('.fnofrm').attr('action','centerBoardNotice.do');
+		$('.fnofrm').submit();
+	})
 	$('#song').click(function(){
-		location.href="centerBoardSong.do";
-	});
+		$('.fnofrm').attr('action','centerBoardSong.do');
+		$('.fnofrm').submit();
+	})
 	$('#cent').click(function(){
-		location.href="centerBoardMain.do";
-	});
+		$('.fnofrm').attr('action','centerBoardMain.do');
+		$('.fnofrm').submit();
+	})
 	$('#train').click(function(){
-		location.href="centerBoardTrainer.do";
+		$('.fnofrm').attr('action','centerBoardTrainer.do');
+		$('.fnofrm').submit();
 	})
 	$('.wbtn').click(function(){
 		var str = $('.body').val();

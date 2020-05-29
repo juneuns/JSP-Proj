@@ -9,7 +9,7 @@ public class CenterBoardMainEdit implements DoController {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "/gogym/centerBoardMain.do";
+		String view = "/Alice/centerBoardMain.do";
 		int fno = 1002;
 		
 		return view;

@@ -9,21 +9,15 @@ import com.increpas.www.controller.DoController;
 import com.increpas.www.dao.CenterBoardDAO;
 import com.increpas.www.vo.CenterBoardVO;
 
-public class CenterBoardSong implements DoController {
+public class CenterBoardList implements DoController {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "/centerBoard/centerBoardSong.jsp";
-		int fno = Integer.parseInt(req.getParameter("fno"));
-		req.setAttribute("fno", fno);
-		CenterBoardDAO cDAO = new CenterBoardDAO();
-		ArrayList<CenterBoardVO> list = cDAO.getSList(fno);
-		CenterBoardVO cvo = cDAO.getFInfo(fno);
-		
-		req.setAttribute("cvo",cvo);
+		String view = "/centerBoard/centerBoardList.jsp";
+		ArrayList<CenterBoardVO> list = new ArrayList<CenterBoardVO>();
+		CenterBoardDAO cdao = new CenterBoardDAO();
+		list = cdao.getBList();
 		req.setAttribute("LIST", list);
-
 		return view;
 	}
-
 }

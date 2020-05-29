@@ -14,7 +14,8 @@ public class CenterBoardTrainer implements DoController {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "/centerBoard/centerBoardTrainer.jsp";
-		int fno = 1002;
+		int fno = Integer.parseInt(req.getParameter("fno"));
+		req.setAttribute("fno", fno);
 		CenterBoardDAO cdao = new CenterBoardDAO();
 		ArrayList<CenterBoardVO> list = new ArrayList<CenterBoardVO>();
 		list = cdao.getTLIST(fno);

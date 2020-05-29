@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/gogym/css/w3.css">
-<script type="text/javascript" src="/gogym/js/jquery-3.5.0.min.js"></script>
-<script type="text/javascript" src="/gogym/js/centerBoardSong.js?v=<%=System.currentTimeMillis() %>"></script>
+<link rel="stylesheet" href="/Alice/css/w3.css">
+<script type="text/javascript" src="/Alice/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="/Alice/js/centerBoard/centerBoardSong.js?v=<%=System.currentTimeMillis() %>"></script>
 <title>Insert title here</title>
 <style>
 	.fnt1{
@@ -82,13 +82,16 @@
 			<div id="train"class="w3-button d-menu">
 				트레이너 소개
 			</div>
+			<form style="display:none" method="post" class="fnofrm">
+				<input type="hidden" name="fno" value="${fno}">
+			</form>
 		</div>
 		<div style="width:948px;display: inline-block; ">
 			<div style="width: 948px;background-color: #f1f1f1; display: inline-block;  margin-top:50px;">
 				<div class="d4"style="width:928px; margin: 10px; background-color:white;display:inline-block">
 					<div style="width:350px; height:60px; display:inline-block">
 						<div style="width:60px; height:60px; display:inline-block; object:fill; border-radius:100%; float:left">
-							<img style=" margin:10px;width:40px;height:40px;object:fill;border-radius:100%"src="/gogym/img/ronnie_coleman2.jpg"/>
+							<img style=" margin:10px;width:40px;height:40px;object:fill;border-radius:100%"src="/Alice/img/ronnie_coleman2.jpg"/>
 						</div>
 						<div class="d2 w3-button" style=" display:inline-block; padding-left:0px;margin-top:15px;float:left; line-height:100%">
 							<h style="font-size:12pt;font-weight:bold;color:gray">지금 당신이 땡기는 곡은?!?!!!!</h>							
@@ -98,13 +101,13 @@
 				<div class="d3"style="width:928px; margin: 10px; background-color:white;display:inline-block">
 					<div style="width:240px; height:60px; display:inline-block">
 						<div style="width:60px; height:60px; display:inline-block; object:fill; border-radius:100%; float:left">
-							<img style=" margin:10px;width:40px;height:40px;object:fill;border-radius:100%"src="/gogym/img/ronnie_coleman2.jpg"/>
+							<img style=" margin:10px;width:40px;height:40px;object:fill;border-radius:100%"src="/Alice/img/ronnie_coleman2.jpg"/>
 						</div>
 						<div style=" display:inline-block;margin-top:20px; float:left; line-height:100%">
 							<h style="font-size:12pt;font-weight:bold;">골든짐 로니관장</h>							
 						</div>
 					</div>
-					<form method="post" class="frm" action="/gogym/centerBoardSongWrite.do">
+					<form method="post" class="frm" action="/Alice/centerBoardSongWrite.do">
 						<input type="hidden" id="" name="fno"value="${cvo.fno}">
 						<textarea class="ntxt" id="" name="body"></textarea>
 					</form>
@@ -116,7 +119,7 @@
 				<div class="notice" style="width:928px; margin: 10px; background-color:white;display:inline-block">
 						<div style="width:240px; height:60px; display:inline-block">
 							<div style="width:60px; height:60px; display:inline-block; object:fill; border-radius:100%; float:left">
-								<img style=" margin:10px;width:40px;height:40px;object:fill;border-radius:100%"src="/gogym/img/ronnie_coleman2.jpg"/>
+								<img style=" margin:10px;width:40px;height:40px;object:fill;border-radius:100%"src="/Alice/img/ronnie_coleman2.jpg"/>
 							</div>
 							<div style=" display:inline-block;margin-top:15px; float:left; line-height:100%">
 								<h style="font-size:12pt;font-weight:bold;">${vo.fname} ${vo.foname}관장님
@@ -129,7 +132,7 @@
 						<div id=""class="rbtn w3-button w3-left btn" style="margin-left:10px;margin-bottom:10px;font-size:9pt;font-weight:bold;display:inline-block">댓글 달기</div>
 						<!-- delete form 시작 -->
 						<div id="dbtn"class="w3-button w3-right btn dbtn" style="margin-right:10px;margin-bottom:10px;font-size:9pt;font-weight:bold;display:inline-block">삭제
-							<form method="post" id="" class="del" action="/gogym/centerBoardSongDelete.do">
+							<form method="post" id="" class="del" action="/Alice/centerBoardSongDelete.do">
 								<input type="hidden" class="bno" name="bno"value="${vo.bno}">
 							</form>
 						</div>
@@ -138,7 +141,7 @@
 						<div id=""class="ebtn w3-button w3-right btn" style="margin-right:10px;margin-bottom:10px;font-size:9pt;font-weight:bold;display:inline-block">수정</div>
 
 						<!-- edit div 시작 -->
-						<form method="post" id="" class="edtfrm ebody" action="/gogym/centerBoardSongEdit.do">
+						<form method="post" id="" class="edtfrm ebody" action="/Alice/centerBoardSongEdit.do">
 							<input type="hidden" id="" name="bno"value="${vo.bno}">
 							<textarea class="ntxt"  name="ebody">${vo.body}</textarea>						
 						</form>
@@ -147,7 +150,7 @@
 						<div class="rbox"style="border-top: 1px dashed lightgray;width:898px; margin: 10px; background-color:white;display:inline-block">
 							<div style="width:240px; height:60px; display:inline-block">
 								<div style="width:60px; height:60px; display:inline-block; object:fill; border-radius:100%; float:left">
-									<img style=" margin:10px;width:40px;height:40px;object:fill;border-radius:100%"src="/gogym/img/ronnie_coleman2.jpg"/>
+									<img style=" margin:10px;width:40px;height:40px;object:fill;border-radius:100%"src="/Alice/img/ronnie_coleman2.jpg"/>
 								</div>
 								<div style=" display:inline-block;margin-top:20px; float:left; line-height:100%">
 									<h style="font-size:12pt;font-weight:bold;">${vo.fname} ${vo.foname}</h>							

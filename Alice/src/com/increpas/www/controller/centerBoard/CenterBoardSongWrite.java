@@ -10,7 +10,7 @@ public class CenterBoardSongWrite implements DoController {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "/gogym/centerBoardSong.do";
+		String view = "/Alice/centerBoardSong.do";
 		req.setAttribute("isRedirect",true);
 		String body = req.getParameter("body");
 		int fno = Integer.parseInt(req.getParameter("fno"));

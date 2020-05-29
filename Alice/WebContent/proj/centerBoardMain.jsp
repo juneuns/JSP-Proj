@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/gogym/css/w3.css">
-<script type="text/javascript" src="/gogym/js/jquery-3.5.0.min.js"></script>
-<script type="text/javascript" src="/gogym/js/centerBoardMain.js?v=<%=System.currentTimeMillis() %>"></script>
+<link rel="stylesheet" href="/Alice/css/w3.css">
+<script type="text/javascript" src="/Alice/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="/Alice/js/centerBoard/centerBoardMain.js?v=<%=System.currentTimeMillis() %>"></script>
 <title>Insert title here</title>
 <style>
 	.d-menu{
@@ -57,35 +57,38 @@
 			<div id="train"class="w3-button d-menu">
 				트레이너 소개
 			</div>
+			<form style="display:none" method="post" class="fnofrm">
+				<input type="hidden" name="fno" value="${fno}">
+			</form>
 			<div style="width:950px;display:inline-block">
-				<div class="dbox" name="div1" style="background-size:cover;background-image:url('/gogym/img/${ivo1.savename}'); object:fill; width:650px; height:650px;border: 1px solid lightgray;display:inline-block;float:left;text-align:center">
+				<div class="dbox" name="div1" style="background-size:cover;background-image:url('/Alice/img/${ivo1.savename}'); object:fill; width:650px; height:650px;border: 1px solid lightgray;display:inline-block;float:left;text-align:center">
 					<div class="w3-button btn dbtn" style="width:648px; height:648px;display:inline-block;">
 						<h style="text-align:center; font-size:15pt; color:lightgray;;position:relative; top:48%">JoJim. corporation.</h>
 					</div>
 					<form class="w3-row w3-margin-top w3-grayscale hidden imgfrm"
-							encType="multipart/form-data" id="frmw" name="frmw" method="post" action="/gogym/centerBoardMainWrite.do">
+							encType="multipart/form-data" id="frmw" name="frmw" method="post" action="/Alice/centerBoardMainWrite.do">
 						<input type="hidden" class="divno" name="divno" value="1"/>
 						<input type="hidden" class="fno"name="fno" value="${fno}"/>
 						<input type="file" class="file hidden" name="file"/>
 					</form>
 				</div>
-				<div class="dbox" name="div2" style="background-size:cover;background-image:url('/gogym/img/${ivo2.savename}'); object:fill; width:296px; height:325px;border: 1px solid lightgray;display:inline-block;float:left;text-align:center">
+				<div class="dbox" name="div2" style="background-size:cover;background-image:url('/Alice/img/${ivo2.savename}'); object:fill; width:296px; height:325px;border: 1px solid lightgray;display:inline-block;float:left;text-align:center">
 					<div class="w3-button btn dbtn" style="width:294px; height:323px;display:inline-block;">
 						<h style="text-align:center; font-size:12t; color:lightgray;;position:relative; top:48%">JoJim. corporation.</h>
 					</div>
 					<form class="w3-row w3-margin-top w3-grayscale hidden imgfrm"
-							encType="multipart/form-data" id="frmw" name="frmw" method="post" action="/gogym/centerBoardMainWrite.do">
+							encType="multipart/form-data" id="frmw" name="frmw" method="post" action="/Alice/centerBoardMainWrite.do">
 						<input type="hidden" class="divno" name="divno" value="2"/>
 						<input type="hidden" class="fno"name="fno" value="${fno}"/>
 						<input type="file" class="file hidden" name="file"/>
 					</form>
 				</div>
-				<div class="dbox" name="div3" style="background-size:cover;background-image:url('/gogym/img/${ivo3.savename}'); object:fill;width:296px; height:325px;border: 1px solid lightgray;display:inline-block;float:left;text-align:center">
+				<div class="dbox" name="div3" style="background-size:cover;background-image:url('/Alice/img/${ivo3.savename}'); object:fill;width:296px; height:325px;border: 1px solid lightgray;display:inline-block;float:left;text-align:center">
 					<div class="w3-button btn dbtn" style="width:294px; height:323px;display:inline-block;">
 						<h style="text-align:center; font-size:12pt; color:lightgray;;position:relative; top:48%">JoJim. corporation.</h>
 					</div>
 					<form class="w3-row w3-margin-top w3-grayscale hidden imgfrm"
-							encType="multipart/form-data" id="frmw" name="frmw" method="post" action="/gogym/centerBoardMainWrite.do">
+							encType="multipart/form-data" id="frmw" name="frmw" method="post" action="/Alice/centerBoardMainWrite.do">
 						<input type="hidden" class="divno" name="divno" value="3"/>
 						<input type="hidden" class="fno"name="fno" value="${fno}"/>
 						<input type="file" class="file hidden" name="file"/>

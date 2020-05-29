@@ -10,7 +10,7 @@ public class CenterBoardSongDelete implements DoController {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "/gogym/centerBoardSong.do";
+		String view = "/Alice/centerBoardSong.do";
 		int fno = 1002;
 		int bno = Integer.parseInt(req.getParameter("bno"));
 		CenterBoardDAO cdao = new CenterBoardDAO();

@@ -13,7 +13,7 @@ public class CenterBoardMainWrite implements DoController {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "/gogym/centerBoardMain.do";
+		String view = "/Alice/centerBoardMain.do";
 		req.setAttribute("isRedirect", true);
 		int fno = 1002;
 		String path = req.getSession().getServletContext().getRealPath("img");

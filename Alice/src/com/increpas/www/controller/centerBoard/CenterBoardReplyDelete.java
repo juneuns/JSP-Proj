@@ -10,7 +10,7 @@ public class CenterBoardReplyDelete implements DoController {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "/gogym/centerBoardNotice.do";
+		String view = "/Alice/centerBoardNotice.do";
 		req.setAttribute("isRedirect",true);
 		int fno = 1002;
 		int bno = Integer.parseInt(req.getParameter("bno"));
