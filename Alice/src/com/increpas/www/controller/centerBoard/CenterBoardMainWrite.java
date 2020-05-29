@@ -2,6 +2,7 @@ package com.increpas.www.controller.centerBoard;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.increpas.www.controller.DoController;
 import com.increpas.www.dao.CenterBoardDAO;
@@ -15,7 +16,6 @@ public class CenterBoardMainWrite implements DoController {
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "/Alice/centerBoardMain.do";
 		req.setAttribute("isRedirect", true);
-		int fno = 1002;
 		String path = req.getSession().getServletContext().getRealPath("img");
 		MultipartRequest multi = null;		
 		try {
@@ -25,6 +25,7 @@ public class CenterBoardMainWrite implements DoController {
 		}
 		CenterBoardVO ivo = new CenterBoardVO();
 		CenterBoardDAO cdao = new CenterBoardDAO();
+		int fno = Integer.parseInt(multi.getParameter("fno"));
 		int divno = Integer.parseInt(multi.getParameter("divno"));
 		System.out.println(divno);
 		ivo.setFno(fno);
@@ -35,6 +36,8 @@ public class CenterBoardMainWrite implements DoController {
 			 view = "/Alice/board/errorMsg.jsp";
 			 req.setAttribute("isRedirect", true);
 		}
+		HttpSession session = req.getSession();
+		session.setAttribute("fno", fno);
 		return view;
 	}
 }

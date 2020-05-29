@@ -19,7 +19,7 @@ public class CenterBoardNotice implements DoController {
 		int fno = 0;
 		int sfno = 0;
 		HttpSession session = req.getSession();
-		System.out.println("FNO"+session.getAttribute("FNO"));
+		
 		try {
 			String ssfno = "" + session.getAttribute("FNO");
 			sfno = Integer.parseInt(ssfno);
@@ -32,10 +32,6 @@ public class CenterBoardNotice implements DoController {
 			fno =Integer.parseInt(sssfno);
 		}catch(Exception e){
 			fno = Integer.parseInt(req.getParameter("fno"));
-		}finally{
-//			if(sfno==0) {
-//				sfno=0;
-//			}
 		}
 		req.setAttribute("fno", fno);
 		req.setAttribute("sfno", sfno);

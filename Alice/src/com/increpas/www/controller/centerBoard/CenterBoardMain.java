@@ -2,6 +2,7 @@ package com.increpas.www.controller.centerBoard;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.increpas.www.controller.DoController;
 import com.increpas.www.dao.CenterBoardDAO;
@@ -12,7 +13,14 @@ public class CenterBoardMain implements DoController {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "/centerBoard/centerBoardMain.jsp";
-		int fno = Integer.parseInt(req.getParameter("fno"));
+		int fno = 0;
+		try {
+			fno = Integer.parseInt(req.getParameter("fno"));
+		}catch(Exception e){
+			HttpSession session = req.getSession();
+			String sfno = ""+session.getAttribute("fno");
+			fno = Integer.parseInt(sfno);
+		}
 		req.setAttribute("fno", fno);
 		int divno = 1;
 		CenterBoardDAO cdao1 = new CenterBoardDAO();
