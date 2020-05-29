@@ -42,6 +42,6 @@
 			<h6 class="w3-bar-item w3-button" id="fbtn">Free Board</h6>
 			<h6 class="w3-bar-item w3-button" id="ubtn">Client Info</h6>
 		</div>
->>>>>>> stash
+
 	</nav>
 </body>

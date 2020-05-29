@@ -59,6 +59,8 @@ $(document).ready(function(){
 					$('#pwckMsg').text('비밀번호를 다시 확인하세요.');
 					$('#pwckMsg').css('color','red');
 					$('#pwMsgBox').removeClass('w3-hide');
+					$('#tPw').prop('readonly');
+					$('#tRepw').prop('readonly');
 				}
 			},error : function(){
 				alert('통신애러');
@@ -86,6 +88,12 @@ $(document).ready(function(){
 		let tPw = $('#tPw').val();
 		if(!tPw || tPw.length==0){
 			alert('변경하실 비밀번호를 입력해주세요');
+			return;
+		}
+		var pwReg = /(?=.*\d{1})(?=.*[~`!@#$%\^&*()-+=]{1})(?=.*[a-zA-Z]{2}).{8,15}$/;
+		if(! pwReg.test(editck)){
+			alert("비밀번호 형식을 확인해주세요.");
+			$('#oldPw').focus();
 			return;
 		}
 		$('#pw').val(tPw);

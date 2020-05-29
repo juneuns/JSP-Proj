@@ -74,29 +74,28 @@ body {
 			alert('전화번호 형식을 확인하세요. ');
 			$('#tel').val('');
 			$('#tel').focus();
-			return ; 
 		}
 	}
 	var regCK = function(){
-		var idReg = /^.[A-za-z0-9]{8,13}/g;
-		if( !idReg.test( $("#id").val() ) ) {
-            alert("아이디는 영문자로 시작하는 8~13자 영문자 또는 숫자이어야 합니다.");
-            $("#id").focus()
-            return;
-        }
+		// 아디 정규식 
+		var idReg = /^.[a-z]||[0-9]{8,13}/;
 		// 이름 정규식 
 		var nameReg = /^[가-힣]{1,20}|[a-zA-Z]{1,20}$/;
-		if( !nameReg.test( $("#name").val() ) ) {
-			alert('이름은 영문 한글 20자까지 입력가능합니다.');
-			$("#name").focus()
-			return;
-		}
 		// 이메일 정규식
 		var mailReg =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
+		
 		if( !mailReg.test( $("#mail").val() ) ) {
             alert("이메일 형식을 확인해주세요.");
             $("#mail").focus();
-            return;
+        } else if(!nameReg.test( $("#name").val() ) ) {
+			alert('이름은 영문 한글 20자까지 입력가능합니다.');
+			$("#name").focus();
+		} else if( !idReg.test( $("#id").val() ) ) {
+			alert($('#id').val()	);
+			alert("아이디는 영문자로 시작하는 8~13자 영문자 또는 숫자이어야 합니다.");
+            $("#id").focus();   
+        } else {
+        	return;
         }
 	};
 	$(document).ready(function(){
@@ -116,13 +115,12 @@ body {
 				return ;
 			}
 			$('#worker').toggleClass('w3-hide');
-			
 		});
 		// 비밀번호 재확인 
 		$('#repw').keyup(function(){
 			let tPw = $('#pw').val();
 			let tRepw = $('#repw').val();
-			
+
 			if(tRepw == tPw) {
 				$('#pwCkMsg').text('비밀번호가 일치 합니다.');
 				$('#pwCkMsg').css('color','green');
@@ -192,7 +190,7 @@ body {
 				} */
 				$('#insertU').attr('action','/Alice/member/signUp/signUpMProc.do');
 				$('#insertU').submit();
-				return ;
+				return;
 			}
 			
 			if(type == 'trainer'){
