@@ -237,12 +237,13 @@ public class MemberSQL {
 			break;
 		case SEL_TRAINER_DETAIL :
 			buff.append("SELECT "); 
-			buff.append("    u.uno uno,id,name, mail,career,info,savename,fit fno,(SELECT fname FROM fit WHERE fno = 101 ) as fname "); 
+			buff.append("    u.uno uno,id,name, mail,career,info,savename,fit fno,(SELECT fname FROM fit,users u WHERE fno = u.fit AND u.uno = (SELECT uno FROM users WHERE id = '?') ) as fname "); 
 			buff.append("FROM "); 
 			buff.append("    users u, tinfo t,userImage ui "); 
 			buff.append("WHERE  "); 
 			buff.append("    u.uno = t.uno "); 
-			buff.append("    AND u.isshow='Y' ");
+			buff.append("    AND u.uno = ui.im_uno "); 
+			buff.append("    AND u.isshow = 'Y' ");
 			buff.append("    AND id = ? ");
 			break;
 		case ADD_MEM :

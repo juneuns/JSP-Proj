@@ -578,9 +578,11 @@ public class MemberDao {
 		MembVO mVO = new MembVO();
 		con = db.getCon();
 		String sql = mSQL.getSQL(mSQL.SEL_TRAINER_DETAIL);
+		System.out.println(id);
 		pstmt = db.getPSTMT(con, sql);
 		try {
 			pstmt.setString(1, id);
+			pstmt.setString(2, id);
 			rs = pstmt.executeQuery();
 			rs.next();
 			mVO.setUno(rs.getInt("uno"));

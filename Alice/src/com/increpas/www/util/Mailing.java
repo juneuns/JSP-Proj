@@ -26,7 +26,7 @@ public class Mailing {
 		props.put("mail.smtp.ssl.trust","smtp.gmail.com");
 		try {
 			
-			// 보내는 사람의 정보를 가져올수 잇게 클래스를 선언한다.
+			// 보내는 사람의 정보를 가져올수 잇게 다형성을 이용해 클래스를 선언한다.
 			Authenticator auth =new Gmail();
 			// 세션에 프로퍼티스 인스턴스를 생성한다 .
 			Session session = Session.getDefaultInstance(props, auth);
