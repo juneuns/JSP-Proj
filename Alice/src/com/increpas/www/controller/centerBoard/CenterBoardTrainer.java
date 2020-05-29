@@ -19,6 +19,7 @@ public class CenterBoardTrainer implements DoController {
 		CenterBoardDAO cdao = new CenterBoardDAO();
 		ArrayList<CenterBoardVO> list = new ArrayList<CenterBoardVO>();
 		list = cdao.getTLIST(fno);
+		System.out.println("list"+list.size());
 		req.setAttribute("LIST", list);
 		return view;
 	}

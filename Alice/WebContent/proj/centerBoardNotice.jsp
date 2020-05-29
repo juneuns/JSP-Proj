@@ -166,6 +166,7 @@
 
 						<!-- edit div 시작 -->
 						<form method="post" id="" class="edtfrm ebody" action="/Alice/centerBoardNoticeEdit.do">
+							<input type="hidden" id="" name="fno"value="${vo.fno}">
 							<input type="hidden" id="" name="bno"value="${vo.bno}">
 							<textarea class="ntxt"  name="ebody">${vo.body}</textarea>						
 						</form>

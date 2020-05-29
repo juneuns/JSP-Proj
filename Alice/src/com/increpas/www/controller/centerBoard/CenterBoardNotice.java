@@ -16,15 +16,22 @@ public class CenterBoardNotice implements DoController {
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "/centerBoard/centerBoardNotice.jsp";
 		CenterBoardDAO cDAO = new CenterBoardDAO();
-		int fno = Integer.parseInt(req.getParameter("fno"));
+		int fno = 0;
 		int sfno = 0;
 		HttpSession session = req.getSession();
+		System.out.println("FNO"+session.getAttribute("FNO"));
+		String ssfno = "" + session.getAttribute("FNO");
+		String sssfno = "" + session.getAttribute("fno");
 		try{
-			sfno = Integer.parseInt((String)session.getAttribute("FNO"));
+			sfno = Integer.parseInt(ssfno);
+			fno = Integer.parseInt(req.getParameter("fno"));
+			System.out.println("try"+sfno);
 		}catch(Exception e){
-			
+			fno =Integer.parseInt(sssfno);
 		}finally{
-			sfno = 0;
+//			if(sfno==0) {
+//				sfno=0;
+//			}
 		}
 		req.setAttribute("fno", fno);
 		req.setAttribute("sfno", sfno);

@@ -92,6 +92,7 @@ public class CenterBoardDAO {
 		ArrayList<CenterBoardVO> list = new ArrayList<CenterBoardVO>();
 		con = db.getCon();
 		String sql = cSQL.getSQL(cSQL.SEL_TINFO);
+		System.out.println(sql);
 		pstmt = db.getPSTMT(con, sql);
 		try{
 			pstmt.setInt(1, fno);

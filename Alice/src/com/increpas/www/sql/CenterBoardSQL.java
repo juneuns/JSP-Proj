@@ -59,7 +59,7 @@ public class CenterBoardSQL {
 			buff.append("FROM	");
 			buff.append("	users u, tinfo t	");
 			buff.append("WHERE	");
-			buff.append("	u.fit = ? AND u.uno = t.uno");
+			buff.append("	u.fit = ? AND u.uno = t.uno ");
 			break;
 		case SEL_IMG:
 			buff.append("SELECT "); 

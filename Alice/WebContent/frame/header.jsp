@@ -52,7 +52,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; padding:0px;margi
 		    <div id="id01" class="w3-modal">
 	  			<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:500px">
 					<form class="w3-container" action="" method="POST" id="frm">
-						<input type="hidden" value="" name="fit" />
+						<input type="hidden" value="" name="f" id="fit"/>
 				        <div class="w3-section w3-center" id="ulogin" >
 				        	<div>
 					        	<label class="w3-text-gary" for="id"><h5 class="w3-center ">사용자 아이디</h5></label>			        	
@@ -72,7 +72,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; padding:0px;margi
 					        <div id="cbtn" class="w3-col m3 w3-button w3-red cencel">Cancel</div>
 					        <div class="w3-rest w3-right-align">
 					        	<label for="fitbtn">시설 관리자 로그인</label>
-						        <input name="f" type="checkbox" id="fitbtn" >		        			        
+						        <input type="checkbox" id="fitbtn" >		        			        
 					        </div>
 					        <span class="w3-right w3-hide-small">Forgot <a id="findPWbtn">id / password?</a></span>
 					    </div>

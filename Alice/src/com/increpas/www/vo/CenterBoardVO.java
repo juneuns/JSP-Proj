@@ -79,7 +79,7 @@ public class CenterBoardVO {
 	}
 	public void setEdit(String edit) {
 		if(edit.equals("Y")){
-			edit = "(?ˆ˜? •?¨)";
+			edit = "(ìˆ˜ì •ë¨)";
 		}else{
 			edit = "";
 		}
@@ -175,7 +175,7 @@ public class CenterBoardVO {
 		return sDate;
 	}
 	public void setsDate() {
-		SimpleDateFormat form1 = new SimpleDateFormat("yyyy?…„ MM?›” dd?¼");
+		SimpleDateFormat form1 = new SimpleDateFormat("yyyyë…„ MMì›” ddì¼");
 		SimpleDateFormat form2 = new SimpleDateFormat("HH:mm");
 		String str = form1.format(gDate) + " " + form2.format(gTime);
 		this.sDate = str;
