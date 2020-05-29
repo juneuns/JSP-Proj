@@ -20,14 +20,18 @@ public class CenterBoardNotice implements DoController {
 		int sfno = 0;
 		HttpSession session = req.getSession();
 		System.out.println("FNO"+session.getAttribute("FNO"));
-		String ssfno = "" + session.getAttribute("FNO");
-		String sssfno = "" + session.getAttribute("fno");
-		try{
+		try {
+			String ssfno = "" + session.getAttribute("FNO");
 			sfno = Integer.parseInt(ssfno);
-			fno = Integer.parseInt(req.getParameter("fno"));
-			System.out.println("try"+sfno);
-		}catch(Exception e){
+		}catch(Exception e) {
+			sfno = 0;
+		}
+		
+		try{
+			String sssfno = "" + session.getAttribute("fno");
 			fno =Integer.parseInt(sssfno);
+		}catch(Exception e){
+			fno = Integer.parseInt(req.getParameter("fno"));
 		}finally{
 //			if(sfno==0) {
 //				sfno=0;
