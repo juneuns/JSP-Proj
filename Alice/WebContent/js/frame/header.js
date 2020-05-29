@@ -1,4 +1,7 @@
 $(document).ready(function(){
+	$('#logo').click(function(){
+		$(location).attr('href','/Alice/main/main.do');
+	});
 	// 로그인 버튼 활성화
 	$('#login').click(function(){
 		$('#id01').css('display','block');

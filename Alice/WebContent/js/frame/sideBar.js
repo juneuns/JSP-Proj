@@ -1,6 +1,6 @@
 $(function(){
-	$('#fbtn').click(function(){
-		$(location).attr('href', '/Alice/fboard/fboardFlist.do');
+	$('#cbtn').click(function(){
+		$(location).attr('href', '/Alice/centerBoardList.do');
 	});
 	
 	$('#tbtn').click(function(){
@@ -10,4 +10,5 @@ $(function(){
 	$('#writemap').click(function(){
 		$(location).attr('href', '/Alice/tboard/tboardList.do');
 	});
+	
 });

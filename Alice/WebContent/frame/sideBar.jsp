@@ -37,9 +37,8 @@
 		</div>
 		<div class="w3-padding-64 w3-large w3-text-grey"
 			style="font-weight: bold">
-			<h6 class="w3-bar-item w3-button" id="cbtn">Fitness Center</h6>
+			<h6 class="w3-bar-item w3-button" id="fbtn">Fitness Center</h6>
 			<h6 class="w3-bar-item w3-button" id="tbtn">Trainer Board</h6>
-			<h6 class="w3-bar-item w3-button" id="fbtn">Free Board</h6>
 			<h6 class="w3-bar-item w3-button" id="ubtn">Client Info</h6>
 		</div>
 

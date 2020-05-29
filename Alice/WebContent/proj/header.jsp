@@ -25,16 +25,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 	  <!-- Top header -->
 	  <header class="w3-container w3-xlarge w3-white" style="width:950px; height:100px;position:absolute; position:fixed; top: 0px">
 	  	<div style="height:10px"></div>
-	    <p class="w3-col m2 w3-left">JoJim</p>
-	    <p class="w3-col m5 w3-center">
-	      <input class="w3-col w3-margin-right" style="height: 54px;"></input>
-	    </p>
-	    <p class="w3-col m2 w3-button w3-border">
-	      <small>SEARCH</small>
-	    </p>
-	    <p class="w3-col m2 w3-button w3-border">
-	      <small>LOGIN</small>
-	    </p>
+	    <p class="w3-col m2 w3-left" id="logo">JoJim</p>
 	  </header>
 	
 	  <!-- Image header -->
