@@ -71,8 +71,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif; padding:0px;margi
 					    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
 					        <div id="cbtn" class="w3-col m3 w3-button w3-red cencel">Cancel</div>
 					        <div class="w3-rest w3-right-align">
-					        	<label for="fbtn">시설 관리자 로그인</label>
-						        <input name="f" type="checkbox" id="fbtn" >		        			        
+					        	<label for="fitbtn">시설 관리자 로그인</label>
+						        <input name="f" type="checkbox" id="fitbtn" >		        			        
 					        </div>
 					        <span class="w3-right w3-hide-small">Forgot <a id="findPWbtn">id / password?</a></span>
 					    </div>

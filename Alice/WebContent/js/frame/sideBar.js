@@ -1,5 +1,5 @@
 $(function(){
-	$('#cbtn').click(function(){
+	$('#cenbtn').click(function(){
 		$(location).attr('href', '/Alice/centerBoardList.do');
 	});
 	
