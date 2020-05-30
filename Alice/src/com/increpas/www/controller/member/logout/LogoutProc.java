@@ -15,6 +15,7 @@ public class LogoutProc implements DoController {
 		
 		session.removeAttribute("SID");
 		session.removeAttribute("FNO");
+		session.removeAttribute("fno");
 		session.removeAttribute("TYPE");
 		req.setAttribute("isRedirect", true);
 		return view;
