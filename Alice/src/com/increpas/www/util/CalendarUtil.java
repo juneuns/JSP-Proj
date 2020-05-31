@@ -21,9 +21,9 @@ public class CalendarUtil {
 	public CalendarUtil() {
 		cal = Calendar.getInstance();
 		// 이 클래스가 불려질 때, 매개변수에 데이터가 없다면 오늘을 기준으로 날짜가 셋팅된다.
-		year = cal.get(Calendar.YEAR);
-		month = cal.get(Calendar.MONTH);
-		date = cal.get(Calendar.DATE);
+//		year = cal.get(Calendar.YEAR);
+//		month = cal.get(Calendar.MONTH);
+//		date = cal.get(Calendar.DATE);
 //		// 생성자가 오버라이딩 되어 있으므로 중복하여 사용하지 않기위해 String 타입으로 변환하여 오버로딩한다.
 //		String syear = Integer.toString(year);
 //		String smonth = Integer.toString(month);
@@ -31,19 +31,19 @@ public class CalendarUtil {
 //		
 //		String tdate = syear + "년" + smonth + "월" + sdate + "일";
 //		this(tdate);
-		cal.set(year, month, date);
-		System.out.println("생성자 호출 : " + year + month + date);
+//		cal.set(year, month+1, date);
+//		System.out.println("생성자 오늘일 기준 호출 : " + year + month + date);
 	}
 	
 	public CalendarUtil(int year, int month, int date) {
 		cal = Calendar.getInstance();
 		// 이 클래스가 불려질 때, 매개변수에 년 월 일로 변수가 들어온다면
-		this.year = year;
-		this.month = month;
-		this.date = date;
+//		this.year = year;
+//		this.month = month;
+//		this.date = date;
 		
-		cal.set(year, month, date);
-		System.out.println("생성자 인트변수 호출 : " + year + month + date);
+//		cal.set(year, month, date);
+//		System.out.println("년월일 설정하여 인트변수 호출 : " + year + month + date);
 	}
 	
 	public CalendarUtil(String date) {
@@ -53,52 +53,52 @@ public class CalendarUtil {
 		 */
 		// 이 클래스가 불러질 때 인스턴스를 생성한다.
 		cal = Calendar.getInstance();
-		String str = date;
+//		String str = date;
 		// 가져온 데이터를 다시 년월일 기준으로 분리하여 캘린더에 셋팅한다.
-		String syear = str.substring(0, str.indexOf("년"));
+//		String syear = str.substring(0, str.indexOf("년"));
 		// 다시 문자열을 정렬하고
-		str = str.substring(str.indexOf("년") + 1);
+//		str = str.substring(str.indexOf("년") + 1);
 		// 월을 잘라온다.
-		String smonth = str.substring(0, str.indexOf("월"));
+//		String smonth = str.substring(0, str.indexOf("월"));
 		// 일을 잘라온다.
-		String sdate = str.substring(str.indexOf("월") + 1, str.lastIndexOf("일"));
+//		String sdate = str.substring(str.indexOf("월") + 1, str.lastIndexOf("일"));
 		// 가져온 String 타입 데이터를 int 타입으로 변환한다.
-		int year = Integer.parseInt(syear);
-		int month = Integer.parseInt(smonth);
-		int day = Integer.parseInt(sdate);
+//		int year = Integer.parseInt(syear);
+//		int month = Integer.parseInt(smonth);
+//		int day = Integer.parseInt(sdate);
 		// 캘린더 인스턴스에 셋팅한다.
-		cal.set(year, month, day);
-		System.out.println("생성자 스트링 호출 : " + syear + smonth + sdate);
+//		cal.set(year, month, day);
+//		System.out.println("생성자 스트링 호출 : " + year + month + day);
 	}
 	
 	public static void main(String[] args) {
+//		CalendarUtil cal = new CalendarUtil();
+//		CalendarUtil cal1 = new CalendarUtil(2020, 05, 20);
+//		String strr = "2020년05월30일";
+//		CalendarUtil cal2 = new CalendarUtil(strr);
 		CalendarUtil cal = new CalendarUtil();
-		CalendarUtil cal1 = new CalendarUtil(2020, 05, 20);
-		String strr = "2020년5월23일";
-		CalendarUtil cal2 = new CalendarUtil(strr);
-		
-		int start = cal2.getStart();
+		int start = cal.getStart(cal.cal);
 		System.out.println("오늘 요일 가져오는 변수 : " + start);
-		int today = cal2.getToday();
+		int today = cal.getToday();
 		System.out.println("오늘날짜를 가져오는 함수 : " + today);
-		int eday = cal2.getEday();
+		int eday = cal.getEday(cal);
 		System.out.println("해당월 끝나는날 가져오는 함수 : " + eday);
-		int sdate = cal2.getSdate(cal2);
+		int sdate = cal.getSdate(cal);
 		System.out.println("해당월 시작날 요일 가져오는 함수 : " + sdate);
-		String[] i = cal2.getSblock(sdate);
+		String[] i = cal.getSblock(sdate);
 		System.out.println("요일이 매개변수로 들어가면 빈칸을 반환해주는 함수" + Arrays.toString(i));
-		int edate = cal2.getEdate(cal2);
+		int edate = cal.getEdate(cal);
 		System.out.println("해당월 끝나는 날의 요일 가져오는 함수 : " + edate);
-		String[] eblock = cal2.getEblock(edate);
+		String[] eblock = cal.getEblock(edate);
 		System.out.println("끝나는 날 이후의 블럭처리 : " + Arrays.toString(eblock));
-		int[] date = cal2.getDate(eday);
+		int[] date = cal.getDate(eday);
 		System.out.println("마지막날까지 반복하는 함수 : " + Arrays.toString(date));
 		
 	}
 	
 	// 오늘 요일 받아오는 함수
-	public int getStart() {
-		int start = cal.get(Calendar.DAY_OF_WEEK);
+	public int getStart(Calendar cal) {
+		int start = cal.get(cal.DAY_OF_WEEK);
 		return start;
 	}
 	
@@ -108,11 +108,11 @@ public class CalendarUtil {
 		// 따라서 edate = 7인 경우는 만들어 주지 않는다.
 		String[] sblock = null;
 		if(sdate != 7) {
-			sblock = new String[7-sdate];
+			sblock = new String[7-(7-sdate)];
 			// 배열길이까지 반복하는 것이 아닌, 일주일에서 
 			// 배열길이만큼의 차를 반복해야 하는 것이다.
 			for(int i = 0; i < sblock.length; i++ ) {
-				sblock[i] = "&nbsp;";									
+				sblock[i] = "<p></p>";					
 			}
 		} else {
 			return null;
@@ -141,7 +141,7 @@ public class CalendarUtil {
 			// 배열길이까지 반복하는 것이 아닌, 일주일에서 
 			// 배열길이만큼의 차를 반복해야 하는 것이다.
 			for(int i = 0; i < eblock.length; i++ ) {
-				eblock[i] = "&nbsp;";									
+				eblock[i] = "<p></p>";									
 			}
 		} else {
 			return null;
@@ -159,8 +159,8 @@ public class CalendarUtil {
 	}
 
 	// 마지막 날짜를 받아오는 함수
-	public int getEday() {
-		int eday = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+	public int getEday(CalendarUtil cal) {
+		int eday = cal.cal.getActualMaximum(cal.cal.DAY_OF_MONTH);
 		return eday;
 	}
 	
@@ -178,7 +178,7 @@ public class CalendarUtil {
 	public int getSdate(CalendarUtil cal) {
 		int sdate = 0;
 		// 오늘 요일 가져오고
-		int start = cal.getStart();
+		int start = cal.getStart(cal.cal);
 		// 오늘 날짜 가져오고
 		int today = cal.getToday();
 		// 오늘 날짜부터 역순으로 계산
@@ -203,7 +203,7 @@ public class CalendarUtil {
 		// 시작날부터 요일 계산할 변수 만들고;
 		int edate = sdate;
 		// 끝나는 날짜 가져오고
-		int eday = cal.getEday();
+		int eday = cal.getEday(cal);
 		// 끝나는날의 요일까지 반복한다.
 		for(int i = 1; i < eday; i++ ) {
 			if(edate == 6) {

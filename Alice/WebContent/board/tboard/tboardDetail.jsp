@@ -193,6 +193,75 @@
 						</div>
 					</div>
 				</div>
+				<!-- 캘린더 보여주기 -->
+				<div class="w3-col w3-margin-top">
+					<div class="w3-container w3-center w3-border">
+						<div class="w3-col m1 w3-border-right"><small>일</small></div>
+						<div class="w3-col m2 w3-border-right"><small>월</small></div>
+						<div class="w3-col m2 w3-border-right"><small>화</small></div>
+						<div class="w3-col m2 w3-border-right"><small>수</small></div>
+						<div class="w3-col m2 w3-border-right"><small>목</small></div>
+						<div class="w3-col m2 w3-border-right"><small>금</small></div>
+						<div class="w3-col m1"><small>토</small></div>
+					</div>
+					<div class="w3-container w3-center w3-border-bottom w3-border-left w3-border-right">
+						<c:forEach var="sblock" items="${SBLOCK}" varStatus="st">
+							<c:if test="${st.index eq 0}">
+								<div class="w3-col m1 "><small>${sblock}</small></div>
+							</c:if>
+							<c:if test="${st.index gt 0 }">
+ 								<div class="w3-col m2 "><small>${sblock}</small></div>
+							</c:if>
+						</c:forEach>
+						<c:forEach var="date" items="${DATE}" varStatus="st">
+							<c:if test="${st.index eq 0}">
+								<div class="w3-col m1"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index eq 1}">
+								<div class="w3-col m1"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index gt 1 && st.index lt 7}">
+ 								<div class="w3-col m2"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index eq 7}">
+								<div class="w3-col m1"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index eq 8}">
+								<div class="w3-col m1"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index gt 8 && st.index lt 14}">
+ 								<div class="w3-col m2"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index eq 14}">
+								<div class="w3-col m1"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index eq 15}">
+								<div class="w3-col m1"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index gt 15 && st.index lt 21}">
+ 								<div class="w3-col m2"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index eq 21}">
+								<div class="w3-col m1"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index eq 22}">
+								<div class="w3-col m1"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index gt 22 && st.index lt 28}">
+ 								<div class="w3-col m2"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index eq 28}">
+								<div class="w3-col m1"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index eq 29}">
+								<div class="w3-col m1"><small>${date}</small></div>
+							</c:if>
+							<c:if test="${st.index gt 29}">
+	 							<div class="w3-col m2"><small>${date}</small></div>
+							</c:if>
+						</c:forEach>
+					</div>
+				</div>
 			</div>
 		</div>
 </body>

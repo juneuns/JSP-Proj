@@ -432,6 +432,26 @@ public class TboardDAO {
 		return cnt;
 	}
 	
+	public int insCbo(String htn, String htb, String eat, int bno) {
+		int cnt = 0;
+		con = db.getCon();
+		String sql = tSQL.getSQL(tSQL.ADD_CAL);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, htn);
+			pstmt.setString(2, htb);
+			pstmt.setString(3, eat);
+			pstmt.setInt(4, bno);
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt;
+	}
+	
 	// 게시물이 안보이게 하는 함수
 	public int DelBrd(int bno) {
 		int cnt = 0;

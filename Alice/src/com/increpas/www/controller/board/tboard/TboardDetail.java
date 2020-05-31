@@ -48,13 +48,32 @@ public class TboardDetail implements DoController {
 		// id로 사용자번호를 조회해서 넣어준다.
 		int uno = tdao.getUno(sid);
 		
+		// 캘린더를 가져온다.
+		CalendarUtil cal = new CalendarUtil();
+		
+		// 달 시작일의 요일 가져오고
+		int sdate = cal.getSdate(cal);
+		// 시작일로부터 생기는 블럭생성하고
+		String[] sblock = cal.getSblock(sdate);
+		// 월의 마지막일 가져오고
+		int eday = cal.getEday(cal);
+		// 날짜의 내용을 채워줄 데이터 가져오고
+		int[] edate = cal.getDate(eday);
+		// 뒤의 공백을채워줄 블럭을 생성한다.
+		String[] eblock = cal.getEblock(eday);
+		
 		req.setAttribute("UNO", uno);
 		req.setAttribute("DATA", tvo);
 		req.setAttribute("LIST", list);
 		req.setAttribute("REPLY", reply);
 		req.setAttribute("PAGE", page);
 		req.setAttribute("SID", sid);
-		
+		// 캘린더 정의에 필요한 내용
+		req.setAttribute("SBLOCK", sblock);
+		req.setAttribute("EBLOCK", eblock);
+		// 캘린더 날짜
+		req.setAttribute("DATE", edate);
+		req.setAttribute("EDAY", eday);
 		return view;
 	}
 

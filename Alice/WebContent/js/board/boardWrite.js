@@ -43,4 +43,13 @@ $(document).ready(function(){
 		addBtn();
 	});
 	
+	$('.cald').click(function(){
+		var cal = $(this).children().text();
+		$('#caldate').val(cal);
+		$('#wCalendar').css('display', 'block');
+	});
+	
+	$('#calSub').click(function(){
+		$('#calfrm').submit();
+	});
 });

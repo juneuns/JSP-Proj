@@ -26,6 +26,7 @@ public class TboardSQL {
 	public final int ADD_BRD = 3001;
 	public final int ADD_IMG = 3002;
 	public final int ADD_RPL = 3003;
+	public final int ADD_CAL = 3004;
 
 	
 	public final int DEL_BRD = 4001;
@@ -178,6 +179,13 @@ public class TboardSQL {
 		case ADD_IMG:
 			buff.append("INSERT INTO ");
 			buff.append("	image(ino, i_bno, oriname, savename, len) ");
+			buff.append("VALUES( ");
+			buff.append("	(SELECT NVL(MAX(ino)+1, 1000) FROM image), ");
+			buff.append("	?, ?, ?, ?) ");
+			break;
+		case ADD_CAL:
+			buff.append("INSERT INTO ");
+			buff.append("	cboard(cno, htn, htb, eat, c_bno) ");
 			buff.append("VALUES( ");
 			buff.append("	(SELECT NVL(MAX(ino)+1, 1000) FROM image), ");
 			buff.append("	?, ?, ?, ?) ");
