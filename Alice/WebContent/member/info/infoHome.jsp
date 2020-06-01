@@ -29,15 +29,16 @@
 		<jsp:include page="../../frame/sideBar.jsp"/>
 	</nav>
 	<div class="w3-main" style="margin-left:250px; height:70%;">
+	<div class="w3-hide-large" style="margin-top: 83px;"></div>
 		<!-- 마이페이지 프로필 영역 -->
 		<div class="w3-col s3 w3-padding w3-border-right" style="height:100% ">
 			<div class="">
 				<div class="w3-row w3-padding ">
 					<!-- 회원 프로필 사진 -->
-					<img class="w3-round-xlarge"src="/Alice/img/noimage.jpg" alt="회원 아아디" width="140" height="auto">
+					<img class="w3-col w3-round-xlarge  "src="/Alice/userimg/${DATA.savename}" alt="회원 아아디" height="auto">
 				</div>
 				<div class="w3-row w3-center">
-					<h6><!-- 회원이름 --><small>님</small><br><small><!-- 회원아이디 --></small></h6>			
+					<h6>${DATA.name}<small>님</small><br><small>${DATA.id}</small></h6>			
 				</div>			
 			</div>				
 		</div>

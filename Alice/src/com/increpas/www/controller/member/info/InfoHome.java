@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.increpas.www.controller.DoController;
+import com.increpas.www.dao.MemberDao;
+import com.increpas.www.vo.MembVO;
 
 public class InfoHome implements DoController {
 
@@ -19,6 +21,9 @@ public class InfoHome implements DoController {
 			view = "/Alice/main/main.do";
 			return view;
 		}
+		MemberDao mDao = new MemberDao();
+		MembVO mVO = mDao.getProfile(id);
+		req.setAttribute("DATA", mVO);
 		return view;
 	}
 

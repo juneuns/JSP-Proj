@@ -23,6 +23,8 @@ package com.increpas.www.sql;
  * 			15. SEL_FIT_SMYINFO : 시설 검색 도전중 실패 
  * 			16. SEL_USERS_DETAIL 
  * 			16. SEL_FIT_DETAIL 
+ * 
+ * 			19. SEL_USERS_PROFILE : 회원의 프로필 제공
  */
 public class MemberSQL {
 	public final int SEL_USERS_SIGNIN = 1001;
@@ -42,6 +44,7 @@ public class MemberSQL {
 	public final int SEL_FIT_SMYINFO = 1016;
 	public final int SEL_USERS_DETAIL = 1017;
 	public final int SEL_TRAINER_DETAIL = 1018;
+	public final int SEL_USERS_PROFILE = 1019;
 	
 	public final int EDIT_USERS_PW = 2001;
 	public final int EDIT_FIT_PW = 2002;
@@ -237,7 +240,7 @@ public class MemberSQL {
 			break;
 		case SEL_TRAINER_DETAIL :
 			buff.append("SELECT "); 
-			buff.append("    u.uno uno,id,name, mail,career,info,savename,fit fno,(SELECT fname FROM fit,users u WHERE fno = u.fit AND u.uno = (SELECT uno FROM users WHERE id = '?') ) as fname "); 
+			buff.append("    u.uno uno,id,name, mail,career,info,savename,fit fno,(SELECT fname FROM fit,users u WHERE fno = u.fit AND u.uno = (SELECT uno FROM users WHERE id = ? ) ) as fname "); 
 			buff.append("FROM "); 
 			buff.append("    users u, tinfo t,userImage ui "); 
 			buff.append("WHERE  "); 
@@ -245,6 +248,21 @@ public class MemberSQL {
 			buff.append("    AND u.uno = ui.im_uno "); 
 			buff.append("    AND u.isshow = 'Y' ");
 			buff.append("    AND id = ? ");
+			break;
+		case SEL_USERS_PROFILE :
+			buff.append("SELECT  "); 
+			buff.append("    savename , uno , name, id ,ino "); 
+			buff.append("FROM "); 
+			buff.append("    users, userimage "); 
+			buff.append("WHERE "); 
+			buff.append("    uno = im_uno  "); 
+			buff.append("    AND uno = (SELECT  "); 
+			buff.append("                    uno "); 
+			buff.append("                FROM  "); 
+			buff.append("                    users "); 
+			buff.append("                WHERE  "); 
+			buff.append("                    id = ? ) "); 
+			buff.append("    AND users.isshow = 'Y' "); 
 			break;
 		case ADD_MEM :
 			buff.append("INSERT INTO  "); 

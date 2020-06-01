@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.increpas.www.controller.DoController;
+import com.increpas.www.dao.MemberDao;
+import com.increpas.www.vo.MembVO;
 
 public class PwEditResult implements DoController {
 
@@ -17,6 +19,9 @@ public class PwEditResult implements DoController {
 			req.setAttribute("isRedirect", true);
 			view = "/Alice/main/main.do";
 		}
+		MemberDao mDao = new MemberDao();
+		MembVO mVO = mDao.getProfile(id);
+		req.setAttribute("DATA", mVO);
 		return view;
 	}
 

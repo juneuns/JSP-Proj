@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.increpas.www.controller.DoController;
+import com.increpas.www.dao.MemberDao;
+import com.increpas.www.vo.MembVO;
 
 public class ContactList implements DoController {
 
@@ -33,8 +35,11 @@ public class ContactList implements DoController {
 		}else {
 			
 			// 트레이너의 정보를 리스트<vo> 반환 
-			
 		}
+		
+		MemberDao mDao = new MemberDao();
+		MembVO mVO = mDao.getProfile(id);
+		req.setAttribute("DATA", mVO);
 		return view;
 	}
 
